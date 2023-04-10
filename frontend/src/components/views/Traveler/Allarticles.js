@@ -84,7 +84,7 @@ const Allarticles = () => {
                         </div>
                         <div className='nameN'>
                           <h2>Deshan Rajapaksha</h2>
-                          <p>2023.03.08</p>
+                          <p>2023.01.22</p>
                           
                         </div>
 
