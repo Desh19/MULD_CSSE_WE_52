@@ -4,6 +4,9 @@ import Navbar from './components/views/Navbar';
 import Home from './components/views/Home';
 import './App.css';
 
+//Traveler
+import Allarticles from './components/views/Traveler/Allarticles';
+
 function App() {
   return (
     <div>
@@ -11,6 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/allarticles' element={<Allarticles />} />
       </Routes>  
     </Router>
   </div>
