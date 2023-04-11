@@ -199,4 +199,12 @@
     height: 62px;
 }
 
+.logoimg{
+    width: 300px;
+    height: auto;
+    margin-left: -70px;
+    margin-right: -90px;
+    margin-top: 10px;
+}
+
 /* -----------------------------------------------*/

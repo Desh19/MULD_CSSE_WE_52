@@ -1,14 +1,13 @@
 import React from 'react'
 import './home.css';
-// import logo from '../Image/logo.png';
+import logo from '../images/muld.png';
 
 const Navbar = () => {
   return (
     <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary navbar" style={{ position:"fixed" , width:"100%" }}>
             <div className="container-fluid">
-                {/* <a className="navbar-brand" href="#">Navbar</a> */}
-                {/* <img src={logo} alt="Logo" style={{ width:'200px', padding:'20px'}}/> */}
+                <a className="navbar-brand" href="#homevideo"><img class="logoimg" src={logo} alt="Logo"/></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
