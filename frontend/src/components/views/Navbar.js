@@ -1,10 +1,11 @@
 import React from 'react'
+import './home.css';
 // import logo from '../Image/logo.png';
 
 const Navbar = () => {
   return (
     <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary navbar" style={{ position:"fixed" , width:"100%" }}>
             <div className="container-fluid">
                 {/* <a className="navbar-brand" href="#">Navbar</a> */}
                 {/* <img src={logo} alt="Logo" style={{ width:'200px', padding:'20px'}}/> */}
@@ -18,13 +19,10 @@ const Navbar = () => {
                     <a className="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/allarticles">All Articles</a>
+                    <a className="nav-link active" aria-current="page" href="#aboutus">About Us</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/locationAdd">Location</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="locationList">Location List</a>
+                    <a className="nav-link active" aria-current="page" href="#contactus">Contact Us</a>
                     </li>
                     
                 </ul>
