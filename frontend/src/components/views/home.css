@@ -207,4 +207,9 @@
     margin-top: 10px;
 }
 
+.rightside{
+    display: flex;
+    margin-left: 950px;
+}
+
 /* -----------------------------------------------*/

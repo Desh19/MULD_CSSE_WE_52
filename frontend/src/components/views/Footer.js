@@ -34,7 +34,7 @@ const Footer = () => {
             </div>
         
             <div class="text-center p-3" style={{ background: "rgba(0, 0, 0, 0.2)" }}>
-                © 2020 Copyright: MULD 
+                © 2023 Copyright: MULD 
             </div>
         
             </footer>

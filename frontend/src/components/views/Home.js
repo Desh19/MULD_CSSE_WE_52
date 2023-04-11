@@ -79,7 +79,7 @@ const Home = () => {
             <div className="sec-card">
               <div className="card-box">
                 <div className="card-content">
-                  <h3>Job Advertisment</h3>
+                  <h3>Job Advertisments</h3>
                   <p>
                     Applicant User Profile allows you to edit user profiles,
                     search for jobs, apply them, view their statuses and much more.
