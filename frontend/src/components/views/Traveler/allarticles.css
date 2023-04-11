@@ -1,13 +1,14 @@
 .ArticleArea{
     width: 100%;
-    height: auto;
     padding: 0 25%;
+    z-index: 0;
+    padding-top: 90px;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
 }
 
 .articlecontainer{
     width: 800px;
-    margin: 20px;
+    z-index: 0;
     align-items: center;
 }
 .articlecontainer:hover{
@@ -21,6 +22,7 @@
     width: 100%;
     height: auto;
     padding: 10px 20px;
+    margin-bottom: 10px;
     border: none;
     font-weight: 500;
     color: rgb(255, 255, 255);

@@ -9,8 +9,6 @@ const Allarticles = () => {
     return (
 
       <div>
-
-      <h2><span>A</span>ll <span>A</span>rticles</h2>
         
       <div className='ArticleArea'>
 
@@ -34,7 +32,7 @@ const Allarticles = () => {
                 </div>
                 <div className='nameN'>
                   <h2>Deshan Rajapaksha</h2>
-                  <p>2023.01.22</p>
+                  <p>2023.o1.22</p>
                   
                 </div>
 
