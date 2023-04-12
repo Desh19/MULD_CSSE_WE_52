@@ -27,15 +27,106 @@ const Navbar = () => {
 
                     <div class="rightside">
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="">Sign In</a>
+                    <a className="nav-link active" data-bs-toggle="modal"
+                     data-bs-target="#signInModal" data-bs-whatever="@fat" aria-current="page" href="#signInModal">Sign In</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="">Sign Up</a>
+                    <a className="nav-link active" data-bs-toggle="modal"
+                     data-bs-target="#signUpModal" data-bs-whatever="@fat" aria-current="page" href="#signUpModal">Sign Up</a>
                     </li>
-                    </div>
-                
-                    
+                    </div>                 
                 </ul>
+
+                {/*------------------- Sign In Modal--------------------- */}
+
+                  <div class="modal fade" id="signInModal" aria-labelledby="signInModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="signInModalLabel">Sign In</h5>   
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+
+                        <form>
+
+                        <div class="form-floating mb-3">
+                          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                          <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
+                          <label for="floatingPassword">Password</label>
+                        </div>
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                          <option selected disabled>Select User Type</option>
+                          <option value="1">Traveler</option>
+                          <option value="2">Tourist Guider</option>
+                          <option value="3">Hotel Owner</option>
+                          <option value="4">Travel Agent</option>
+                        </select>
+
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Sign In</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/*--------------------------------------------------------- */}
+
+                {/*------------------- Sign Up Modal--------------------- */}
+
+                <div class="modal fade" id="signUpModal" aria-labelledby="signUpModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>   
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+
+                        <form>
+
+                        <div class="form-floating mb-3">
+                          <input type="name" class="form-control" id="floatingInput" placeholder="Name"/>
+                          <label for="floatingInput">Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                          <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
+                          <label for="floatingPassword">Password</label>
+                        </div>
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                          <option selected disabled>Select User Type</option>
+                          <option value="1">Traveler</option>
+                          <option value="2">Tourist Guider</option>
+                          <option value="3">Hotel Owner</option>
+                          <option value="4">Travel Agent</option>
+                        </select>
+
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Sign Up</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/*--------------------------------------------------------- */}
+
+
+
                 </div>
             </div>
             </nav>
