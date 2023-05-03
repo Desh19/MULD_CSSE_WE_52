@@ -57,6 +57,87 @@ const NotRegHeader = () => {
     }
 
     }
+               
+    const login = ()  => {
+
+        const loginUser = {email, password, field};
+
+        axios.post(`http://localhost:8090/User/login`,loginUser).then((res)=>{
+
+            localStorage.setItem("id",res.data.id);
+            localStorage.setItem("name",res.data.name);
+            localStorage.setItem("field",res.data.field);
+
+            if(res.data.status && field=='Traveler'){
+                swal({
+                    title: "Success!",
+                    text: "Login Successfull Traveler !",
+                    icon: 'success',
+                    timer: 2000,
+                    button: false,
+                  });
+                  navigate("/TravelerHome",{
+                    state:{
+                        id:res.data._id
+                    }
+                   })
+            }else if(res.data.status && field=='Tourist_Guider'){
+              swal({
+                  title: "Success!",
+                  text: "Login Successfull Tourist Guider !",
+                  icon: 'success',
+                  timer: 2000,
+                  button: false,
+                });
+
+             navigate("/",{
+              state:{
+                  id:res.data._id
+              }
+             })
+          }else if(res.data.status && field=='Hotel_Owner'){
+            swal({
+                title: "Success!",
+                text: "Login Successfull Hotel Owner !",
+                icon: 'success',
+                timer: 2000,
+                button: false,
+              });
+
+           navigate("/",{
+            state:{
+                id:res.data._id
+            }
+           })
+        }else if(res.data.status && field=='Travel_Agent'){
+          swal({
+              title: "Success!",
+              text: "Login Successfull Travel Agent !",
+              icon: 'success',
+              timer: 2000,
+              button: false,
+            });
+
+         navigate("/",{
+          state:{
+              id:res.data._id
+          }
+         })
+      }else{
+                swal({
+                    title: "Warning!",
+                    text: "Login Unsuccessfull !",
+                    icon: 'error',
+                    timer: 2000,
+                    button: false,
+                  });
+            }
+      
+        });
+      
+    };
+
+    
 
 
   return (
@@ -107,19 +188,21 @@ const NotRegHeader = () => {
                         <form>
 
                         <div class="form-floating mb-3">
-                          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                          <input type="email" class="form-control" id="floatingInput" 
+                          value={email} onChange={e => setEmail(e.target.value)} placeholder="name@example.com"/>
                           <label for="floatingInput">Email address</label>
                         </div>
                         <div class="form-floating mb-3">
-                          <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
+                          <input type="password" class="form-control" id="floatingPassword"
+                          value={password} onChange={e => setPassword(e.target.value)} placeholder="Password"/>
                           <label for="floatingPassword">Password</label>
                         </div>
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <select class="form-select" id="field" onChange={e => setField(e.target.value)} aria-label="Floating label select example">
                           <option selected disabled>Select User Type</option>
-                          <option value="1">Traveler</option>
-                          <option value="2">Tourist Guider</option>
-                          <option value="3">Hotel Owner</option>
-                          <option value="4">Travel Agent</option>
+                          <option value="Traveler">Traveler</option>
+                          <option value="Tourist_Guider">Tourist Guider</option>
+                          <option value="Hotel_Owner">Hotel Owner</option>
+                          <option value="Travel_Agent">Travel Agent</option>
                         </select>
 
                         </form>
@@ -127,7 +210,7 @@ const NotRegHeader = () => {
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Sign In</button>
+                        <button type="button" class="btn btn-primary" onClick={(e)=>login()} >Sign In</button>
                       </div>
                     </div>
                   </div>
@@ -163,7 +246,7 @@ const NotRegHeader = () => {
                           onChange={(e) => ( setPassword(e.target.value) )} placeholder="Password"/>
                           <label for="floatingPassword">Password</label>
                         </div>
-                        <select class="form-select" id="feild" onChange={(e) => ( setField(e.target.value) )}aria-label="Floating label select example">
+                        <select class="form-select" id="feild" onChange={(e) => ( setField(e.target.value) )} aria-label="Floating label select example">
                           <option selected disabled>Select User Type</option>
                           <option value="Traveler">Traveler</option>
                           <option value="Tourist_Guider">Tourist Guider</option>
