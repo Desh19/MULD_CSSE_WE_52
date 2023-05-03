@@ -1,9 +1,15 @@
 // import logo from './logo.svg';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/views/Navbar';
-import Footer from './components/views/Footer';
-import Home from './components/views/Home';
 import './App.css';
+
+//Landing Page
+import Home from './components/views/Home';
+
+//Headers
+import NotRegHeader from './components/views/Headers/NotRegHeader';
+
+//Footer
+import Footer from './components/views/Footer';
 
 //Traveler
 import Allarticles from './components/views/Traveler/Allarticles';
@@ -11,14 +17,14 @@ import Allarticles from './components/views/Traveler/Allarticles';
 function App() {
   return (
     <div>
-    <Navbar />
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route element={<NotRegHeader />} />
+        <Route element={<Footer />} />
         <Route path='/allarticles' element={<Allarticles />} />
       </Routes>  
     </Router>
-    <Footer />
   </div>
   );
 }

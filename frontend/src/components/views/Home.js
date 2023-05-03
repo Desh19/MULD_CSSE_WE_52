@@ -2,6 +2,8 @@
 // import axios from 'axios';
 // const Swal = require('sweetalert2')
 import {NavLink,Link} from 'react-router-dom';
+import NotRegHeader from '../views/Headers/NotRegHeader';
+import Footer from '../views/Footer';
 import './home.css';
 import BgVideo from '../videos/bgVideo.mp4';
 
@@ -9,6 +11,7 @@ const Home = () => {
 
   return (
     <div>
+      <NotRegHeader />
           <div id="homevideo" className="landingpage">
 
           <video src={BgVideo} autoPlay muted loop class="video-bg" />
@@ -90,6 +93,8 @@ const Home = () => {
             </div>
 
           </div>
+
+          <Footer />
 
     </div>  
   )
