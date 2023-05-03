@@ -1,6 +1,6 @@
-// import React, { useEffect } from 'react';
-// import axios from 'axios';
-// const Swal = require('sweetalert2')
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
 import {NavLink,Link} from 'react-router-dom';
 import HeaderTraveler from './Headers/HeaderTraveler';
 import Footer from './Footer';
@@ -9,8 +9,19 @@ import BgVideo from '../videos/bgVideo.mp4';
 
 const HomePage = () => {
 
+  const id =localStorage.getItem("id");
+
+  // const [hasReloaded, setHasReloaded] = useState(false);
+
+  // useEffect(() => {
+  //   if (!hasReloaded) {
+  //     window.location.reload();
+  //     setHasReloaded(true);
+  //   }
+  // }, [hasReloaded]);
   return (
     <div>
+
       <HeaderTraveler />
           <div id="homevideo" className="landingpage">
 

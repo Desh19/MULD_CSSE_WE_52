@@ -110,6 +110,7 @@ router.post("/login", async (req, res) => {
     const data = {
         status:true,
         email:user.email,
+        field:user.field,
         id:user._id,
         accesstoken: accessToken,
         name:user.name
