@@ -1,8 +1,64 @@
 import React from 'react'
+import { useState } from 'react';
+import {NavLink,Link,useNavigate} from 'react-router-dom';
 import '../home.css';
 import logo from '../../images/muld.png';
+import axios from "axios";
+import swal from "sweetalert";
 
 const NotRegHeader = () => {
+
+  const navigate = useNavigate();
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [field, setField] = useState("");
+
+    function sendData(e){
+        const newForm={
+
+          name,
+          email,
+          password,
+          field
+
+    }
+
+    if( name==='' && email === '' && password === '' && field === '' ) {
+        swal("All Fields are empty");
+    }else if(name === ''){
+        swal("Name Field is empty")
+    }else if(email === ''){
+        swal("Email Field is empty")
+    }else if(password === ''){
+        swal("Password Field is empty")
+    }else if(field === ''){
+        swal("Field is empty")
+    }
+    else{
+
+    axios.post('http://localhost:8090/User/add',newForm).then(()=>{
+
+        swal({
+        title: "Success!",
+        text: "Registered Successfully",
+        icon: 'success',
+        timer: 2000,
+        button: false,
+        });
+        const timer = setTimeout(() => {
+          window.location.reload()
+        }, 2000);                             
+    }).catch((e)=>{
+    alert(e);
+    })
+
+    }
+
+    }
+
+
   return (
     <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary navbar" style={{ position:"fixed" , width:"100%" }}>
@@ -93,23 +149,26 @@ const NotRegHeader = () => {
                         <form>
 
                         <div class="form-floating mb-3">
-                          <input type="name" class="form-control" id="floatingInput" placeholder="Name"/>
+                          <input type="name" class="form-control" id="floatingInput" 
+                          onChange={(e) => ( setName(e.target.value) )} placeholder="Name"/>
                           <label for="floatingInput">Name</label>
                         </div>
                         <div class="form-floating mb-3">
-                          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                          <input type="email" class="form-control" id="floatingInput"
+                          onChange={(e) => ( setEmail(e.target.value) )} placeholder="name@example.com"/>
                           <label for="floatingInput">Email address</label>
                         </div>
                         <div class="form-floating mb-3">
-                          <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
+                          <input type="password" class="form-control" id="floatingPassword" 
+                          onChange={(e) => ( setPassword(e.target.value) )} placeholder="Password"/>
                           <label for="floatingPassword">Password</label>
                         </div>
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <select class="form-select" id="feild" onChange={(e) => ( setField(e.target.value) )}aria-label="Floating label select example">
                           <option selected disabled>Select User Type</option>
-                          <option value="1">Traveler</option>
-                          <option value="2">Tourist Guider</option>
-                          <option value="3">Hotel Owner</option>
-                          <option value="4">Travel Agent</option>
+                          <option value="Traveler">Traveler</option>
+                          <option value="Tourist_Guider">Tourist Guider</option>
+                          <option value="Hotel_Owner">Hotel Owner</option>
+                          <option value="Travel_Agent">Travel Agent</option>
                         </select>
 
                         </form>
@@ -117,7 +176,7 @@ const NotRegHeader = () => {
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Sign Up</button>
+                        <button type="button" class="btn btn-primary" onClick={sendData} >Sign Up</button>
                       </div>
                     </div>
                   </div>
