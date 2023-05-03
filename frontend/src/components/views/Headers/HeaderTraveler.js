@@ -32,12 +32,10 @@ const HeaderTraveler = () => {
 
                     <div class="rightside">
                     <li className="nav-item">
-                    <a className="nav-link active" data-bs-toggle="modal"
-                     data-bs-target="#signInModal" data-bs-whatever="@fat" aria-current="page" href="#signInModal">Profile</a>
+                    <a className="nav-link active"href="#">Profile</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link active" data-bs-toggle="modal"
-                     data-bs-target="#signUpModal" data-bs-whatever="@fat" aria-current="page" href="#signUpModal">Sign Out</a>
+                    <a className="nav-link active" href="/">Sign Out</a>
                     </li>
                     </div>                 
                 </ul>
