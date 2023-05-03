@@ -2,12 +2,12 @@
 // import axios from 'axios';
 // const Swal = require('sweetalert2')
 import {NavLink,Link} from 'react-router-dom';
-import NotRegHeader from '../views/Headers/NotRegHeader';
-import Footer from '../views/Footer';
+import NotRegHeader from './Headers/NotRegHeader';
+import Footer from './Footer';
 import './home.css';
 import BgVideo from '../videos/bgVideo.mp4';
 
-const Home = () => {
+const LandingPage = () => {
 
   return (
     <div>
@@ -101,4 +101,4 @@ const Home = () => {
 }
 
 
-export default Home
+export default LandingPage

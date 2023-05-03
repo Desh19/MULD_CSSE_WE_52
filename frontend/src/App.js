@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 //Landing Page
-import Home from './components/views/Home';
+import LandingPage from './components/views/LandingPage';
 
 //Headers
 import NotRegHeader from './components/views/Headers/NotRegHeader';
@@ -19,7 +19,7 @@ function App() {
     <div>
     <Router>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<LandingPage />} />
         <Route element={<NotRegHeader />} />
         <Route element={<Footer />} />
         <Route path='/allarticles' element={<Allarticles />} />
