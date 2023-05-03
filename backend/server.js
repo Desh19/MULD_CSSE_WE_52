@@ -30,6 +30,11 @@ connection.once("open",()=>{
 const user = require("./routes/User"); //use this when implementing routes
 app.use("/User", user);
 
+const travelplace = require("./routes/TravelPlace"); //use this when implementing routes
+app.use("/TravelPlace", travelplace);
+
+
+
 app.listen(PORT,()=>{
     console.log(`Server is up and running on port ${PORT}`);
 })

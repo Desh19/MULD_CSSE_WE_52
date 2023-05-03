@@ -14,6 +14,10 @@ import Footer from './components/views/Footer';
 //Traveler
 import Allarticles from './components/views/Traveler/Allarticles';
 
+//Travel Agent
+import TravelAgentDashboard from './components/views/TravelAgent/TravelAgentDashboard';
+import AddTravelPlace from './components/views/TravelAgent/AddTravelPlace';
+
 function App() {
   return (
     <div>
@@ -23,6 +27,10 @@ function App() {
         <Route element={<NotRegHeader />} />
         <Route element={<Footer />} />
         <Route path='/allarticles' element={<Allarticles />} />
+
+        {/* TravelAgent */}
+        <Route path='/dashboard_ta' element={<TravelAgentDashboard />} />
+        <Route path='/add_travel_place' element={<AddTravelPlace />} />
       </Routes>  
     </Router>
   </div>
