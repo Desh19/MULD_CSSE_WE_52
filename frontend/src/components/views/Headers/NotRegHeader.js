@@ -1,8 +1,8 @@
 import React from 'react'
-import './home.css';
-import logo from '../images/muld.png';
+import '../home.css';
+import logo from '../../images/muld.png';
 
-const Navbar = () => {
+const NotRegHeader = () => {
   return (
     <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary navbar" style={{ position:"fixed" , width:"100%" }}>
@@ -136,4 +136,4 @@ const Navbar = () => {
 }
 
 
-export default Navbar
+export default NotRegHeader
