@@ -21,6 +21,10 @@ import Allarticles from './components/views/Traveler/Allarticles';
 //Travel Agent
 import TravelAgentDashboard from './components/views/TravelAgent/TravelAgentDashboard';
 import AddTravelPlace from './components/views/TravelAgent/AddTravelPlace';
+import AllTravelPlace from './components/views/Traveler/AllTravelPlace';
+import SingaleTravelPlace  from './components/views/Traveler/SingaleTravelPlace';
+// import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
+// import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
 
 function App() {
   return (
@@ -37,6 +41,8 @@ function App() {
         {/* TravelAgent */}
         <Route path='/dashboard_ta' element={<TravelAgentDashboard />} />
         <Route path='/add_travel_place' element={<AddTravelPlace />} />
+        <Route path='/all_travel_place' element={<AllTravelPlace />} />
+        <Route path='/singale_travel_place/:id' element={<SingaleTravelPlace />} />
       </Routes>  
     </Router>
   </div>
