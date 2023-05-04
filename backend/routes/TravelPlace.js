@@ -39,5 +39,12 @@ router.route("/").get((req,res)=>{
     })
 })
 
+//Get a Travel Place by ID
+router.get('/:id', (req, res) => {
+    TravelPlace.findById(req.params.id)
+      .then(travelplace => res.json(travelplace))
+      .catch(err => res.status(404).json({ noitemfound: 'No place found' }));
+  });
+
 
 module.exports = router;

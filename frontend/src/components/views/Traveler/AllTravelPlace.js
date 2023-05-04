@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import './AllTravelPlace.css';
 import HeaderTraveler from '../Headers/HeaderTraveler';
@@ -56,14 +57,16 @@ const AllTravelPlace = () => {
                   {filteredplaces.map((places)=>
                   <div class="col">
                     
-                    <div class="card shadow-sm">
-                    <h3 className="text-dark" style={{ textAlign:'center' }}>{places.name}</h3>
-                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src={places.image}  ></img>
+                    <div class="card shadow-sm" >
+                    <h3 className="text-dark" style={{ textAlign:'center' }}><a href={`/singale_travel_place/${places._id}`} style={{ textDecoration:'none', color:'black' }}>{places.name}</a></h3>
+                    <a href={`/singale_travel_place/${places._id}`}><img class="bd-placeholder-img card-img-top" width="100%" height="225" src={places.image}  /></a>
                     <div class="card-body">
-                      <p class="card-text" style={{ maxHeight:'4em', overflow:'hidden' }}>{places.discription}</p>
+                      <p class="card-text" style={{ maxHeight:'3em', overflow:'hidden' }}>{places.discription} </p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                          <Link to={`/singale_travel_place/${places._id}`}>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">See More..</button>
+                          </Link>
                         </div>
                         <small class="text-body-secondary">9 mins</small>
                       </div>
