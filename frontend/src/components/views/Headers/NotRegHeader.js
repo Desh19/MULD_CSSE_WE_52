@@ -118,7 +118,7 @@ const NotRegHeader = () => {
               button: false,
             });
 
-         navigate("/",{
+         navigate("/dashboard_ta",{
           state:{
               id:res.data._id
           }
