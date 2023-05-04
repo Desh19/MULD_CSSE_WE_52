@@ -1,14 +1,15 @@
-// import React, { useEffect } from 'react';
-// import axios from 'axios';
-// const Swal = require('sweetalert2')
-
+import React, { useEffect } from 'react';
+import axios from 'axios';
 import './allarticles.css';
+import HeaderTraveler from '../Headers/HeaderTraveler';
+import Footer from '../Footer';
 
 const Allarticles = () => {
 
     return (
 
       <div>
+         <HeaderTraveler />
         
       <div className='ArticleArea'>
 
@@ -109,6 +110,8 @@ const Allarticles = () => {
                   </div>
                 </div>
                 </div>
+
+                <Footer />
 
       
 

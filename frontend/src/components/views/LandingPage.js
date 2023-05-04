@@ -35,7 +35,7 @@ const LandingPage = () => {
                     Applicant User Profile allows you to edit user profiles,
                     search for jobs, apply them, view their statuses and much more.
                   </p>
-                  <Link aria-current="page" to={"/allarticles"}>View</Link>
+                  <Link aria-current="page" to={"/"}>View</Link>
                 </div>
               </div>
             </div>
