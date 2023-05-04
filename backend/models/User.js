@@ -6,7 +6,8 @@ const UserSchema = new mongoose.Schema(
       name:{type: String, requried: true, trim: true},
       email:{type: String, requried: true,trim: true},
       password: {type: String,required: false},
-      field: {type: String, requried: true, trim: true}
+      field: {type: String, requried: true, trim: true},
+      registerAt:Date
     }
  
   );

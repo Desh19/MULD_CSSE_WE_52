@@ -33,6 +33,9 @@ app.use("/User", user);
 const travelplace = require("./routes/TravelPlace"); //use this when implementing routes
 app.use("/TravelPlace", travelplace);
 
+const articles = require("./routes/TravelArticle"); //use this when implementing routes
+app.use("/article", articles);
+
 
 
 app.listen(PORT,()=>{

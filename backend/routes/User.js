@@ -16,7 +16,8 @@ router.route("/add").post((req,res)=>{
         name,
         email,
         password,
-        field
+        field,
+        registerAt:Date.now(),
     })
 
     newuser.save().then(()=>{
