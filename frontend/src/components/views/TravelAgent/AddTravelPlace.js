@@ -1,8 +1,101 @@
 import React from 'react'
 import { SideNav } from './SideNav'
 import { DashboardHeader } from './DashboardHeader'
+import axios from 'axios';
+import Swal from 'sweetalert';
 
 const AddTravelPlace = () => {
+
+    const [image , setImage] = React.useState("");
+    const [name , setName] = React.useState("");
+    const [discription , setDescription] = React.useState("");
+    const [location , setLocation] = React.useState("");
+    const [famousfor , setFamousfor] = React.useState("");
+    const [bestTimeVisit , setBestTimeVisit] = React.useState("");
+    const [attraction , setAttraction] = React.useState("");
+
+
+    const [placePlayload , setPlacePlayloads] = React.useState({
+        name : "",
+        discription : "",
+        image : "",
+        location : "",
+        famousfor : "",
+        bestTimeVisit : "",
+        attraction : "",
+    });
+
+    const onChangeInput = (e) => {
+        setPlacePlayloads({
+          ...placePlayload,
+          [e.target.id]: e.target.value,
+        });
+      };
+
+      const onSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          console.log(placePlayload)
+          const res = await axios.post("http://localhost:8090/TravelPlace/add",placePlayload);
+          console.log(res);
+          Swal({
+            title: "Success!",
+            text: "Device added successfully",
+            icon: 'success',
+            timer: 2000,
+            button: false,
+          }).then(()=>{
+            window.location.href = "/dashboard_ta";
+          })       
+        } catch (err) {
+          Swal({
+            title: "Error!",
+            text: err.response.data.msg,
+            icon: 'warning',
+            timer: 2000,
+            button: false,
+          })
+        }
+      };      
+
+      const handleImageChange = async e => {
+        e.preventDefault()
+        try {
+            const file = e.target.files[0]
+    
+            if (!file) return alert("File not exist.")
+    
+            if (file.size > 1024 * 1024) // 1mb
+                return alert("Size too large!")
+    
+            if (file.type !== 'image/jpeg' && file.type !== 'image/png') // 1mb
+                return alert("File format is incorrect.")
+    
+            let formData = new FormData()
+            formData.append('file', file)
+            formData.append('upload_preset', 'Af_Assignment')
+            formData.append('cloud_name', 'drao60sj6')
+    
+            // setLoading(true)
+            const res = await axios.post( "https://api.cloudinary.com/v1_1/drao60sj6/image/upload",
+            formData,
+            {
+              method: "post",
+              body: formData,
+              headers: {
+                "content-type": "multipart/form-data",
+              },
+            })
+            // setLoading(false)
+            setPlacePlayloads({
+              ...placePlayload,
+              image: res.data.url,
+            });
+          } catch (err) {
+            console.log(err.response.data.msg);
+            
+          }
+   }
 
 
   return (
@@ -37,24 +130,33 @@ const AddTravelPlace = () => {
                         <form>
                             <div class="mb-3">
                                 <label class="form-label">Place Name</label>
-                                <input type="text" class="form-control" id='productName' name='name'  required/>
+                                <input type="text" class="form-control" id='name' name='name' onChange={(e) => onChangeInput(e)} required/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Description</label>
-                                <textarea type="text" class="form-control" style={{ height: "150px" }} id='description' name='description' required/>
+                                <textarea type="text" class="form-control" style={{ height: "150px" }} id='discription' name='discription' onChange={(e) => onChangeInput(e)} required/>
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Product Image</label>
-                                <input class="form-control" type="file" id="formFile" name='image' />
+                                <input class="form-control" type="file" id="formFile" name='image'  onChange={handleImageChange} />
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Transport Types</label>
-                                <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" />
-                                <label class="form-check-label" for="flexSwitchCheckChecked">Public Transport</label>
-                                </div>
+                                <label class="form-label">Location</label>
+                                <input type="text" class="form-control" id='location' name='location' onChange={(e) => onChangeInput(e)} required/>
                             </div>
-                            <button type="submit" class="btn btn-primary" >Add</button>
+                            <div class="mb-3">
+                                <label class="form-label">Famous For</label>
+                                <input type="text" class="form-control" id='famousfor' name='famousfor' onChange={(e) => onChangeInput(e)} required/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Best time to Visit</label>
+                                <input type="text" class="form-control" id='bestTimeVisit' name='bestTimeVisit' onChange={(e) => onChangeInput(e)} required/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Tourist attraction</label>
+                                <input type="text" class="form-control" id='attraction' name='attraction' onChange={(e) => onChangeInput(e)} required/>
+                            </div>
+                            <button type="submit" class="btn btn-primary" onClick={(e)=> onSubmit(e)}>Add</button>
                         </form>
                         </div>
                     </div>  

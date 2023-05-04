@@ -10,7 +10,7 @@ export const SideNav = () => {
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-          <a className="nav-link" aria-current="page" href="#">
+          <a className="nav-link" aria-current="page" href="/dashboard_ta">
           <span data-feather="home" className="align-text-bottom"></span>
           Dashboard
         </a>
