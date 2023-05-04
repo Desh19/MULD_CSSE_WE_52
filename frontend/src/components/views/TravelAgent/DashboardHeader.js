@@ -5,8 +5,8 @@ import logo from '../../images/muld.png';
 export const DashboardHeader = () => {
   return (
     <div>
-        <header class="navbar navbar-dark sticky-top bg-light flex-md-nowrap p-0 shadow">
-        <a className="navbar-brand" href="#"><img class="logoimg" src={logo} alt="Logo" /></a>
+        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a className="navbar-brand" href="#"><img class="logoimg" src={logo} alt="Logo" style={{ height:"100px" , top:"0px", marginTop:"0px" , paddingTop:"0px"}}/></a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

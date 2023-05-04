@@ -9,7 +9,18 @@ const TravelPlaceSchema = new mongoose.Schema(
       {type: String, 
         // requried: true
       },
-      transportType: {type: String, requried: true, trim: true}
+      location: 
+      { type: String, 
+        requried: true, 
+        trim: true
+      },
+      famousfor: 
+      { type: String, 
+        requried: true, 
+        trim: true
+      },
+      bestTimeVisit: {type: String, requried: true, trim: true},
+      attraction: {type: String, requried: true, trim: true},
     }
  
   );

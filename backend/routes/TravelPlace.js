@@ -6,7 +6,10 @@ router.route("/add").post((req,res)=>{
     const name = req.body.name;
     const discription = req.body.discription;
     const image = req.body.image;
-    const transportType = req.body.transportType;
+    const location = req.body.location;
+    const famousfor = req.body.famousfor;
+    const bestTimeVisit = req.body.bestTimeVisit;
+    const attraction = req.body.attraction;
     
 
     const newplace = new TravelPlace({
@@ -14,7 +17,10 @@ router.route("/add").post((req,res)=>{
         name,
         discription,
         image,
-        transportType
+        location,
+        famousfor,
+        bestTimeVisit,
+        attraction
     })
 
     newplace.save().then(()=>{
