@@ -34,7 +34,7 @@ const HeaderTraveler = () => {
 
                     <div class="rightside">
                     <li className="nav-item">
-                    <a className="nav-link active"href="#">Profile</a>
+                    <a className="nav-link active"href="/travelerprofile">Profile</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link active" href="/" onClick={localStorage.clear} >Sign Out</a>
