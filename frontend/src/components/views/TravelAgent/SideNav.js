@@ -10,37 +10,43 @@ export const SideNav = () => {
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-          <a className="nav-link" aria-current="page" href="/dashboard_ta">
+          <a className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" aria-current="page" href="/dashboard_ta">
           <span data-feather="home" className="align-text-bottom"></span>
           Dashboard
         </a>
           </li>
-          <li class="nav-item">
+          {/* <li class="nav-item">
             <a class="nav-link" href="/add_travel_place">
               <span data-feather="file" class="align-text-bottom"></span>
               Travel Places
             </a>
-          </li>
+          </li> */}
+          <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          Travel Place
+        </button>
+        <div class="collapse show" id="home-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="/add_travel_place" class="nav-link">Add Place</a></li>
+            <li><a href="#" class="nav-link">Updates Place</a></li>
+            <li><a href="#" class="nav-link">Delete Place</a></li>
+          </ul>
+        </div>
+      </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart" class="align-text-bottom"></span>
-              Products
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" href="#">
               <span data-feather="users" class="align-text-bottom"></span>
               Customers
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" href="#">
               <span data-feather="bar-chart-2" class="align-text-bottom"></span>
               Reports
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" href="#">
               <span data-feather="layers" class="align-text-bottom"></span>
               Integrations
             </a>
