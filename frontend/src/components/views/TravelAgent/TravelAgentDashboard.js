@@ -1,7 +1,7 @@
 import React from 'react'
 import "../TravelAgent/TravelAgentDashboard.css"
 import { SideNav } from './SideNav'
-import { DashboardHeader } from './DashboardHeader'
+import { DashboardHeader } from './TravelAgentHeader'
 
 const TravelAgentDashboard = () => {
     

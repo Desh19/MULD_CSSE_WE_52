@@ -30,5 +30,14 @@ router.route("/add").post((req,res)=>{
     })
 })
 
+//Get All Travel Place
+router.route("/").get((req,res)=>{
+    TravelPlace.find().then((places)=>{
+        res.json(places)
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
 
 module.exports = router;
