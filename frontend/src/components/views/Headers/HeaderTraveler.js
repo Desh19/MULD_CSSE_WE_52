@@ -8,6 +8,8 @@ import swal from "sweetalert";
 
 const HeaderTraveler = () => {
 
+  const id =localStorage.getItem("id");
+
   return (
     <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary navbar" style={{ position:"fixed" , width:"100%" }}>
@@ -21,7 +23,7 @@ const HeaderTraveler = () => {
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
                    
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/">Home</a>
+                    <a className="nav-link active" aria-current="page" href="/TravelerHome">Home</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#aboutus">About Us</a>
@@ -35,7 +37,7 @@ const HeaderTraveler = () => {
                     <a className="nav-link active"href="#">Profile</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link active" href="/">Sign Out</a>
+                    <a className="nav-link active" href="/" onClick={localStorage.clear} >Sign Out</a>
                     </li>
                     </div>                 
                 </ul>
