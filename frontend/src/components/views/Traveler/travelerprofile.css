@@ -1,0 +1,161 @@
+.TravelerProfile{
+    width: 100%;
+    height: 100vh;
+    padding: 100px 10% 20px 15%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.lefts{
+    height: 200px;
+    padding: 10px;
+    display: flex;
+}
+
+.nameNdate{
+    margin: 15px;
+    text-align: left;
+}
+
+.rights{
+    height: 200px;
+    margin-top: 30px;
+}
+
+.rights button{
+
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.articlebtn{
+    padding: 10px 20px;
+    margin-left: -150px;
+    margin-right: 20px;
+}
+
+.editprofile{
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    margin-right: 20px;
+    background-color: rgb(6, 103, 176);
+}
+
+.editprofile:hover{
+    background-color: rgb(4, 77, 132);
+}
+
+.dltprofile{
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    background-color: rgb(176, 6, 6);
+}
+
+.dltprofile:hover{
+    background-color: rgb(144, 3, 3);
+}
+
+.profileimg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(159, 159, 159);
+}
+
+.TravelerArea{
+    margin-top: -440px;
+    width: 100%;
+    padding-left: 25%;
+    z-index: 0;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+}
+
+.TravelerArea h3{
+    text-align: left;
+    margin: 20px;
+    font-weight: 600;
+}
+
+.TravelerArea h3 span{
+    font-size: 35px;
+    color: #256D85;
+}
+
+.travelerontainer{
+    margin-bottom: 50px;
+    width: 800px;
+    z-index: 0;
+    align-items: center;
+}
+.travelerontainer:hover{
+    transition: 0.4s;
+    box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.68);
+-webkit-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.68);
+-moz-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.68);
+}
+
+.card-footer button{
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: none;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 2px;
+}
+
+.card-footer button:hover{
+    background-color: #2076c7 !important;
+    transition: 0.4s !important;
+}
+
+.card-footer .readmorebtn{
+    background-color: #0a3057 !important;
+    color: white !important;
+    font-size: 13px !important;
+}
+
+.profileArea{
+    width: 100%;
+    height: 70px;
+    display: flex;
+}
+
+.pro{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: darkgray;
+}
+
+.nameN{
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.nameN h2{
+    font-size: 16px;
+}
+.nameN p{
+    font-size: 13px;
+    margin-top: -5px;
+    opacity: 50%;
+}
+
+.discri{
+    text-align: left;
+    width: auto;
+    height: 100px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.discri::-webkit-scrollbar {
+    display: none;
+}
+
