@@ -1,64 +1,71 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { NavLink,Link,useParams,useNavigate } from 'react-router-dom'
+import axios from 'axios';
 import { SideNav } from './SideNav'
 import { DashboardHeader } from './TravelAgentHeader'
-import axios from 'axios';
 import Swal from 'sweetalert';
 
-const AddTravelPlace = () => {
+const UpdateTravelPlace = () => {
 
     const id = localStorage.getItem("id");
-    const [image , setImage] = React.useState("");
-    const [name , setName] = React.useState("");
-    const [discription , setDescription] = React.useState("");
-    const [location , setLocation] = React.useState("");
-    const [famousfor , setFamousfor] = React.useState("");
-    const [bestTimeVisit , setBestTimeVisit] = React.useState("");
-    const [attraction , setAttraction] = React.useState("");
+    const [place , setPlace] = React.useState([]);
+    const [searchTerm, setSearchTerm] = React.useState("");
+    const params=useParams();
+    const placeID=params.id;
+    const history = useNavigate();
 
+    useEffect(()=>{
+        const getOnePlace = async () => {
+          await axios.get(`http://localhost:8090/travelplace/${placeID}`).then((res) => {
+            setPlace(res.data);
+          }).catch((err) => {
+              console.log(err.massage);
+          }) 
+      }
+      getOnePlace();
+      },[])
 
-    const [placePlayload , setPlacePlayloads] = React.useState({
-        agentID : id,
-        name : "",
-        discription : "",
-        image : "",
-        location : "",
-        famousfor : "",
-        bestTimeVisit : "",
-        attraction : "",
-    });
+    const sendRequest = async() =>{
 
-    const onChangeInput = (e) => {
-        setPlacePlayloads({
-          ...placePlayload,
-          [e.target.id]: e.target.value,
-        });
-      };
+        await axios.put(`http://localhost:8090/travelplace/update/${placeID}` , {
+      
 
-      const onSubmit = async (e) => {
+        name:String(place.name),
+        discription:String(place.discription),
+        image:String(place.image),
+        location:String(place.location),
+        famousfor:String(place.famousfor),
+        bestTimeVisit:String(place.bestTimeVisit),
+        attraction:String(place.attraction),
+            
+      
+        }).then(()=>{
+      
+            Swal({
+                title: "Success!",
+                text: "Place Details Updated Successfully",
+                icon: 'success',
+                timer: 2000,
+                button: false,
+              });
+            
+        })
+      
+      
+    }
+
+    const handleSubmit = (e) =>{
         e.preventDefault();
-        try {
-          console.log(placePlayload)
-          const res = await axios.post("http://localhost:8090/TravelPlace/add",placePlayload);
-          console.log(res);
-          Swal({
-            title: "Success!",
-            text: "Device added successfully",
-            icon: 'success',
-            timer: 2000,
-            button: false,
-          }).then(()=>{
-            window.location.href = "/dashboard_ta";
-          })       
-        } catch (err) {
-          Swal({
-            title: "Error!",
-            text: err.response.data.msg,
-            icon: 'warning',
-            timer: 2000,
-            button: false,
-          })
-        }
-      };      
+        sendRequest().then(()=>history(`/view_travel_place`));
+    };
+
+    const handleChange =(e)=>{
+
+        setPlace((prevState)=>({
+            ...prevState,
+            [e.target.name]:e.target.value,
+        }))
+      }
 
       const handleImageChange = async e => {
         e.preventDefault()
@@ -89,8 +96,8 @@ const AddTravelPlace = () => {
               },
             })
             // setLoading(false)
-            setPlacePlayloads({
-              ...placePlayload,
+            setPlace({
+              ...place,
               image: res.data.url,
             });
           } catch (err) {
@@ -128,37 +135,43 @@ const AddTravelPlace = () => {
                     <div className="col-12 col-lg-9 col-xl-7">
                     <div className="card shadow-2-strong card-registration" style={{ borderRadius: "15px" }}>
                         <div className="card-body p-4 p-md-5">
-                        <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Add Places</h3>
+                        <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Update Places Detials</h3>
                         <form>
                             <div class="mb-3">
                                 <label class="form-label">Place Name</label>
-                                <input type="text" class="form-control" id='name' name='name' onChange={(e) => onChangeInput(e)} required/>
+                                <input type="text" class="form-control" id='name' name='name' value={place.name} onChange={handleChange} required/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Description</label>
-                                <textarea type="text" class="form-control" style={{ height: "150px" }} id='discription' name='discription' onChange={(e) => onChangeInput(e)} required/>
+                                <textarea type="text" class="form-control" style={{ height: "150px" }} id='discription' name='discription' value={place.discription} onChange={handleChange} required/>
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Place Image</label>
+                                <div class="card" style={{ width:'18rem' }}>
+                                    <img class="card-img-top" src={place.image} alt="Card image cap" />
+                                    <div class="card-body">
+                                    </div>
+                                </div>
+                                <label for="formFile" class="form-label">Change Place Image</label>
                                 <input class="form-control" type="file" id="formFile" name='image'  onChange={handleImageChange} />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Location</label>
-                                <input type="text" class="form-control" id='location' name='location' onChange={(e) => onChangeInput(e)} required/>
+                                <input type="text" class="form-control" id='location' name='location' value={place.location} onChange={handleChange} required/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Famous For</label>
-                                <input type="text" class="form-control" id='famousfor' name='famousfor' onChange={(e) => onChangeInput(e)} required/>
+                                <input type="text" class="form-control" id='famousfor' name='famousfor' value={place.famousfor} onChange={handleChange} required/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Best time to Visit</label>
-                                <input type="text" class="form-control" id='bestTimeVisit' name='bestTimeVisit' onChange={(e) => onChangeInput(e)} required/>
+                                <textarea type="text" class="form-control" id='bestTimeVisit' name='bestTimeVisit' value={place.bestTimeVisit} onChange={handleChange} required/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Tourist attraction</label>
-                                <input type="text" class="form-control" id='attraction' name='attraction' onChange={(e) => onChangeInput(e)} required/>
+                                <input type="text" class="form-control" id='attraction' name='attraction' value={place.attraction} onChange={handleChange} required/>
                             </div>
-                            <button type="submit" class="btn btn-primary" onClick={(e)=> onSubmit(e)}>Add</button>
+                            <button type="submit" class="btn btn-primary" onClick={handleSubmit} >Update Details</button>
                         </form>
                         </div>
                     </div>  
@@ -176,4 +189,5 @@ const AddTravelPlace = () => {
   )
 }
 
-export default AddTravelPlace
+
+export default UpdateTravelPlace

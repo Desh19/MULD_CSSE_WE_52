@@ -24,6 +24,9 @@ import TravelAgentDashboard from './components/views/TravelAgent/TravelAgentDash
 import AddTravelPlace from './components/views/TravelAgent/AddTravelPlace';
 import AllTravelPlace from './components/views/Traveler/AllTravelPlace';
 import SingaleTravelPlace  from './components/views/Traveler/SingaleTravelPlace';
+import ViewTravelPlace from './components/views/TravelAgent/ViewAllTravelPlace';
+import UpdateTravelPlace from './components/views/TravelAgent/UpdateTravelPlace';
+import TravelAgentView from './components/views/TravelAgent/TravelAgentView';
 // import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
 // import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
 
@@ -47,6 +50,9 @@ function App() {
         <Route path='/add_travel_place' element={<AddTravelPlace />} />
         <Route path='/all_travel_place' element={<AllTravelPlace />} />
         <Route path='/singale_travel_place/:id' element={<SingaleTravelPlace />} />
+        <Route path='/view_travel_place' element={<ViewTravelPlace />} />
+        <Route path='/update_travel_place/:id' element={<UpdateTravelPlace />} />
+        <Route path='/travel_agent_view' element={<TravelAgentView />} />
       </Routes>  
     </Router>
   </div>
