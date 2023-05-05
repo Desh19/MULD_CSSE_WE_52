@@ -8,6 +8,7 @@ const Allarticles = () => {
 
   const [searchTerm, setSearchTerm] = React.useState("");
   const [article, setArticle] = React.useState([]);
+  const UserId =localStorage.getItem("id");
   useEffect(()=>{
       const getAllarticles = async () => {
         await axios.get(`http://localhost:8090/Article/`).then((res) => {
@@ -28,6 +29,50 @@ const Allarticles = () => {
         article.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
       );
   });
+
+  const likePost = (id)=>{
+    fetch('/like',{
+        method:"put",
+        body:JSON.stringify({
+          ArticleId:id
+        })
+    }).then(res=>res.json())
+    .then(result=>{
+             //   console.log(result)
+      const newData = article.map(article=>{
+          if(article._id==result._id){
+              return result
+          }else{
+              return article
+          }
+      })
+      setArticle(newData)
+    }).catch(err=>{
+        console.log(err)
+    })
+}
+
+const unlikePost = (id)=>{
+  fetch('/unlike',{
+      method:"put",
+      body:JSON.stringify({
+          ArticleId:id
+      })
+  }).then(res=>res.json())
+  .then(result=>{
+    //   console.log(result)
+    const newData = article.map(article=>{
+        if(article._id==result._id){
+            return result
+        }else{
+            return article
+        }
+    })
+    setArticle(newData)
+  }).catch(err=>{
+    console.log(err)
+})
+}
 
     return (
 
@@ -72,11 +117,15 @@ const Allarticles = () => {
               <br />
 
                <i className="material-icons pr-5" style={{color:"red"}}>favorite</i>
-                 {/* {article.likes.includes(state._id) */}
-                 <i className="material-icons pr-5" >thumb_up</i>
-                 <i className="material-icons mr-5 ">thumb_down</i>
-               {/* } */}
-                <h6>3 Likes</h6> 
+               {article.likes.includes(UserId)
+               ?<button>
+                <i className="material-icons mr-5" onClick={()=>{unlikePost(article._id)}}>thumb_down</i>
+                </button>
+                 :
+                 <i className="material-icons pr-5" onClick={()=>{likePost(article._id)}} >thumb_up</i>
+                 
+                }
+                <h6>{article.likes.length} Likes</h6> 
             
               
               <br />
