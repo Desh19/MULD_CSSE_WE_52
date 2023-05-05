@@ -50,6 +50,15 @@ const Allarticles = () => {
               to generate Lorem Ipsum which looks reasonable. 
 
               </div>
+              <br />
+
+               <i className="material-icons pr-5" style={{color:"red"}}>favorite</i>
+                 {/* {item.likes.includes(state._id) */}
+                 <i className="material-icons pr-5" >thumb_up</i>
+                 <i className="material-icons mr-5 ">thumb_down</i>
+               {/* } */}
+                <h6>3 Likes</h6> 
+            
               
               <br />
 
