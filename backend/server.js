@@ -34,7 +34,7 @@ const travelplace = require("./routes/TravelPlace"); //use this when implementin
 app.use("/TravelPlace", travelplace);
 
 const articles = require("./routes/TravelArticle"); //use this when implementing routes
-app.use("/article", articles);
+app.use("/Article", articles);
 
 
 

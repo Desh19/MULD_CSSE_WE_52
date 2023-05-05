@@ -18,6 +18,7 @@ import Footer from './components/views/Footer';
 //Traveler
 import Allarticles from './components/views/Traveler/Allarticles';
 import TravelerProfile from './components/views/Traveler/TravelerProfile';
+import AddArticle from './components/views/Traveler/AddArticle';
 
 //Travel Agent
 import TravelAgentDashboard from './components/views/TravelAgent/TravelAgentDashboard';
@@ -41,6 +42,7 @@ function App() {
         <Route path='/TravelerHome' element={<HomePage />} />
         <Route path='/allarticles' element={<Allarticles />} />
         <Route path='/travelerprofile' element={<TravelerProfile />} />
+        <Route path='/addarticle' element={<AddArticle />} />
 
         {/* TravelAgent */}
         <Route path='/dashboard_ta' element={<TravelAgentDashboard />} />

@@ -10,7 +10,11 @@ const ArticleSchema = new mongoose.Schema ({
     type: String,
     required: true
   },
-  ArticleTitle : {
+  title : {
+    type: String,
+    required : true
+  },
+  category : {
     type: String,
     required : true
   },
@@ -20,8 +24,9 @@ const ArticleSchema = new mongoose.Schema ({
   },
   image : {
     type: String,
-    // required : true
-  }
+    required : true
+  },
+  postedAt:Date
 
 });
 
