@@ -59,5 +59,35 @@ router.route("/ownarticles/:id").get((req,res)=>{
 
 })
 
+// @description PUT Like Article by id
+router.put('/like', (req,res)=>{
+    Post.findByIdAndUpdate(req.body.id,{
+        $push:{likes:req.User._id}
+    },{
+        new:true
+    }).exec((err,result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }else{
+            res.json(result)
+        }
+    })
+})
+
+// @description PUT Unlike Article by id
+router.put('/unlike', (req,res)=>{
+    Post.findByIdAndUpdate(req.body.id,{
+        $push:{likes:req.User._id}
+    },{
+        new:true
+    }).exec((err,result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }else{
+            res.json(result)
+        }
+    })
+})
+
 
 module.exports = router;
