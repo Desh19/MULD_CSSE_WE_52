@@ -61,7 +61,7 @@ router.route("/ownarticles/:id").get((req,res)=>{
 
 // @description PUT Like Article by id
 router.put('/like', (req,res)=>{
-    Post.findByIdAndUpdate(req.body.id,{
+    Article.findByIdAndUpdate(req.body.ArticleId,{
         $push:{likes:req.User._id}
     },{
         new:true
@@ -76,7 +76,7 @@ router.put('/like', (req,res)=>{
 
 // @description PUT Unlike Article by id
 router.put('/unlike', (req,res)=>{
-    Post.findByIdAndUpdate(req.body.id,{
+    Article.findByIdAndUpdate(req.body.ArticleId,{
         $push:{likes:req.User._id}
     },{
         new:true
