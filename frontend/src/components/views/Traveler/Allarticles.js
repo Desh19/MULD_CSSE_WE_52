@@ -86,7 +86,7 @@ const unlikePost = (id)=>{
         <div className="card articlecontainer">
           <div className="card-header w-100">
             <center>
-          <h6>{article.title}</h6>
+          <h6>{article.title} - {article.category}</h6>
           </center>          
           </div>
 

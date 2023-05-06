@@ -118,8 +118,10 @@ const deleteArticle = async (_id) => {
        {filteredarticle.map((article)=>
 
         <div className="card travelerontainer">
-          <div className="card-header">
-          <h6>{article.title}</h6>
+          <div className="card-header w-100">
+            <center>
+          <h6>{article.title} - {article.category}</h6>
+          </center>
                     
           </div>
 
@@ -143,9 +145,7 @@ const deleteArticle = async (_id) => {
 
               </div>
               <div className='discri'>
-
               {article.description} 
-
               </div>
               
               <br />
