@@ -19,6 +19,9 @@ import Footer from './components/views/Footer';
 import Allarticles from './components/views/Traveler/Allarticles';
 import TravelerProfile from './components/views/Traveler/TravelerProfile';
 import AddArticle from './components/views/Traveler/AddArticle';
+import AllPackages from './components/views/Traveler/AllPackages';
+import GuidePackageView from './components/views/Traveler/GuidePackageView';
+import SingleArticleView from './components/views/Traveler/SingleArticleView';
 
 //Travel Agent
 import TravelAgentDashboard from './components/views/TravelAgent/TravelAgentDashboard';
@@ -32,6 +35,14 @@ import SingalePlaceView from './components/views/TravelAgent/SingalePlaceView';
 import AddJobs  from './components/views/Jobs/AddJobs';
 // import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
 // import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
+
+//Tourist Guide
+import AddPackage from './components/views/TouristGuide/AddPackage';
+import SinglePackage from './components/views/TouristGuide/SinglePackage';
+import GuideProfile from './components/views/TouristGuide/GuideProfile';
+import TouristGuideHome from './components/views/TouristGuide/TouristGuideHome';
+import AllPackagesView from './components/views/TouristGuide/AllPackagesView';
+
 
 function App() {
   return (
@@ -48,6 +59,10 @@ function App() {
         <Route path='/allarticles' element={<Allarticles />} />
         <Route path='/travelerprofile' element={<TravelerProfile />} />
         <Route path='/addarticle' element={<AddArticle />} />
+        <Route path='/allpackages' element={<AllPackages />} />
+        <Route path='/guidepackageview/:id' element={<GuidePackageView />} />
+        <Route path='/SingleArticleView/:id' element={<SingleArticleView />} />
+
 
         {/* TravelAgent */}
         <Route path='/dashboard_ta' element={<TravelAgentDashboard />} />
@@ -59,6 +74,17 @@ function App() {
         <Route path='/travel_agent_view' element={<TravelAgentView />} />
         <Route path='/singale_place_view/:id' element={<SingalePlaceView />} />
         <Route path='/add_jobs' element={<AddJobs />} />
+
+
+
+        {/* Tourist Guide */}
+        <Route path='/add_package' element={<AddPackage />} />
+        <Route path='/all_packages' element={<AllPackagesView />} />
+        <Route path='/single_package/:id' element={<SinglePackage />} />
+        <Route path='/guide_profile' element={<GuideProfile />} />
+        <Route path='/guide_home' element={<TouristGuideHome />} />
+        
+
 
       </Routes>  
     </Router>
