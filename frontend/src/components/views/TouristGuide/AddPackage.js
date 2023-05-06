@@ -55,7 +55,7 @@ const AddItems = () => {
           timer: 2000,
           button: false,
         }).then(()=>{
-          window.location.href = "#";
+          window.location.href = "/all_packages";
         })       
       } catch (err) {
         Swal.fire({

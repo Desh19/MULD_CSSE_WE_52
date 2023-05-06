@@ -34,7 +34,7 @@ import SingalePlaceView from './components/views/TravelAgent/SingalePlaceView';
 
 //Tourist Guide
 import AddPackage from './components/views/TouristGuide/AddPackage';
-import AllPackages from './components/views/TouristGuide/AllPackages';
+import AllPackages from './components/views/Traveler/AllPackages';
 import SinglePackage from './components/views/TouristGuide/SinglePackage';
 import GuideProfile from './components/views/TouristGuide/GuideProfile';
 import TouristGuideHome from './components/views/TouristGuide/TouristGuideHome';
@@ -73,6 +73,7 @@ function App() {
         <Route path='/single_package/:id' element={<SinglePackage />} />
         <Route path='/guide_profile' element={<GuideProfile />} />
         <Route path='/guide_home' element={<TouristGuideHome />} />
+        
 
 
         
