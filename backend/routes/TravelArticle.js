@@ -7,7 +7,7 @@ const Article = require('../models/TravelArticle');
 
 // @description add/save Article
 // @access Public
-router.post('/send', (req, res) => {
+router.post('/add', (req, res) => {
     Article.create(req.body)
     .then(article => res.json({ msg: 'Article Published successfully' }))
     .catch(err => res.status(400).json({ error: 'Unable to publish this Article' }));
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 // @access Public
 router.get('/:id', (req, res) => {
     Article.findById(req.params.id)
-    .then(item => res.json(item))
+    .then(article => res.json(article))
     .catch(err => res.status(404).json({ noarticlefound: 'No Article found' }));
 });
 
@@ -57,6 +57,36 @@ router.route("/ownarticles/:id").get((req,res)=>{
       console.log(err)
   })
 
+})
+
+// @description PUT Like Article by id
+router.put('/like', (req,res)=>{
+    Article.findByIdAndUpdate(req.body.ArticleId,{
+        $push:{likes:req.User._id}
+    },{
+        new:true
+    }).exec((err,result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }else{
+            res.json(result)
+        }
+    })
+})
+
+// @description PUT Unlike Article by id
+router.put('/unlike', (req,res)=>{
+    Article.findByIdAndUpdate(req.body.ArticleId,{
+        $push:{likes:req.User._id}
+    },{
+        new:true
+    }).exec((err,result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }else{
+            res.json(result)
+        }
+    })
 })
 
 

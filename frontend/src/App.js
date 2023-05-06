@@ -18,12 +18,17 @@ import Footer from './components/views/Footer';
 //Traveler
 import Allarticles from './components/views/Traveler/Allarticles';
 import TravelerProfile from './components/views/Traveler/TravelerProfile';
+import AddArticle from './components/views/Traveler/AddArticle';
 
 //Travel Agent
 import TravelAgentDashboard from './components/views/TravelAgent/TravelAgentDashboard';
 import AddTravelPlace from './components/views/TravelAgent/AddTravelPlace';
 import AllTravelPlace from './components/views/Traveler/AllTravelPlace';
 import SingaleTravelPlace  from './components/views/Traveler/SingaleTravelPlace';
+import ViewTravelPlace from './components/views/TravelAgent/ViewAllTravelPlace';
+import UpdateTravelPlace from './components/views/TravelAgent/UpdateTravelPlace';
+import TravelAgentView from './components/views/TravelAgent/TravelAgentView';
+import SingalePlaceView from './components/views/TravelAgent/SingalePlaceView';
 // import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
 // import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
 
@@ -47,6 +52,7 @@ function App() {
         <Route path='/TravelerHome' element={<HomePage />} />
         <Route path='/allarticles' element={<Allarticles />} />
         <Route path='/travelerprofile' element={<TravelerProfile />} />
+        <Route path='/addarticle' element={<AddArticle />} />
 
         {/* TravelAgent */}
         <Route path='/dashboard_ta' element={<TravelAgentDashboard />} />
@@ -55,11 +61,18 @@ function App() {
         <Route path='/singale_travel_place/:id' element={<SingaleTravelPlace />} />
 
 
+
         {/* Tourist Guide */}
         <Route path='/add_package' element={<AddPackage />} />
         <Route path='/all_packages' element={<AllPackages />} />
         <Route path='/single_package/:id' element={<SinglePackage />} />
         <Route path='/guide_profile' element={<GuideProfile />} />
+
+
+        <Route path='/view_travel_place' element={<ViewTravelPlace />} />
+        <Route path='/update_travel_place/:id' element={<UpdateTravelPlace />} />
+        <Route path='/travel_agent_view' element={<TravelAgentView />} />
+        <Route path='/singale_place_view/:id' element={<SingalePlaceView />} />
 
       </Routes>  
     </Router>

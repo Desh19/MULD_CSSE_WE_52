@@ -1,5 +1,6 @@
 import React from 'react'
 import "../TravelAgent/TravelAgentDashboard.css"
+import { Link } from 'react-router-dom'
 
 export const SideNav = () => {
   return (
@@ -11,7 +12,7 @@ export const SideNav = () => {
         <ul class="nav flex-column">
           <li class="nav-item">
           <a className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" aria-current="page" href="/dashboard_ta">
-          <span data-feather="home" className="align-text-bottom"></span>
+          {/* <span data-feather="home" className="align-text-bottom"></span> */}
           Dashboard
         </a>
           </li>
@@ -22,13 +23,15 @@ export const SideNav = () => {
             </a>
           </li> */}
           <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-          Travel Place
+          <Link to={'/view_travel_place'}>
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          Travel Places
         </button>
+        </Link>
         <div class="collapse show" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="/add_travel_place" class="nav-link">Add Place</a></li>
-            <li><a href="#" class="nav-link">Updates Place</a></li>
+            <li><a href="/travel_agent_view" class="nav-link">Updates Place</a></li>
             <li><a href="#" class="nav-link">Delete Place</a></li>
           </ul>
         </div>

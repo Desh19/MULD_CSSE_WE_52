@@ -3,8 +3,20 @@ const mongoose = require('mongoose');
 
 const TravelPlaceSchema = new mongoose.Schema(
     {
-      name:{type: String, requried: true, trim: true},
-      discription:{type: String, requried: true,trim: true},
+      agentID:{
+        type: String,
+        required: true,
+      },
+      name:
+      { type: String, 
+        requried: true, 
+        trim: true
+      },
+      discription:
+      { type: String, 
+        requried: true,
+        trim: true
+      },
       image: 
       {type: String, 
         // requried: true

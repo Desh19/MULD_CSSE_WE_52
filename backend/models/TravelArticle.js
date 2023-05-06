@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const {ObjectId} = mongoose.Schema.Types
 
 const ArticleSchema = new mongoose.Schema ({
   
@@ -10,7 +11,11 @@ const ArticleSchema = new mongoose.Schema ({
     type: String,
     required: true
   },
-  ArticleTitle : {
+  title : {
+    type: String,
+    required : true
+  },
+  category : {
     type: String,
     required : true
   },
@@ -20,8 +25,13 @@ const ArticleSchema = new mongoose.Schema ({
   },
   image : {
     type: String,
-    // required : true
-  }
+    required : true
+  },
+  likes : [
+    {type:ObjectId,
+     ref:"User"}
+  ],
+  postedAt:Date
 
 });
 
