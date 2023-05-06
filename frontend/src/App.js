@@ -32,6 +32,14 @@ import SingalePlaceView from './components/views/TravelAgent/SingalePlaceView';
 // import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
 // import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
 
+//Hotel Owner
+import HotelOwnerDashboard from './components/views/HotelOwner/HotelOwnerDashboard';
+import AddHotel from './components/views/HotelOwner/AddHotel';
+import HotelRatings from './components/views/HotelOwner/HotelRatings';
+import HotelBookingReq from './components/views/HotelOwner/HotelBookingReq';
+import ViewHotel from './components/views/HotelOwner/ViewHotel';
+
+
 function App() {
   return (
     <div>
@@ -53,10 +61,19 @@ function App() {
         <Route path='/add_travel_place' element={<AddTravelPlace />} />
         <Route path='/all_travel_place' element={<AllTravelPlace />} />
         <Route path='/singale_travel_place/:id' element={<SingaleTravelPlace />} />
+
         <Route path='/view_travel_place' element={<ViewTravelPlace />} />
         <Route path='/update_travel_place/:id' element={<UpdateTravelPlace />} />
         <Route path='/travel_agent_view' element={<TravelAgentView />} />
         <Route path='/singale_place_view/:id' element={<SingalePlaceView />} />
+
+
+        {/* Hotel Owner */}
+        <Route path='/hotelOwner_dashboard_ta' element={<HotelOwnerDashboard/>} />
+        <Route path='/add_hotel' element={<AddHotel/>} />
+        <Route path='/hotel_ratings' element={<HotelRatings/>} />
+        <Route path='/hotel_booking_req' element={<HotelBookingReq/>} />
+        <Route path='/hotel' element={<ViewHotel/>} />
       </Routes>  
     </Router>
   </div>
