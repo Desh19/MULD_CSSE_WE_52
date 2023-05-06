@@ -32,16 +32,24 @@ export const SideNav = () => {
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="/add_travel_place" class="nav-link">Add Place</a></li>
             <li><a href="/travel_agent_view" class="nav-link">Updates Place</a></li>
-            <li><a href="#" class="nav-link">Delete Place</a></li>
+            {/* <li><a href="#" class="nav-link">Delete Place</a></li> */}
           </ul>
         </div>
       </li>
-          <li class="nav-item">
-            <a class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" href="#">
-              <span data-feather="users" class="align-text-bottom"></span>
-              Customers
-            </a>
-          </li>
+      <li class="mb-1">
+          <Link to="">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          Jobs
+        </button>
+        </Link>
+        <div class="collapse show" id="home-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="nav-link">Add Jobs</a></li>
+            <li><a href="#" class="nav-link">Updates Jobs</a></li>
+            {/* <li><a href="#" class="nav-link">Delete Place</a></li> */}
+          </ul>
+        </div>
+      </li>
           <li class="nav-item">
             <a class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" href="#">
               <span data-feather="bar-chart-2" class="align-text-bottom"></span>
