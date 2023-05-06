@@ -44,14 +44,14 @@ const AllPackages = () => {
                     
                     <div class="card shadow-sm">
                     
-                    <a href={`/singale_travel_place/${guide._id}`}><img class="bd-placeholder-img card-img-top" width="100%" height="225" src={guide.image}  /></a>
+                    <a href={`/guidepackageview/${guide._id}`}><img class="bd-placeholder-img card-img-top" width="100%" height="225" src={guide.image}  /></a>
                     
                     <div class="card-body">
-                      <h6 className="text-dark"><a href={`/singale_travel_place/${guide._id}`} style={{ textDecoration:'none', color:'black' }}>{guide.userName}</a></h6>
+                      <h6 className="text-dark"><a href={`/guidepackageview/${guide._id}`} style={{ textDecoration:'none', color:'black' }}>{guide.userName}</a></h6>
                       <p class="card-text" style={{ maxHeight:'6em', overflow:'hidden' }}>{guide.guiderBio} </p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <Link to={`/singale_travel_place/${guide._id}`}>
+                          <Link to={`/guidepackageview/${guide._id}`}>
                           <button type="button" class="btn btn-sm btn-outline-secondary">See More..</button>
                           </Link>
                         </div>

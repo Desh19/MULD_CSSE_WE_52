@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import HeaderTraveler from '../Headers/HeaderTraveler';
+import HeaderGuide from './HeaderGuide';
 import Footer from '../Footer';
 const Swal = require('sweetalert2');
 
@@ -109,7 +109,7 @@ const AddItems = () => {
     
   return (
     <div>
-       <HeaderTraveler />
+       <HeaderGuide />
     <div className='container-sm '>
       <section className="gradient-custom pt-5">
         <div className="container pt-5 h-100">
