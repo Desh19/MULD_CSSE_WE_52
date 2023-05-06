@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import HeaderTraveler from '../Headers/HeaderTraveler';
+import HeaderGuide from '../TouristGuide/HeaderGuide';
 import Footer from '../Footer';
 import back from '../../images/back.jpg'
 
 
-const AllPackages = () => {
+const AllPackagesView = () => {
 
   const [searchTerm, setSearchTerm] = React.useState("");
   const [guide, setGuide] = React.useState([]);
@@ -31,7 +31,7 @@ const AllPackages = () => {
 
   return (
     <div>
-         <HeaderTraveler />
+         <HeaderGuide />
           <body>
             <main>
 
@@ -98,4 +98,4 @@ const AllPackages = () => {
   )
 }
 
-export default AllPackages
+export default AllPackagesView
