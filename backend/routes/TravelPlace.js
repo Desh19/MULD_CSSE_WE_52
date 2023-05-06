@@ -74,5 +74,12 @@ router.get('/:id', (req, res) => {
       );
   });
 
+  //delete place
+  router.delete("/delete/:id", (req, res) => {
+    TravelPlace.findByIdAndRemove(req.params.id, req.body)
+      .then((travelplace) => res.json({ msg: "Place entry deleted successfully" }))
+      .catch((err) => res.status(404).json({ error: "No such a Place" }));
+  });
+
 
 module.exports = router;

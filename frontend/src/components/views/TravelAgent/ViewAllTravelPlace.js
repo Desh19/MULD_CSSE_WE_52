@@ -33,7 +33,7 @@ const UpdateTravelPlace = () => {
 
 
   return (
-    <div>
+    <div >
      <body >
     <DashboardHeader/>
       <div class="container-fluid">
@@ -73,7 +73,7 @@ const UpdateTravelPlace = () => {
                     <tbody>
                         <tr key={index}>
                             <td>{index+1}</td>
-                            <td><img src={place.image} style={{ width: '250px', height:'150px' }}/></td>
+                            <td><a href={`/singale_place_view/${place._id}`}><img src={place.image} style={{ width: '250px', height:'150px' }}/></a></td>
                             <td>{place.name}</td>
                             <td>{place.famousfor}</td>
                             <td>{place.location}</td>
