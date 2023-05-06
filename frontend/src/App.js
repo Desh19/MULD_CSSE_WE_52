@@ -32,6 +32,12 @@ import SingalePlaceView from './components/views/TravelAgent/SingalePlaceView';
 // import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
 // import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
 
+//Tourist Guide
+import AddPackage from './components/views/TouristGuide/AddPackage';
+import AllPackages from './components/views/TouristGuide/AllPackages';
+import SinglePackage from './components/views/TouristGuide/SinglePackage';
+import GuideProfile from './components/views/TouristGuide/GuideProfile';
+
 function App() {
   return (
     <div>
@@ -53,10 +59,21 @@ function App() {
         <Route path='/add_travel_place' element={<AddTravelPlace />} />
         <Route path='/all_travel_place' element={<AllTravelPlace />} />
         <Route path='/singale_travel_place/:id' element={<SingaleTravelPlace />} />
+
+
+
+        {/* Tourist Guide */}
+        <Route path='/add_package' element={<AddPackage />} />
+        <Route path='/all_packages' element={<AllPackages />} />
+        <Route path='/single_package/:id' element={<SinglePackage />} />
+        <Route path='/guide_profile' element={<GuideProfile />} />
+
+
         <Route path='/view_travel_place' element={<ViewTravelPlace />} />
         <Route path='/update_travel_place/:id' element={<UpdateTravelPlace />} />
         <Route path='/travel_agent_view' element={<TravelAgentView />} />
         <Route path='/singale_place_view/:id' element={<SingalePlaceView />} />
+
       </Routes>  
     </Router>
   </div>
