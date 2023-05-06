@@ -59,6 +59,10 @@ function App() {
         <Route path='/add_travel_place' element={<AddTravelPlace />} />
         <Route path='/all_travel_place' element={<AllTravelPlace />} />
         <Route path='/singale_travel_place/:id' element={<SingaleTravelPlace />} />
+        <Route path='/view_travel_place' element={<ViewTravelPlace />} />
+        <Route path='/update_travel_place/:id' element={<UpdateTravelPlace />} />
+        <Route path='/travel_agent_view' element={<TravelAgentView />} />
+        <Route path='/singale_place_view/:id' element={<SingalePlaceView />} />
 
 
 
@@ -69,10 +73,7 @@ function App() {
         <Route path='/guide_profile' element={<GuideProfile />} />
 
 
-        <Route path='/view_travel_place' element={<ViewTravelPlace />} />
-        <Route path='/update_travel_place/:id' element={<UpdateTravelPlace />} />
-        <Route path='/travel_agent_view' element={<TravelAgentView />} />
-        <Route path='/singale_place_view/:id' element={<SingalePlaceView />} />
+        
 
       </Routes>  
     </Router>
