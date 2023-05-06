@@ -4,6 +4,7 @@ import axios from 'axios';
 import './AllTravelPlace.css';
 import HeaderTraveler from '../Headers/HeaderTraveler';
 import Footer from '../Footer';
+import back from '../../images/back.jpg'
 
 
 const AllTravelPlace = () => {
@@ -35,11 +36,10 @@ const AllTravelPlace = () => {
           <body>
             <main>
 
-              <section class="py-5 text-center container">
-                <div class="row py-lg-5">
+              <section class="py-5 text-center" >
+                <div class="row py-lg-5" >
                 
-                  <div class="col-lg-6 col-md-8 mx-auto">
-                 
+                  <div class="col-lg-6 col-md-8 mx-auto" >
                     <h1 class="fw-light">Album example</h1>
                     <p class="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
                     <p>
@@ -54,11 +54,11 @@ const AllTravelPlace = () => {
                 <div class="container">
 
                   <div class="row row-cols-1 row-cols row-cols-md-3 g-3">
-                  {filteredplaces.map((places)=>
+                  {filteredplaces.map((places,index)=>
                   <div class="col">
                     
-                    <div class="card shadow-sm" >
-                    <h3 className="text-dark" style={{ textAlign:'center' }}><a href={`/singale_travel_place/${places._id}`} style={{ textDecoration:'none', color:'black' }}>{places.name}</a></h3>
+                    <div class="card shadow-sm" key={index}>
+                    <h3 className="text-dark" style={{ textAlign:'center' }}><a href={`/singale_travel_place/${places._id}`} style={{ textDecoration:'none', color:'black' }}>{index+1}. {places.name}</a></h3>
                     <a href={`/singale_travel_place/${places._id}`}><img class="bd-placeholder-img card-img-top" width="100%" height="225" src={places.image}  /></a>
                     <div class="card-body">
                       <p class="card-text" style={{ maxHeight:'3em', overflow:'hidden' }}>{places.discription} </p>
