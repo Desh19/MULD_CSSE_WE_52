@@ -20,6 +20,7 @@ import Allarticles from './components/views/Traveler/Allarticles';
 import TravelerProfile from './components/views/Traveler/TravelerProfile';
 import AddArticle from './components/views/Traveler/AddArticle';
 import AllPackages from './components/views/Traveler/AllPackages';
+import GuidePackageView from './components/views/Traveler/GuidePackageView';
 
 //Travel Agent
 import TravelAgentDashboard from './components/views/TravelAgent/TravelAgentDashboard';
@@ -40,6 +41,7 @@ import GuideProfile from './components/views/TouristGuide/GuideProfile';
 import TouristGuideHome from './components/views/TouristGuide/TouristGuideHome';
 import AllPackagesView from './components/views/TouristGuide/AllPackagesView';
 
+
 function App() {
   return (
     <div>
@@ -56,6 +58,8 @@ function App() {
         <Route path='/travelerprofile' element={<TravelerProfile />} />
         <Route path='/addarticle' element={<AddArticle />} />
         <Route path='/allpackages' element={<AllPackages />} />
+        <Route path='/guidepackageview/:id' element={<GuidePackageView />} />
+
 
         {/* TravelAgent */}
         <Route path='/dashboard_ta' element={<TravelAgentDashboard />} />

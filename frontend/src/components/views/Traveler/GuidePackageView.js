@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-import HeaderGuide from './HeaderGuide';
+import HeaderTraveler from '../Headers/HeaderTraveler';
 import Footer from '../Footer';
 
-const SingaleTravelguide = () => {
+const GuidePackageView = () => {
 
     // const id =localStorage.getItem("id");
     const [guide , setGuide] = React.useState({});
@@ -26,7 +26,7 @@ const SingaleTravelguide = () => {
 
   return (
     <div className="site-wrap">
-      <HeaderGuide/>
+      <HeaderTraveler/>
       <div className="bg-light py-5">
         <div className="container">
           <div className="row">
@@ -67,4 +67,4 @@ const SingaleTravelguide = () => {
 }
 
 
-export default SingaleTravelguide
+export default GuidePackageView
