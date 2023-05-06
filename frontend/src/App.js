@@ -21,6 +21,7 @@ import TravelerProfile from './components/views/Traveler/TravelerProfile';
 import AddArticle from './components/views/Traveler/AddArticle';
 import AllPackages from './components/views/Traveler/AllPackages';
 import GuidePackageView from './components/views/Traveler/GuidePackageView';
+import SingleArticleView from './components/views/Traveler/SingleArticleView';
 
 //Travel Agent
 import TravelAgentDashboard from './components/views/TravelAgent/TravelAgentDashboard';
@@ -59,6 +60,7 @@ function App() {
         <Route path='/addarticle' element={<AddArticle />} />
         <Route path='/allpackages' element={<AllPackages />} />
         <Route path='/guidepackageview/:id' element={<GuidePackageView />} />
+        <Route path='/SingleArticleView/:id' element={<SingleArticleView />} />
 
 
         {/* TravelAgent */}
@@ -72,16 +74,12 @@ function App() {
         <Route path='/singale_place_view/:id' element={<SingalePlaceView />} />
 
 
-
         {/* Tourist Guide */}
         <Route path='/add_package' element={<AddPackage />} />
         <Route path='/all_packages' element={<AllPackagesView />} />
         <Route path='/single_package/:id' element={<SinglePackage />} />
         <Route path='/guide_profile' element={<GuideProfile />} />
         <Route path='/guide_home' element={<TouristGuideHome />} />
-        
-
-
         
 
       </Routes>  

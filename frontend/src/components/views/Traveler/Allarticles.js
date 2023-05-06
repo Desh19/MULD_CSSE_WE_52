@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import './allarticles.css';
 import HeaderTraveler from '../Headers/HeaderTraveler';
@@ -89,6 +90,7 @@ const unlikePost = (id)=>{
           <h6>{article.title} - {article.category}</h6>
           </center>          
           </div>
+          
 
           <div className="card-body">
             
@@ -131,7 +133,9 @@ const unlikePost = (id)=>{
               <br />
 
               <div>
+              <Link to={`/SingleArticleView/${article._id}`}>
               <button className='readmorebtn'>Read More</button>
+              </Link>
               </div>
               
           </div>
