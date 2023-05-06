@@ -36,6 +36,9 @@ app.use("/TravelPlace", travelplace);
 const articles = require("./routes/TravelArticle"); //use this when implementing routes
 app.use("/Article", articles);
 
+const Packages = require("./routes/GuidePackage"); //use this when implementing routes
+app.use("/Package", Packages);
+
 
 
 app.listen(PORT,()=>{

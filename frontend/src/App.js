@@ -37,6 +37,7 @@ import AddPackage from './components/views/TouristGuide/AddPackage';
 import AllPackages from './components/views/TouristGuide/AllPackages';
 import SinglePackage from './components/views/TouristGuide/SinglePackage';
 import GuideProfile from './components/views/TouristGuide/GuideProfile';
+import TouristGuideHome from './components/views/TouristGuide/TouristGuideHome';
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
         <Route path='/all_packages' element={<AllPackages />} />
         <Route path='/single_package/:id' element={<SinglePackage />} />
         <Route path='/guide_profile' element={<GuideProfile />} />
+        <Route path='/guide_home' element={<TouristGuideHome />} />
 
 
         
