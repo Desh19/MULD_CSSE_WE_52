@@ -4,10 +4,11 @@ import axios from 'axios';
 import { SideNav } from './SideNav'
 import { DashboardHeader } from './TravelAgentHeader'
 import "../TravelAgent/TravelAgentDashboard.css"
+import Swal from 'sweetalert2';
 
 const TravelAgentView = () => {
 
-  const id = localStorage.getItem("id");
+    const id = localStorage.getItem("id");
     const [place , setPlace] = React.useState([]);
     const [searchTerm, setSearchTerm] = React.useState("");
     // const params=useParams();
@@ -29,6 +30,47 @@ const TravelAgentView = () => {
             place.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())
         );
     });
+
+    const deleteItem = async (placeID) => {
+      try{
+          Swal.fire({
+              title: "Are you sure?",
+              text: "You won't be able to revert this!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, delete it!",
+            }).then((result) => {
+              if (result.value === true) {
+                const res =  axios.delete(`http://localhost:8090/TravelPlace/delete/${placeID}`).then((res) => {
+                  if (res) {
+                    Swal.fire({
+                      title: "Success!",
+                      text: "Your file has been deleted",
+                      icon: "success",
+                      showConfirmButton: false,
+                      timer: 1500,
+                    }).then(() => {
+                      window.location.href = "/travel_agent_view";
+                    });
+                  } else {
+                    Swal.fire({
+                      title: "Error!",
+                      text: "Something went wrong",
+                      icon: "error",
+                      showConfirmButton: false,
+                      timer: 1500,
+                    });
+                  }
+                });
+              }
+            });
+    
+      }catch(err){
+          console.log(err.data.msg);
+      }
+    }
 
 
   return (
@@ -78,7 +120,7 @@ const TravelAgentView = () => {
                             <td>{place.famousfor}</td>
                             <td>{place.location}</td>
                             <td><a href={`/update_travel_place/${place._id}`}><button type="button" class="btn btn-primary" style={{ margin:'5px' }}>Update</button></a>
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-danger" onClick={()=>deleteItem(place._id)}>Delete</button>
                             </td>
                             
                         </tr>

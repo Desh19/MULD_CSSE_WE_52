@@ -28,6 +28,7 @@ import SingaleTravelPlace  from './components/views/Traveler/SingaleTravelPlace'
 import ViewTravelPlace from './components/views/TravelAgent/ViewAllTravelPlace';
 import UpdateTravelPlace from './components/views/TravelAgent/UpdateTravelPlace';
 import TravelAgentView from './components/views/TravelAgent/TravelAgentView';
+import SingalePlaceView from './components/views/TravelAgent/SingalePlaceView';
 // import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
 // import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
 
@@ -55,6 +56,7 @@ function App() {
         <Route path='/view_travel_place' element={<ViewTravelPlace />} />
         <Route path='/update_travel_place/:id' element={<UpdateTravelPlace />} />
         <Route path='/travel_agent_view' element={<TravelAgentView />} />
+        <Route path='/singale_place_view/:id' element={<SingalePlaceView />} />
       </Routes>  
     </Router>
   </div>
