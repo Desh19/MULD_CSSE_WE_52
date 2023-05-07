@@ -90,7 +90,7 @@ const NotRegHeader = () => {
                   button: false,
                 });
 
-             navigate("/",{
+             navigate("/guide_home",{
               state:{
                   id:res.data._id
               }

@@ -81,5 +81,19 @@ router.get('/:id', (req, res) => {
       .catch((err) => res.status(404).json({ error: "No such a Place" }));
   });
 
+  // // Create a new route that handles GET requests for deleted posts
+  // router.get('/deleted', async (req, res) => {
+  //   try {
+  //     // Use a MongoDB query to find all deleted posts
+  //     const travelplace = await Post.find({ deleted: true });
+
+  //     // Return the deleted posts in the response
+  //     res.status(200).json({ travelplace });
+  //   } catch (err) {
+  //     console.error(err);
+  //     res.status(500).json({ message: 'Server error' });
+  //   }
+  // });
+
 
 module.exports = router;
