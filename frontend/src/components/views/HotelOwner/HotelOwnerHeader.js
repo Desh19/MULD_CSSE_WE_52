@@ -6,7 +6,7 @@ export const DashboardHeader = () => {
   return (
     <div>
         <header class="navbar navbar-dark sticky-top bg-light flex-md-nowrap p-0 shadow HOheader" style={{ position:"fixed" , width:"100%" }}>
-        <a className="navbar-brand" href="#"><img class="logoimg" src={logo} alt="Logo" style={{ height:"100px" , top:"0px", marginTop:"0px" , paddingTop:"0px"}}/></a>
+        <a className="navbar-brand" href="#"><img class="logoimg" src={logo} alt="Logo"/></a>
         
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
