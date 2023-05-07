@@ -4,22 +4,22 @@ import axios from 'axios';
 import HeaderTraveler from '../Headers/HeaderTraveler';
 import Footer from '../Footer';
 
-const GuidePackageView = () => {
+const SingleArticleView = () => {
 
     // const id =localStorage.getItem("id");
-    const [guide , setGuide] = React.useState({});
+    const [article , setArticle] = React.useState({});
     const params=useParams();
-    const packageID=params.id;
+    const articleID=params.id;
 
     useEffect(()=>{
-        const getOnepackage = async () => {
-          await axios.get(`http://localhost:8090/Package/${packageID}`).then((res) => {
-            setGuide(res.data);
+        const ViewOneArticle = async () => {
+          await axios.get(`http://localhost:8090/Article/${articleID}`).then((res) => {
+            setArticle(res.data);
           }).catch((err) => {
               console.log(err.massage);
           }) 
       }
-      getOnepackage();
+      ViewOneArticle();
       },[])
 
 
@@ -33,7 +33,7 @@ const GuidePackageView = () => {
             <div className="col-md-5 mr-auto">
               <div className="border text-center">
                 <img
-                  src={guide.image}
+                  src={article.image}
                   alt="Image"
                   className="img-fluid p-5"
                 />
@@ -41,11 +41,11 @@ const GuidePackageView = () => {
               </div>
             </div>
             <div className="col-md-6 mt-5">
-              <h2 className="text-black">{guide.userName}</h2>
-              <p>{guide.guiderBio}</p>
-              <p>Mobile Number  : {guide.mobileNo}</p>
-              <p>Price Range : {guide.priceRange}</p>
-              <p>Language Competencies : {guide.languages}</p>
+              <h2 className="text-black">{article.title}</h2>
+              <p>{article.description}</p>
+              <p>Article Category : {article.category}</p>
+              <p>Publisher Name : {article.userName}</p>
+              <p>Posted Date : {article.postedAt}</p>
               <div className="mb-5">
                 <div className="input-group mb-3" style={{ maxWidth: "220px" }}>
                  
@@ -61,4 +61,4 @@ const GuidePackageView = () => {
 }
 
 
-export default GuidePackageView
+export default SingleArticleView
