@@ -247,7 +247,6 @@ body {
 
     .hotelItem{
       max-width: 350px;
-      max-height: 430px !important;
     }
 
 
@@ -331,59 +330,4 @@ body {
       color: white;
     }
     /* ================= hotels view container ================= */
-
-    .viewHotelAreaTraveller{
-      padding-top: 63px;
-      padding-bottom: 50px;
-      background-color: white;
-    }
-
-    .hotelsContainer{
-      background-color: white;
-      width: 100%;
-      height: auto;
-    }
-
-    .viewHotelsAreaTraveller{
-      margin: 0 auto;
-      padding-top: 100px;
-      padding-bottom: 50px;
-      background-color: rgb(236, 236, 236);
-      width: 100%;
-      height: 100vh;
-      display: grid;
-      padding-left: 5%;
-      padding-right: 5%;
-      grid-template-columns: repeat(4,1fr);
-      gap: 1.5rem;
-    }
-
-    .carosolArea{
-      height: 400px;
-      object-fit: cover;
-    }
-
-    .HotelinformationArea{
-      width: 80%;
-      height: auto;
-      margin: 20px auto;
-      padding-top: 50px;
-    }
-
-    iframe{
-      height: 200px !important;
-      float: right;
-    }
-
-
-    .hotelTitle{
-      position: relative;
-      top: 170px;
-      z-index: 7;
-      color: white;
-    }
-
-    .socialmed{
-      
-    }
 

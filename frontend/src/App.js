@@ -25,9 +25,6 @@ import SingleArticleView from './components/views/Traveler/SingleArticleView';
 import TravelerOneArticle from './components/views/Traveler/TravelerOneArticle';
 import UpdateArticle from './components/views/Traveler/UpdateArticle';
 
-import ViewHotelTraveler from './components/views/HotelOwner/ViewHotelTraveler';
-import ViewHotelsTraveller from './components/views/HotelOwner/ViewHotelsTraveller';
-
 //Travel Agent
 import TravelAgentDashboard from './components/views/TravelAgent/TravelAgentDashboard';
 import AddTravelPlace from './components/views/TravelAgent/AddTravelPlace';
@@ -77,9 +74,6 @@ function App() {
         <Route path='/TravelerOneArticle/:id' element={<TravelerOneArticle />} />
         <Route path='/UpdateArticle/:id' element={<UpdateArticle />} />
 
-
-        <Route path='/ViewHotelTravler' element={<ViewHotelTraveler/>} />
-        <Route path='/ViewHotelsTravler' element={<ViewHotelsTraveller/>} />
 
         {/* TravelAgent */}
         <Route path='/dashboard_ta' element={<TravelAgentDashboard />} />
