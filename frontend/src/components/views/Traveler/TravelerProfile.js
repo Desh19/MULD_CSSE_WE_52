@@ -91,18 +91,21 @@ const deleteArticle = async (_id) => {
          <HeaderTraveler />
         <div className='TravelProfileArea'>
             <div class="row TravelerProfile">
+            
                 <div class="col-sm-8 lefts">
+                <Link className="nav-link active" aria-current="page" to="/UpdateTravelerProfile">
                     <img
                       src={user.image ? user.image : "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"}
                       alt=""
                       className="travelerimg"
                       />
+                      </Link>
                     <div className='nameNdate mt-4'>
                         <h2>{user.name} ({user.field})</h2>
                         <p>{user.registerAt}</p>
                     </div>
-                
                 </div>
+                
                 <div class="col-sm-4 rights">
                     <button className='btn btn-success articlebtn'><Link className="nav-link active" aria-current="page" to="/addarticle">Add article</Link></button>
                     <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/UpdateTravelerProfile">Edit Profile</Link></button>
