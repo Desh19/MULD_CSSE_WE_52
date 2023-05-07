@@ -6,28 +6,26 @@ import Swal from 'sweetalert';
 
 const AddHotel = () => {
 
+    const id = localStorage.getItem("id");
     const [image , setImage] = React.useState("");
     const [name , setName] = React.useState("");
-    const [discription , setDescription] = React.useState("");
+    const [about , setAbout] = React.useState("");
     const [location , setLocation] = React.useState("");
-    const [famousfor , setFamousfor] = React.useState("");
-    const [bestTimeVisit , setBestTimeVisit] = React.useState("");
-    const [attraction , setAttraction] = React.useState("");
+    const [contact , setContact] = React.useState("");
 
 
-    const [placePlayload , setPlacePlayloads] = React.useState({
+    const [hotelPlayload , setHotelPlayloads] = React.useState({
+        hotelOwnerID : id,
         name : "",
-        discription : "",
+        about : "",
         image : "",
         location : "",
-        famousfor : "",
-        bestTimeVisit : "",
-        attraction : "",
+        contact : "",
     });
 
     const onChangeInput = (e) => {
-        setPlacePlayloads({
-          ...placePlayload,
+      setHotelPlayloads({
+          ...hotelPlayload,
           [e.target.id]: e.target.value,
         });
       };
@@ -35,17 +33,17 @@ const AddHotel = () => {
       const onSubmit = async (e) => {
         e.preventDefault();
         try {
-          console.log(placePlayload)
-          const res = await axios.post("http://localhost:8090/TravelPlace/add",placePlayload);
+          console.log(hotelPlayload)
+          const res = await axios.post("http://localhost:8090/Hotel/add",hotelPlayload);
           console.log(res);
           Swal({
             title: "Success!",
-            text: "Device added successfully",
+            text: "Hotel added successfully",
             icon: 'success',
             timer: 2000,
             button: false,
           }).then(()=>{
-            window.location.href = "/dashboard_ta";
+            window.location.href = "/hotelOwner_dashboard_ta";
           })       
         } catch (err) {
           Swal({
@@ -87,8 +85,8 @@ const AddHotel = () => {
               },
             })
             // setLoading(false)
-            setPlacePlayloads({
-              ...placePlayload,
+            setHotelPlayloads({
+              ...hotelPlayload,
               image: res.data.url,
             });
           } catch (err) {
@@ -121,7 +119,7 @@ const AddHotel = () => {
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">About</label>
-                                <textarea type="text" placeholder='About...' class="form-control" style={{ height: "150px" }} id='discription' name='discription' onChange={(e) => onChangeInput(e)} required/>
+                                <textarea type="text" placeholder='About...' class="form-control" style={{ height: "150px" }} id='about' name='about' onChange={(e) => onChangeInput(e)} required/>
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Images</label>
@@ -130,6 +128,10 @@ const AddHotel = () => {
                             <div class="mb-3">
                                 <label class="form-label">Location</label>
                                 <input type="text" class="form-control" id='location' name='location' onChange={(e) => onChangeInput(e)} required/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Contact Number</label>
+                                <input type="text" class="form-control" id='contact' name='contact' onChange={(e) => onChangeInput(e)} required/>
                             </div>
                             
                             <button type="submit" class="btn btn-primary btn-sm" onClick={(e)=> onSubmit(e)}>Submit</button>

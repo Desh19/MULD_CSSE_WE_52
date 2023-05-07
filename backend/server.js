@@ -37,6 +37,10 @@ const articles = require("./routes/TravelArticle"); //use this when implementing
 app.use("/Article", articles);
 
 
+const hotels = require("./routes/Hotel"); //use this when implementing routes
+app.use("/Hotel", hotels);
+
+
 
 app.listen(PORT,()=>{
     console.log(`Server is up and running on port ${PORT}`);
