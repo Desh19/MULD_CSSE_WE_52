@@ -25,8 +25,7 @@ const AllTravelPlace = () => {
 
   const filteredplaces = places.filter((places) => {
     return (
-      places.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-      places.price.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+      places.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())
     );
 });
 
