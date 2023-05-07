@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import {NavLink,Link} from 'react-router-dom';
-import HeaderTraveler from './Headers/HeaderTraveler';
-import Footer from './Footer';
-import './home.css';
-import BgVideo from '../videos/bgVideo.mp4';
+import HeaderGuide from './HeaderGuide';
+import Footer from '../Footer';
+import '../home.css';
+import BgVideo from '../../videos/bgVideo.mp4';
 
-const HomePage = () => {
+const TouristGuideHome = () => {
 
   const id =localStorage.getItem("id");
 
@@ -22,7 +22,7 @@ const HomePage = () => {
   return (
     <div>
 
-      <HeaderTraveler />
+      <HeaderGuide />
           <div id="homevideo" className="landingpage">
 
           <video src={BgVideo} autoPlay muted loop class="video-bg" />
@@ -85,7 +85,7 @@ const HomePage = () => {
                     Applicant User Profile allows you to edit user profiles,
                     search for jobs, apply them, view their statuses and much more.
                   </p>
-                  <Link aria-current="page" to={"/allpackages"}>View</Link>
+                  <Link aria-current="page" to={"/all_packages"}>View</Link>
                 </div>
               </div>
             </div>
@@ -112,4 +112,4 @@ const HomePage = () => {
 }
 
 
-export default HomePage
+export default TouristGuideHome

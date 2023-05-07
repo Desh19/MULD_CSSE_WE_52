@@ -7,6 +7,9 @@ const UserSchema = new mongoose.Schema(
       email:{type: String, requried: true,trim: true},
       password: {type: String,required: false},
       field: {type: String, requried: true, trim: true},
+      image : {type: String,
+        // required : true
+    },
       registerAt:Date
     }
  
