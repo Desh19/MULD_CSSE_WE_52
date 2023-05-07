@@ -10,7 +10,7 @@ const Swal = require('sweetalert2')
 
 export default function GuideProfile() {
 
-    const id =localStorage.getItem("id");
+  const id =localStorage.getItem("id");
   const [searchTerm, setSearchTerm] = React.useState("");
   const [guide, setGuide] = React.useState([]);
   const [user, setUser] = React.useState([]);
@@ -94,18 +94,23 @@ const deletepackage = async (_id) => {
         <div className='GuideProfileArea'>
             <div class="row GuideProfile">
                 <div class="col-sm-8 lefts">
-                    <div className='profileimg'>
-
-                    </div>
+                <Link className="nav-link active" aria-current="page" to="/update_profile">
+                    <img
+                      src={user.image ? user.image : "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"}
+                      alt=""
+                      className="guideProfilePic"
+                      />
+                      </Link>
                     <div className='nameNdate'>
                         <h2>{user.name}</h2>
+                        <h6>{user.field}</h6>
                         <p>{user.registerAt}</p>
                     </div>
                 
                 </div>
                 <div class="col-sm-4 rights">
                     <button className='btn btn-success guidebtn'><Link className="nav-link active" aria-current="page" to="/add_package">Add Package</Link></button>
-                    <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/editProfileS">Edit Profile</Link></button>
+                    <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/update_profile">Edit Profile</Link></button>
                     <button className='dltprofile'>Delete Profile</button>
                     
                 </div>
