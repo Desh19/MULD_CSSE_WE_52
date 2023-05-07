@@ -93,12 +93,12 @@ const deleteArticle = async (_id) => {
             <div class="row TravelerProfile">
                 <div class="col-sm-8 lefts">
                     <img
-                      src={user.image}
+                      src={user.image ? user.image : "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"}
                       alt=""
                       className="travelerimg"
                       />
-                    <div className='nameNdate'>
-                        <h2>{user.name}</h2>
+                    <div className='nameNdate mt-4'>
+                        <h2>{user.name} ({user.field})</h2>
                         <p>{user.registerAt}</p>
                     </div>
                 

@@ -57,12 +57,11 @@
     background-color: rgb(144, 3, 3);
 }
 
+
 .travelerimg{
-    background-image: url("C:\Users\1019d\OneDrive\Documents\GitHub\MULD_CSSE_WE_52\frontend\src\components\images\person-icon-8.png");
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    background-color: rgb(159, 159, 159);
 }
 
 .TravelerArea{
