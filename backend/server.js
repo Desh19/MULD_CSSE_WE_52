@@ -33,11 +33,16 @@ app.use("/User", user);
 const travelplace = require("./routes/TravelPlace"); //use this when implementing routes
 app.use("/TravelPlace", travelplace);
 
+const jobvacancy = require('./routes/JobVacancy');//use this when implementing routes
+app.use("/JobVacancy", jobvacancy);
+
 const articles = require("./routes/TravelArticle"); //use this when implementing routes
 app.use("/Article", articles);
 
 const Packages = require("./routes/GuidePackage"); //use this when implementing routes
 app.use("/Package", Packages);
+
+
 
 
 
