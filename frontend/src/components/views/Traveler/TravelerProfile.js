@@ -139,6 +139,11 @@ const deleteArticle = async (_id) => {
               <div className='profileArea'>
 
                 <div className='pro'>
+                <img
+                      src={article.publisherDP}
+                      alt=""
+                      className="pro"
+                      />
 
                 </div>
                 <div className='nameN'>

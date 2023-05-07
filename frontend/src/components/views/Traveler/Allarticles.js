@@ -101,9 +101,13 @@ const unlikePost = (id)=>{
 
           <div className="card-footer w-100">
               <div className='profileArea'>
-
+          
                 <div className='pro'>
-
+                <img
+                      src={article.publisherDP}
+                      alt=""
+                      className="pro"
+                      />
                 </div>
                 <div className='nameN'>
                   <h2>{article.userName}</h2>
