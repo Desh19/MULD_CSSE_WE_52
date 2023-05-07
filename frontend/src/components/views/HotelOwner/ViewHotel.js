@@ -99,6 +99,10 @@ const ViewHotel = () => {
 
       <div class="mt-5 mb-5 hotelDetailArea">
             <form class="row g-3">
+                  <div class="col-md-12">
+                        <label for="inputEmail4" class="form-label">Hotel Name</label>
+                        <input type="name" class="form-control" id="inputEmail4"/>
+                  </div>
                   <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">About</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder='about..'></textarea>

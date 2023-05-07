@@ -45,6 +45,10 @@ app.use("/Package", Packages);
 
 
 
+const hotels = require("./routes/Hotel"); //use this when implementing routes
+app.use("/Hotel", hotels);
+
+
 
 app.listen(PORT,()=>{
     console.log(`Server is up and running on port ${PORT}`);
