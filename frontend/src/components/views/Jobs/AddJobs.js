@@ -7,21 +7,92 @@ import Select from 'react-select';
 
 const AddJobs = () => {
 
-  const JobCategoryies = [
-    { value: "Full Time", label: "Full Time" },
-    { value: "Part Time", label: "Part Time" },
-    { value: "Contract", label: "Contract" },
+    const id = localStorage.getItem("id");
+    const name = localStorage.getItem("name");
+    const [title , setTitle] = React.useState("");
+    const [discription , setDescription] = React.useState("");
+    const [jobType , setJobType] = React.useState("");
+    const [jobCategory , setJobCategory] = React.useState("");
+    const [closing_date , setClosing_date] = React.useState("");
 
-  ];
+    const [jobPlayload , setJobPlayloads] = React.useState({
+        createdBy : id,
+        createdByName : name,
+        title : "",
+        discription : "",
+        jobType : "",
+        jobCategory : "",
+        closing_date : "",
+    });
 
-  const JobType = [
-    { value: "Human Resources Managment", label: "Human Resources Managment" },
-    { value: "Information Technology", label: "Information Technology" },
-    { value: "Accounting and Finance", label: "Accounting and Finance" },
-    { value: "Health Sector", label: "Health Sector" },
-    { value: "Education", label: "Education" },
+    const onChangeInput = (e) => {
+        setJobPlayloads({
+            ...jobPlayload,
+            [e.target.id]: e.target.value,
+            jobType : jobType,
+            jobCategory : jobCategory,
+        });
+    };
 
-  ];
+
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            console.log(jobPlayload)
+            const res = await axios.post("http://localhost:8090/JobVacancy/add",jobPlayload);
+            console.log(res);
+            Swal({
+                title: "Success!",
+                text: "Job added successfully",
+                icon: 'success',
+                timer: 2000,
+                button: false,
+            }).then(()=>{
+                window.location.href = "/dashboard_ta";
+            })
+        } catch (err) {
+            Swal({
+                title: "Error!",
+                text: err.response.data.msg,
+                icon: 'warning',
+                timer: 2000,
+                button: false,
+            })
+        }
+    }
+
+
+    // const JobCategoryies = [
+    //     { value: "Full Time", label: "Full Time" },
+    //     { value: "Part Time", label: "Part Time" },
+    //     { value: "Contract", label: "Contract" },
+
+    // ];
+
+    // const JobType = [
+    //     { value: "Human Resources Managment", label: "Human Resources Managment" },
+    //     { value: "Information Technology", label: "Information Technology" },
+    //     { value: "Accounting and Finance", label: "Accounting and Finance" },
+    //     { value: "Health Sector", label: "Health Sector" },
+    //     { value: "Education", label: "Education" },
+
+    // ];
+
+//    const handleJobCategory = (e) => {
+//         setJobCategory(e.name);
+//     };
+
+    // const onJobCategoryiesOptionSelected = (e) => {
+    //     this.setJobCategory({ jobCategory: e.label });
+    // };
+
+    // const onJobTypeOptionSelected = (e) => {
+    //     this.setJobType({ jobType: e.label });
+    //   }
+
+
+
 
 
 
@@ -57,33 +128,49 @@ const AddJobs = () => {
                         <form>
                             <div class="mb-3">
                                 <label class="form-label">Job Title</label>
-                                <input type="text" class="form-control" id='name' name='name'  required/>
+                                <input type="text" class="form-control" id='title' name='title' onChange={(e) => onChangeInput(e)} required/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Job Description</label>
-                                <textarea type="text" class="form-control" style={{ height: "150px" }} id='discription' name='discription' required/>
+                                <textarea type="text" class="form-control" style={{ height: "150px" }} id='discription' name='discription' onChange={(e) => onChangeInput(e)} required/>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Job Type</label>
-                                <Select
-                                    placeholder="Select Job Type"
-                                    options={JobCategoryies}
-                                />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Job Category</label>
-                                <Select
-                                  placeholder="Select Job Category"
-                                  options={JobType}
-                                />
-                            </div>
+                          <label class="form-label">Job Category</label>
+                          <Select className="" name="jobType" 
+                                      options={[
+                                        { value: "FullTime", label: "Full Time" },
+                                        { value: "PartTime", label: "Part Time" },
+                                        { value: "Contract", label: "Contract" },
+                                                
+                                      ]}
+                                      onChange={(e) => {
+                                        setJobType(e.label);
+                                      }}
+                           />
+                        </div>
+                        <div class="mb-3">
+                           <label class="form-label">Job Category</label>
+                          <Select className="" name="jobCategory" 
+                                      options={[
+                                        { value: "Travel Agent", label: "Travel Agent" },
+                                        { value: "Tour Operator", label: "Tour Operator" },
+                                        { value: "Hotel Manager", label: "Hotel Manager" },
+                                        { value: "Tour Guide", label: "Tour Guide" },
+                                        { value: "Travel Photographer", label: "Travel Photographer" },
+                                        
+                                      ]}
+                                      onChange={(e) => {
+                                        setJobCategory(e.label);
+                                      }}
+                           />
+                      </div>  
                             <div class="mb-3">
                                 <label class="form-label">Vacancy Closing Date</label>
-                                <input className="form-control" type="date"  id="example-datetime-local-input"
+                                <input className="form-control" type="date" onChange={(e) => onChangeInput(e)} id="closing_date"
                                     name="closing_date"
                                     required />
                             </div>
-                            <button type="submit" class="btn btn-primary">Create</button>
+                            <button type="submit" class="btn btn-primary" onClick={(e)=> onSubmit(e)}>Create</button>
                         </form>
                         </div>
                     </div>  

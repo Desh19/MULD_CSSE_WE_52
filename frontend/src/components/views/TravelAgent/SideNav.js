@@ -44,7 +44,7 @@ export const SideNav = () => {
         </Link>
         <div class="collapse show" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="nav-link">Add Jobs</a></li>
+            <li><a href="/add_jobs" class="nav-link">Add Jobs</a></li>
             <li><a href="#" class="nav-link">Updates Jobs</a></li>
             {/* <li><a href="#" class="nav-link">Delete Place</a></li> */}
           </ul>
