@@ -126,9 +126,9 @@ const deleteArticle = async (_id) => {
           </div>
 
           <div className="card-body">
-            
+          <Link to={`/TravelerOneArticle/${article._id}`}>
             <img src={article.image} alt="image" width="100%"/>
-
+            </Link>
           </div>
 
           <div className="card-footer w-100">
@@ -151,7 +151,9 @@ const deleteArticle = async (_id) => {
               <br />
 
               <div>
+              <Link to={`/TravelerOneArticle/${article._id}`}>
               <button className='readmorebtn'>Read More</button>
+              </Link>
               <button className='btn btn-danger'onClick={()=>deleteArticle(article._id)}>Remove</button>
               </div>
               

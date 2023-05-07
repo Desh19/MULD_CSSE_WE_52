@@ -93,8 +93,9 @@ const unlikePost = (id)=>{
           
 
           <div className="card-body">
-            
+          <Link to={`/SingleArticleView/${article._id}`}>
             <img src={article.image} alt="image" width="100%"/>
+            </Link>
 
           </div>
 
