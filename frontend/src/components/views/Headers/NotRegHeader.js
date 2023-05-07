@@ -106,7 +106,7 @@ const NotRegHeader = () => {
                 button: false,
               });
 
-           navigate("/",{
+           navigate("/hotelOwner_dashboard_ta",{
             state:{
                 id:res.data._id
             }
