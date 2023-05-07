@@ -135,7 +135,7 @@ const UpdateArticle = () => {
                       <div class="mb-3">
                           <label for="formFile" class="form-label">Profile Photo</label>
                         <div class="card" style={{ width:'18rem' }}>
-                            <img class="card-img-top" src={user.image} alt="Profile Image" style={{ width:'18rem', height:'auto' }} />
+                            <img class="card-img-top" src={user.image ? user.image : "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"} alt="Profile Image" style={{ width:'18rem', height:'auto' }} />
                         </div>
                      </div>
 

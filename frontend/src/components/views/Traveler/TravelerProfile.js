@@ -101,7 +101,8 @@ const deleteArticle = async (_id) => {
                       />
                       </Link>
                     <div className='nameNdate mt-4'>
-                        <h2>{user.name} ({user.field})</h2>
+                        <h2>{user.name}</h2>
+                        <h6>{user.field}</h6>
                         <p>{user.registerAt}</p>
                     </div>
                 </div>
