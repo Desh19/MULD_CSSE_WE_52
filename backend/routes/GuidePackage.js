@@ -5,32 +5,28 @@ const router = express.Router();
 const Guide = require('../models/GuidePackage');
 
 
-// @description add/save Guide
-// @access Public
+// @description add/save package
 router.post('/add', (req, res) => {
     Guide.create(req.body)
     .then(Guide => res.json({ msg: 'Guide Package Published successfully' }))
     .catch(err => res.status(400).json({ error: 'Unable to publish this Guide' }));
 });
 
-// @description Get all Guides
-// @access Public
+// @description Get all packages
 router.get('/', (req, res) => {
     Guide.find()
     .then(Guides => res.json(Guides))
     .catch(err => res.status(404).json({ noGuidesfound: 'No Guide Packages found' }));
 });
 
-// @description Get single Guide by id
-// @access Public
+// @description Get single package by id
 router.get('/:id', (req, res) => {
     Guide.findById(req.params.id)
     .then(Guide => res.json(Guide))
     .catch(err => res.status(404).json({ noGuidefound: 'No Guide Package found' }));
 });
 
-// @description Update Guide
-// @access Public
+// @description Update package
 router.put('/update/:id', (req, res) => {
     Guide.findByIdAndUpdate(req.params.id, req.body)
     .then(Guide => res.json({ msg: 'Updated successfully' }))
@@ -39,16 +35,14 @@ router.put('/update/:id', (req, res) => {
     );
 });
 
-// @description Delete Guide by id
-// @access Public
+// @description Delete package by id
 router.delete('/delete/:id', (req, res) => {
     Guide.findByIdAndRemove(req.params.id, req.body)
     .then(Guide => res.json({ msg: 'Guide entry deleted successfully' }))
     .catch(err => res.status(404).json({ error: 'No such a Guide' }));
 });
 
-// @description GET OwnGuides by id
-// @access Public
+// @description GET OwnPackages by id
 router.route("/ownPackage/:id").get((req,res)=>{
   const id = req.params.id;
   Guide.find({userID:id}).then((Guide)=>{
@@ -58,8 +52,5 @@ router.route("/ownPackage/:id").get((req,res)=>{
   })
 
 })
-
-
-
 
 module.exports = router;
