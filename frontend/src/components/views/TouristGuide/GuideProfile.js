@@ -131,9 +131,11 @@ const deletepackage = async (_id) => {
                           <button type="button" class="btn btn-primary">Read More</button>
                           </Link>
                           <Link to={`/update_package/${guide._id}`}>
-                          <button type="button" class="btn btn-success">Update</button>
+                          <button type="button" class="btn btn-success ms-3">Update</button>
                           </Link>
-                          <button type="button" class="btn btn-danger" onClick={()=>deletepackage(guide._id)}>Delete</button>
+                          <Link>
+                          <button type="button" class="btn btn-danger ms-3" onClick={()=>deletepackage(guide._id)}>Delete</button>
+                          </Link>
                         </div>
                       </div>
                     </div>
