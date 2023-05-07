@@ -98,8 +98,8 @@ const deletepackage = async (_id) => {
 
                     </div>
                     <div className='nameNdate'>
-                        <h2>Lanka Karunathilake</h2>
-                        <p>2023.05.05</p>
+                        <h2>{user.name}</h2>
+                        <p>{user.registerAt}</p>
                     </div>
                 
                 </div>
