@@ -24,6 +24,7 @@ import GuidePackageView from './components/views/Traveler/GuidePackageView';
 import SingleArticleView from './components/views/Traveler/SingleArticleView';
 import TravelerOneArticle from './components/views/Traveler/TravelerOneArticle';
 import UpdateArticle from './components/views/Traveler/UpdateArticle';
+import UpdateTravelerProfile from './components/views/Traveler/UpdateTravelerProfile';
 
 //Travel Agent
 import TravelAgentDashboard from './components/views/TravelAgent/TravelAgentDashboard';
@@ -66,6 +67,7 @@ function App() {
         <Route path='/SingleArticleView/:id' element={<SingleArticleView />} />
         <Route path='/TravelerOneArticle/:id' element={<TravelerOneArticle />} />
         <Route path='/UpdateArticle/:id' element={<UpdateArticle />} />
+        <Route path='/UpdateTravelerProfile' element={<UpdateTravelerProfile />} />
 
 
         {/* TravelAgent */}

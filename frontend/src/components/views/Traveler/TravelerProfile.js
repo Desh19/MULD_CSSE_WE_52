@@ -2,9 +2,8 @@ import axios from "axios";
 import "./travelerprofile.css";
 import HeaderTraveler from '../Headers/HeaderTraveler';
 import Footer from '../Footer';
-import { useParams, useNavigate} from "react-router-dom";
 import React, { useRef, useState, useEffect } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const Swal = require('sweetalert2')
 
 
@@ -13,7 +12,7 @@ export default function TravelerProfile() {
   const id =localStorage.getItem("id");
   const [searchTerm, setSearchTerm] = React.useState("");
   const [article, setArticle] = React.useState([]);
-  const [user, setUser] = React.useState([]);
+  const [user, setUser] = React.useState({});
 
 
   useEffect(()=>{
@@ -93,18 +92,20 @@ const deleteArticle = async (_id) => {
         <div className='TravelProfileArea'>
             <div class="row TravelerProfile">
                 <div class="col-sm-8 lefts">
-                    <div className='profileimg'>
-
-                    </div>
+                    <img
+                      src={user.image}
+                      alt=""
+                      className="travelerimg"
+                      />
                     <div className='nameNdate'>
                         <h2>{user.name}</h2>
-                        <p>{article.registerAt}</p>
+                        <p>{user.registerAt}</p>
                     </div>
                 
                 </div>
                 <div class="col-sm-4 rights">
                     <button className='btn btn-success articlebtn'><Link className="nav-link active" aria-current="page" to="/addarticle">Add article</Link></button>
-                    <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/editProfileS">Edit Profile</Link></button>
+                    <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/UpdateTravelerProfile">Edit Profile</Link></button>
                     <button className='dltprofile'>Delete Profile</button>
                     
                 </div>

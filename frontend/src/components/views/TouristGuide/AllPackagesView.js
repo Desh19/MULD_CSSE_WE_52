@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import HeaderGuide from '../TouristGuide/HeaderGuide';
 import Footer from '../Footer';
-import back from '../../images/back.jpg'
 
 
 const AllPackagesView = () => {

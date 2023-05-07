@@ -9,6 +9,7 @@ router.route("/add").post((req,res)=>{
     const email = req.body.email;
     const password = req.body.password;
     const field = req.body.field;
+    const image = req.body.image;
     
 
     const newuser = new UserRegstration({
@@ -17,6 +18,7 @@ router.route("/add").post((req,res)=>{
         email,
         password,
         field,
+        image,
         registerAt:Date.now(),
     })
 
@@ -79,13 +81,14 @@ router.get("/get/:id",async (req,res)=>{
 
 router.route("/update/:id").put(async(req,res)=>{
     let userId = req.params.id;
-    const{name,email,password,field}=req.body;
+    const{name,email,password,field,image}=req.body;
 
     const updateUser={
         name,
         email,
         password,
-        field
+        field,
+        image
         
     }
     const update = await UserRegstration.findByIdAndUpdate(userId,updateUser).then(()=>{
