@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const JobVacancySchema = new mongoose.Schema({
-    createdBy: {
+    createdByID: {
         type: String,
         required: true,
     },

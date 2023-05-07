@@ -39,6 +39,9 @@ import UpdateTravelPlace from './components/views/TravelAgent/UpdateTravelPlace'
 import TravelAgentView from './components/views/TravelAgent/TravelAgentView';
 import SingalePlaceView from './components/views/TravelAgent/SingalePlaceView';
 import AddJobs  from './components/views/Jobs/AddJobs';
+import UserViewJobs from './components/views/Jobs/UserViewJobs';
+import UserViewAllJobs from './components/views/Jobs/UserViewAllJobs';
+import TravelAgentViewAll from './components/views/Jobs/TravelAgentViewAll';
 // import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
 // import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
 
@@ -107,7 +110,9 @@ function App() {
         <Route path='/hotel' element={<ViewHotel/>} />
 
         <Route path='/add_jobs' element={<AddJobs />} />
-
+        <Route path='/user_view_jobs/:id' element={<UserViewJobs />} />
+        <Route path='/user_view_all_jobs' element={<UserViewAllJobs />} />
+        <Route path='/travel_agent_view_all' element={<TravelAgentViewAll />} />
 
 
         {/* Tourist Guide */}
