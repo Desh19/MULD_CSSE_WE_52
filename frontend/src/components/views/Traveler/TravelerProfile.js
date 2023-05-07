@@ -2,12 +2,89 @@ import axios from "axios";
 import "./travelerprofile.css";
 import HeaderTraveler from '../Headers/HeaderTraveler';
 import Footer from '../Footer';
-import { useParams, useNavigate} from "react-router-dom";
 import React, { useRef, useState, useEffect } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+const Swal = require('sweetalert2')
 
 
 export default function TravelerProfile() {
+
+  const id =localStorage.getItem("id");
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [article, setArticle] = React.useState([]);
+  const [user, setUser] = React.useState({});
+
+
+  useEffect(()=>{
+    const getUser= async () => {
+      await axios.get(`http://localhost:8090/User/get/${id}`).then((res) => {
+          console.log(res.data);
+          setUser(res.data.data);
+      }).catch((err) => {
+          console.log(err.massage);
+      })
+  }
+  getUser();
+  },[id])
+
+  useEffect(()=>{
+    const getOwnArticles = async () => {
+      await axios.get(`http://localhost:8090/Article/ownarticles/${localStorage.getItem("id")}`).then((res) => {
+        setArticle(res.data);
+      }).catch((err) => {
+          console.log(err.massage);
+      }) 
+  }
+  getOwnArticles();
+  },[])
+
+  const filteredarticle = article.filter((article) => {
+    return (
+      article.userName.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+      article.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+    );
+});
+
+const deleteArticle = async (_id) => {
+  try{
+      Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.value === true) {
+            const res =  axios.delete(`http://localhost:8090/Article/delete/${_id}`).then((res) => {
+              if (res) {
+                Swal.fire({
+                  title: "Success!",
+                  text: "Your Article has been deleted",
+                  icon: "success",
+                  showConfirmButton: false,
+                  timer: 1500,
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                Swal.fire({
+                  title: "Error!",
+                  text: "Something went wrong",
+                  icon: "error",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              }
+            });
+          }
+        });
+
+  }catch(err){
+      console.log(err.data.msg);
+  }
+}
  
   return (
     <div>
@@ -15,18 +92,20 @@ export default function TravelerProfile() {
         <div className='TravelProfileArea'>
             <div class="row TravelerProfile">
                 <div class="col-sm-8 lefts">
-                    <div className='profileimg'>
-
-                    </div>
-                    <div className='nameNdate'>
-                        <h2>Deshan Rajapaksha</h2>
-                        <p>2023.01.22</p>
+                    <img
+                      src={user.image ? user.image : "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"}
+                      alt=""
+                      className="travelerimg"
+                      />
+                    <div className='nameNdate mt-4'>
+                        <h2>{user.name} ({user.field})</h2>
+                        <p>{user.registerAt}</p>
                     </div>
                 
                 </div>
                 <div class="col-sm-4 rights">
                     <button className='btn btn-success articlebtn'><Link className="nav-link active" aria-current="page" to="/addarticle">Add article</Link></button>
-                    <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/editProfileS">Edit Profile</Link></button>
+                    <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/UpdateTravelerProfile">Edit Profile</Link></button>
                     <button className='dltprofile'>Delete Profile</button>
                     
                 </div>
@@ -37,109 +116,54 @@ export default function TravelerProfile() {
                 <h3><span>M</span>y <span>A</span>rticles</h3>
 
   
-        {/* {courses.map((scourse, index) => */}
+       {filteredarticle.map((article)=>
 
         <div className="card travelerontainer">
-          <div className="card-header">
-          <h6>Article Name</h6>
+          <div className="card-header w-100">
+            <center>
+          <h6>{article.title} - {article.category}</h6>
+          </center>
                     
           </div>
 
           <div className="card-body">
-            
-            <img src="./images/msi2.jpg" alt="image" width="100%"/>
-
+          <Link to={`/TravelerOneArticle/${article._id}`}>
+            <img src={article.image} alt="image" width="100%"/>
+            </Link>
           </div>
 
-          <div className="card-footer">
+          <div className="card-footer w-100">
               <div className='profileArea'>
 
                 <div className='pro'>
 
                 </div>
                 <div className='nameN'>
-                  <h2>Deshan Rajapaksha</h2>
-                  <p>2023.o1.22</p>
+                  <h2>{article.userName}</h2>
+                  <p>{article.postedAt}</p>
                   
                 </div>
 
               </div>
               <div className='discri'>
-
-              There are many variations of passages of Lorem Ipsum available, 
-              but the majority have suffered alteration in some form, by injected humour,
-              or randomised words which don't look even slightly believable. If you are going 
-              to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing
-              hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to 
-              repeat predefined chunks as necessary, making this the first true generator on the Internet. 
-              It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, 
-              to generate Lorem Ipsum which looks reasonable. 
-
+              {article.description} 
               </div>
               
               <br />
 
               <div>
+              <Link to={`/TravelerOneArticle/${article._id}`}>
               <button className='readmorebtn'>Read More</button>
-              <button className='btn btn-danger'>Remove</button>
+              </Link>
+              <button className='btn btn-danger'onClick={()=>deleteArticle(article._id)}>Remove</button>
               </div>
               
           </div>
         </div>
 
-        <div className="card travelerontainer">
-          <div className="card-header">
-          <h6>Article Name</h6>
-                    
-          </div>
-
-          <div className="card-body">
-            
-            <img src="./images/msi2.jpg" alt="image" width="100%"/>
-
-          </div>
-
-          <div className="card-footer">
-              <div className='profileArea'>
-
-                <div className='pro'>
-
-                </div>
-                <div className='nameN'>
-                  <h2>Deshan Rajapaksha</h2>
-                  <p>2023.o1.22</p>
-                  
-                </div>
-
-              </div>
-              <div className='discri'>
-
-              There are many variations of passages of Lorem Ipsum available, 
-              but the majority have suffered alteration in some form, by injected humour,
-              or randomised words which don't look even slightly believable. If you are going 
-              to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing
-              hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to 
-              repeat predefined chunks as necessary, making this the first true generator on the Internet. 
-              It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, 
-              to generate Lorem Ipsum which looks reasonable. 
-
-              </div>
-              
-              <br />
-
-              <div>
-              <button className='readmorebtn'>Read More</button>
-              <button className='btn btn-danger'>Remove</button>
-              </div>
-              
-          </div>
-        </div>
-
-            {/* )} */}
-   
+          )}
 
             </div>
-
 
         </div>
         <Footer />

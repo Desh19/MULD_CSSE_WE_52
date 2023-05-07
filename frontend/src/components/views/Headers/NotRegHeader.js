@@ -14,6 +14,7 @@ const NotRegHeader = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [field, setField] = useState("");
+    const [image, setImage] = useState("");
 
     function sendData(e){
         const newForm={
@@ -21,7 +22,8 @@ const NotRegHeader = () => {
           name,
           email,
           password,
-          field
+          field,
+          image
 
     }
 
@@ -90,7 +92,7 @@ const NotRegHeader = () => {
                   button: false,
                 });
 
-             navigate("/",{
+             navigate("/guide_home",{
               state:{
                   id:res.data._id
               }
