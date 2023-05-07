@@ -56,6 +56,7 @@ import GuideProfile from './components/views/TouristGuide/GuideProfile';
 import TouristGuideHome from './components/views/TouristGuide/TouristGuideHome';
 import AllPackagesView from './components/views/TouristGuide/AllPackagesView';
 import UpdatePackage from './components/views/TouristGuide/UpdatePackage';
+import UpdateGuideProfile from './components/views/TouristGuide/UpdateGuideProfile';
 
 
 
@@ -115,8 +116,8 @@ function App() {
         <Route path='/single_package/:id' element={<SinglePackage />} />
         <Route path='/guide_profile' element={<GuideProfile />} />
         <Route path='/guide_home' element={<TouristGuideHome />} />
-
-        <Route path='/update_package/:id' element={<UpdatePackage />} />  
+        <Route path='/update_package/:id' element={<UpdatePackage />} /> 
+        <Route path='/update_profile' element={<UpdateGuideProfile />} />   
 
       </Routes>  
     </Router>
