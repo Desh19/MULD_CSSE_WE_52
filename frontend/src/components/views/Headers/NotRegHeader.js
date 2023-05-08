@@ -69,6 +69,7 @@ const NotRegHeader = () => {
             localStorage.setItem("id",res.data.id);
             localStorage.setItem("name",res.data.name);
             localStorage.setItem("field",res.data.field);
+            localStorage.setItem("userDP",res.data.userDP);
 
             if(res.data.status && field=='Traveler'){
                 swal({
