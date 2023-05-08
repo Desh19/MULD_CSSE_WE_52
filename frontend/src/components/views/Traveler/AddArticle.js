@@ -8,14 +8,14 @@ const AddItems = () => {
 
     const id =localStorage.getItem("id");
     const name =localStorage.getItem("name");
-    const UserDp =localStorage.getItem("UserDp");
+    const userDP =localStorage.getItem("userDP");
     const [user, setUser]=useState({});
 
     const [articleplayload, setArticleplayload ] = React.useState({
 
       userID: id,
       userName: name,
-      publisherDP: UserDp,
+      publisherDP: userDP,
       title: "",
       category: "",
       description: "",
