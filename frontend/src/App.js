@@ -94,12 +94,14 @@ function App() {
         <Route path='/add_travel_place' element={<AddTravelPlace />} />
         <Route path='/all_travel_place' element={<AllTravelPlace />} />
         <Route path='/singale_travel_place/:id' element={<SingaleTravelPlace />} />
-
         <Route path='/view_travel_place' element={<ViewTravelPlace />} />
         <Route path='/update_travel_place/:id' element={<UpdateTravelPlace />} />
         <Route path='/travel_agent_view' element={<TravelAgentView />} />
         <Route path='/singale_place_view/:id' element={<SingalePlaceView />} />
-
+        <Route path='/add_jobs' element={<AddJobs />} />
+        <Route path='/user_view_jobs/:id' element={<UserViewJobs />} />
+        <Route path='/user_view_all_jobs' element={<UserViewAllJobs />} />
+        <Route path='/travel_agent_view_all' element={<TravelAgentViewAll />} />
 
 
         {/* Hotel Owner */}
@@ -109,10 +111,7 @@ function App() {
         <Route path='/hotel_booking_req' element={<HotelBookingReq/>} />
         <Route path='/hotel' element={<ViewHotel/>} />
 
-        <Route path='/add_jobs' element={<AddJobs />} />
-        <Route path='/user_view_jobs/:id' element={<UserViewJobs />} />
-        <Route path='/user_view_all_jobs' element={<UserViewAllJobs />} />
-        <Route path='/travel_agent_view_all' element={<TravelAgentViewAll />} />
+
 
 
         {/* Tourist Guide */}
