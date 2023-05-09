@@ -37,7 +37,7 @@ export const SideNav = () => {
         </div>
       </li>
       <li class="mb-1">
-          <Link to="">
+          <Link to={'/travel_agent_view_all'}>
             <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
           Jobs
         </button>

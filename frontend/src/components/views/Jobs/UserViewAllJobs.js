@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import {NavLink,Link} from 'react-router-dom';
 import HeaderTraveler from '../Headers/HeaderTraveler';
 import Footer from '../Footer';
 import axios from 'axios';
@@ -56,7 +57,9 @@ const UserViewAllJobs = () => {
             <p class="card-title pricing-card-title">{jobvacancy.jobType}</p>
             <p className="card-text" style={{ marginTop: "5px" }} >{jobvacancy.closing_date}</p>
             
+            <Link aria-current="page" to={`/user_view_jobs/${jobvacancy._id}`}>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">View More</button>
+            </Link>
           </div>
         </div>
       </div>

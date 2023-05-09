@@ -3,34 +3,12 @@ const mongoose = require('mongoose');
 
 const TravelPlaceSchema = new mongoose.Schema(
     {
-      agentID:{
-        type: String,
-        required: true,
-      },
-      name:
-      { type: String, 
-        requried: true, 
-        trim: true
-      },
-      discription:
-      { type: String, 
-        requried: true,
-        trim: true
-      },
-      image: 
-      {type: String, 
-        // requried: true
-      },
-      location: 
-      { type: String, 
-        requried: true, 
-        trim: true
-      },
-      famousfor: 
-      { type: String, 
-        requried: true, 
-        trim: true
-      },
+      agentID:{type: String,required: true,},
+      name:{type: String,requried: true,trim: true},
+      discription:{type: String,requried: true,trim: true},
+      image:{type: String, requried: true},
+      location:{type: String,requried: true,trim: true},
+      famousfor:{ type: String,requried: true,trim: true},
       bestTimeVisit: {type: String, requried: true, trim: true},
       attraction: {type: String, requried: true, trim: true},
     }
