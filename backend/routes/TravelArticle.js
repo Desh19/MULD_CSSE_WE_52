@@ -16,7 +16,7 @@ router.post('/add', (req, res) => {
 // @description Get all Articles
 // @access Public
 router.get('/', (req, res) => {
-    Article.find()
+    Article.find().populate("userID")
     .then(articles => res.json(articles))
     .catch(err => res.status(404).json({ noarticlesfound: 'No Articles found' }));
 });
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 // @description Get single Article by id
 // @access Public
 router.get('/:id', (req, res) => {
-    Article.findById(req.params.id)
+    Article.findById(req.params.id).populate("userID")
     .then(article => res.json(article))
     .catch(err => res.status(404).json({ noarticlefound: 'No Article found' }));
 });
@@ -51,7 +51,7 @@ router.delete('/delete/:id', (req, res) => {
 // @access Public
 router.route("/ownarticles/:id").get((req,res)=>{
   const id = req.params.id;
-  Article.find({userID:id}).then((article)=>{
+  Article.find({userID:id}).populate("userID").then((article)=>{
       res.json(article)
   }).catch((err)=>{
       console.log(err)

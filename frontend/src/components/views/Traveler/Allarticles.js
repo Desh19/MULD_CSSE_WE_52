@@ -26,8 +26,8 @@ const Allarticles = () => {
 
     const filteredarticle = article.filter((article) => {
       return (
-        article.userName.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-        article.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+        article.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+        article.description.toLowerCase().includes(searchTerm.toLocaleLowerCase())
       );
   });
 
@@ -104,14 +104,14 @@ const unlikePost = (id)=>{
           
                 <div className='pro'>
                 <img
-                      src={article.publisherDP}
+                      src={article.userID.image}
                       alt=""
                       className="pro"
                       />
                 </div>
                 <div className='nameN'>
-                  <h2>{article.userName}</h2>
-                  <p>{article.postedAt}</p>
+                  <h2>{article.userID.name}</h2>
+                  <p>{article.postedAt.toString().substring(0,10)}</p>
                   
                 </div>
 
