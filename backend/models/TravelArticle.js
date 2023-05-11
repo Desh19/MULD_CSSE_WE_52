@@ -4,16 +4,9 @@ const {ObjectId} = mongoose.Schema.Types
 const ArticleSchema = new mongoose.Schema ({
   
   userID : {
-    type: String,
-    required: true
-  },
-  userName : {
-    type: String,
-    required: true
-  },
-  publisherDP : {
-    type: String,
-    // required: true
+    type: ObjectId,
+    required: true,
+    ref: "User",
   },
   title : {
     type: String,
@@ -38,5 +31,6 @@ const ArticleSchema = new mongoose.Schema ({
   postedAt:Date
 
 });
+
 
 module.exports = Article = mongoose.model('article', ArticleSchema);

@@ -41,11 +41,10 @@ const TravelerOneArticle = () => {
               </div>
             </div>
             <div className="col-md-6 mt-5">
-              <h2 className="text-black">{article.title}</h2>
+              <h2 className="text-black">{article.title} ( {article.category} )</h2>
               <p>{article.description}</p>
-              <p>Article Category : {article.category}</p>
-              <p>Publisher Name : {article.userName}</p>
-              <p>Posted Date : {article.postedAt}</p>
+              {/* <p>Publisher Name : {article.userID.name}</p>
+              <p>Posted Date : {article.postedAt}</p> */}
               <Link to={`/UpdateArticle/${article._id}`}>
               <button className='btn btn-success'>Update Article</button>
               </Link>

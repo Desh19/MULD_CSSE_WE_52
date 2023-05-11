@@ -40,8 +40,8 @@ export default function TravelerProfile() {
 
   const filteredarticle = article.filter((article) => {
     return (
-      article.userName.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-      article.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+      article.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+      article.description.toLowerCase().includes(searchTerm.toLocaleLowerCase())
     );
 });
 
@@ -103,7 +103,6 @@ const deleteArticle = async (_id) => {
                     <div className='nameNdate mt-4'>
                         <h2>{user.name}</h2>
                         <h6>{user.field}</h6>
-                        <p>{user.registerAt}</p>
                     </div>
                 </div>
                 
@@ -141,15 +140,15 @@ const deleteArticle = async (_id) => {
 
                 <div className='pro'>
                 <img
-                      src={article.publisherDP}
+                      src={article.userID.image}
                       alt=""
                       className="pro"
                       />
 
                 </div>
                 <div className='nameN'>
-                  <h2>{article.userName}</h2>
-                  <p>{article.postedAt}</p>
+                  <h2>{article.userID.name}</h2>
+                  <p>{article.postedAt.toString().substring(0,10)}</p>
                   
                 </div>
 
