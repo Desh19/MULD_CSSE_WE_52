@@ -30,7 +30,7 @@ const SingleArticleView = () => {
       <div className="site-section pt-5">
         <div className="container pt-5">
           <div className="row">
-            <div className="col-md-5 mr-auto">
+            <div className="col-md-6 mr-auto">
               <div className="border text-center">
                 <img
                   src={article.image}
