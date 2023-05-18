@@ -102,14 +102,14 @@ const deleteArticle = async (_id) => {
                       </Link>
                     <div className='nameNdate mt-4'>
                         <h2>{user.name}</h2>
-                        <h6>{user.field}</h6>
+                        <h5>{user.field}</h5>
                     </div>
                 </div>
                 
                 <div class="col-sm-4 rights">
                     <button className='btn btn-success articlebtn'><Link className="nav-link active" aria-current="page" to="/addarticle">Add article</Link></button>
-                    <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/UpdateTravelerProfile">Edit Profile</Link></button>
-                    <button className='dltprofile'>Delete Profile</button>
+                    <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/UpdateTravelerProfile"><i class="fa-solid fa-user-pen" style={{ color: "#ffffff" }}></i></Link></button>
+                    <button className='dltprofile'><i class="fa-solid fa-trash-can" style={{ color: "#ffffff"}}></i></button>
                     
                 </div>
             </div>
