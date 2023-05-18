@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from 'axios';
 import HeaderTraveler from '../Headers/HeaderTraveler';
 import Footer from '../Footer';
@@ -47,7 +47,9 @@ const SingleArticleView = () => {
               <p>Posted Date : {article.postedAt}</p> */}
               <div className="mb-5">
                 <div className="input-group mb-3" style={{ maxWidth: "220px" }}>
-                 
+                <Link to={`/allarticles`}>
+              <button className='btn btn-primary'>Back</button>
+              </Link>
                 </div>
               </div>
             </div>
