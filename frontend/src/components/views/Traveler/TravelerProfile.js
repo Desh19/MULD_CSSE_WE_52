@@ -158,7 +158,11 @@ const deleteArticle = async (_id) => {
               </div>
               
               <br />
-
+              <div className="d-flex">
+              <i className="material-icons pr-5" style={{color:"red"}}>favorite</i>
+              <p className="px-2">{article.likes.length} people liked your post</p>
+              </div>
+              <br />
               <div>
               <Link to={`/TravelerOneArticle/${article._id}`}>
               <button className='readmorebtn'>Read More</button>
