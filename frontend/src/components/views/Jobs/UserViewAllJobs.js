@@ -55,7 +55,7 @@ const UserViewAllJobs = () => {
           <div class="card-body">
           <h3 class="card-title pricing-card-title">Position : {jobvacancy.jobCategory}</h3>
             <p class="card-title pricing-card-title">{jobvacancy.jobType}</p>
-            <p className="card-text" style={{ marginTop: "5px" }} >Closing Date: {jobvacancy.closing_date.toString().substring(0,10)}</p>
+            <p className="card-text" style={{ marginTop: "5px", color:'red', fontWeight:'bold' }} >Closing Date: {jobvacancy.closing_date.toString().substring(0,10)}</p>
             
             <Link aria-current="page" to={`/user_view_jobs/${jobvacancy._id}`}>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">View More</button>
