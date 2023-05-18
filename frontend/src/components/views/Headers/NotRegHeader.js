@@ -84,8 +84,10 @@ const NotRegHeader = () => {
                         id:res.data._id
                     }
                    })
+                  //  window.location.reload();
             }else if(res.data.status && field=='Tourist_Guider'){
               swal({
+                
                   title: "Success!",
                   text: "Login Successfull Tourist Guider !",
                   icon: 'success',
@@ -134,6 +136,8 @@ const NotRegHeader = () => {
                     timer: 2000,
                     button: false,
                   });
+                  setEmail("");
+                  setPassword("");
             }
       
         });
@@ -200,7 +204,8 @@ const NotRegHeader = () => {
                           value={password} onChange={e => setPassword(e.target.value)} placeholder="Password"/>
                           <label for="floatingPassword">Password</label>
                         </div>
-                        <select class="form-select" id="field" onChange={e => setField(e.target.value)} aria-label="Floating label select example">
+                        <select class="form-select" id="field" onChange={e => setField(e.target.value)} 
+                          aria-label="Floating label select example">
                           <option selected disabled>Select User Type</option>
                           <option value="Traveler">Traveler</option>
                           <option value="Tourist_Guider">Tourist Guider</option>
@@ -213,7 +218,7 @@ const NotRegHeader = () => {
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" onClick={(e)=>login()} >Sign In</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={(e)=>login()} >Sign In</button>
                       </div>
                     </div>
                   </div>

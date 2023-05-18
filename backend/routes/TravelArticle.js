@@ -61,31 +61,27 @@ router.route("/ownarticles/:id").get((req,res)=>{
 
 // @description PUT Like Article by id
 router.put('/like', (req,res)=>{
-    Article.findByIdAndUpdate(req.body.ArticleId,{
-        $push:{likes:req.User._id}
+    Article.findByIdAndUpdate({ _id: req.body.ArticleId },{
+        $push:{likes:req.body.userId}
     },{
         new:true
-    }).exec((err,result)=>{
-        if(err){
-            return res.status(422).json({error:err})
-        }else{
-            res.json(result)
-        }
+    }).then((article)=>{
+        res.json(article)
+    }).catch((err)=>{
+        console.log(err)
     })
 })
 
 // @description PUT Unlike Article by id
 router.put('/unlike', (req,res)=>{
-    Article.findByIdAndUpdate(req.body.ArticleId,{
-        $push:{likes:req.User._id}
+    Article.findByIdAndUpdate({ _id: req.body.ArticleId },{
+        $pull:{likes:req.body.userId}
     },{
         new:true
-    }).exec((err,result)=>{
-        if(err){
-            return res.status(422).json({error:err})
-        }else{
-            res.json(result)
-        }
+    }).then((article)=>{
+        res.json(article)
+    }).catch((err)=>{
+        console.log(err)
     })
 })
 
