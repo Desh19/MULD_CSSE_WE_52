@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate} from "react-router-dom";
 import axios from 'axios';
 import "../HotelOwner/hotelOwner.css";
 import { SideNav } from './SideNav'
@@ -7,12 +7,14 @@ import { DashboardHeader } from './HotelOwnerHeader';
 import hotelImg1 from '../../images/hotelImg1.jpg';
 import hotelImg2 from '../../images/hotelImg2.jpg';
 import hotelImg3 from '../../images/hotelImg3.jpg';
+import swal from "sweetalert";
 const Swal = require('sweetalert2')
 
 const ViewHotel = () => {
 
   // const id =localStorage.getItem("id");
   const [hotel , setHotel] = React.useState({});
+  const history = useNavigate();
   const params=useParams();
   const hotelID=params.id;
 
@@ -26,6 +28,83 @@ const ViewHotel = () => {
     }
     ViewOneHotel();
     },[])
+
+    const sendRequest = async() =>{
+  
+      await axios.put(`http://localhost:8090/Hotel/update/${hotelID}` , {
+    
+      name:String(hotel.name),
+      about:String(hotel.about),
+      contact:String(hotel.contact),
+      image:String(hotel.image)
+  
+      }).then(()=>{
+    
+          swal({
+              title: "Success!",
+              text: "Hotel Details Updated Successfully",
+              icon: 'success',
+              timer: 2000,
+              button: false,
+            });
+          
+      })
+    
+    
+    }
+    
+    const handleSubmit = (e) =>{
+      e.preventDefault();
+      sendRequest().then(()=>history(`/hotel/${hotel._id}`));
+
+    };
+    
+    const handleChange =(e)=>{
+    
+      setHotel((prevState)=>({
+          ...prevState,
+          [e.target.name]:e.target.value,
+      }))
+    }
+    
+    const handleImageChange = async e => {
+      e.preventDefault()
+      try {
+          const file = e.target.files[0]
+    
+          if (!file) return alert("File not exist.")
+    
+          if (file.size > 1024 * 1024) // 1mb
+              return alert("Size too large!")
+    
+          if (file.type !== 'image/jpeg' && file.type !== 'image/png') // 1mb
+              return alert("File format is incorrect.")
+    
+          let formData = new FormData()
+          formData.append('file', file)
+          formData.append('upload_preset', 'Af_Assignment')
+          formData.append('cloud_name', 'drao60sj6')
+    
+          // setLoading(true)
+          const res = await axios.post( "https://api.cloudinary.com/v1_1/drao60sj6/image/upload",
+          formData,
+          {
+            method: "post",
+            body: formData,
+            headers: {
+              "content-type": "multipart/form-data",
+            },
+          })
+          // setLoading(false)
+          setHotel({
+            ...hotel,
+            image: res.data.url,
+          });
+        } catch (err) {
+          console.log(err.response.data.msg);
+          
+        }
+    }
 
     const deleteHotel = async(_id) => {
       try{
@@ -71,7 +150,7 @@ const ViewHotel = () => {
   return (
     <div>
       <body >
-            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
+            {/* <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
             <symbol id="check2" viewBox="0 0 16 16">
                 <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
             </symbol>
@@ -120,12 +199,10 @@ const ViewHotel = () => {
           </button>
         </li>
       </ul>
-    </div>
+    </div> */}
 
     <DashboardHeader/>
     
-
-
 <div class="container-fluid">
   <div class="row">
     <SideNav/>
@@ -161,27 +238,34 @@ const ViewHotel = () => {
             <form class="row g-3">
                   <div class="col-md-12">
                         <label for="inputEmail4" class="form-label">Hotel Name</label>
-                        <input type="name" class="form-control" name="name" id="inputEmail4" value={hotel.name}/>
+                        <input type="name" class="form-control" name="name" id="inputEmail4" value={hotel.name} onChange={handleChange}/>
                   </div>
                   <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">About</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" name="about" rows="3" placeholder='about..' value={hotel.about}></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="about" rows="3" placeholder='about..' value={hotel.about} onChange={handleChange}></textarea>
                   </div>
                   <div class="col-md-12">
-                        <label for="formFile" class="form-label">Images</label>
-                        <input class="form-control" type="file" id="formFile" name='image'/>
-                  </div>
+                          <label for="formFile" class="form-label">Hotel Image</label>
+                        <div class="card" style={{ width:'18rem' }}>
+                            <img class="card-img-top" src={hotel.image} alt="Profile Image" style={{ width:'18rem', height:'auto' }} />
+                        </div>
+                     </div>
+
+                        <div class="mb-3">
+                        <label for="formFile" class="form-label">Change Hotel Image</label>
+                          <input name='image' class="form-control" type="file" id="formFile" onChange={handleImageChange}/>
+                        </div>
                   <div class="col-md-12">
                         <label for="inputPassword4" class="form-label">Location</label>
-                        <input type="text" class="form-control" name="location" id="inputPassword4" value={hotel.location}/>
+                        <input type="text" class="form-control" name="location" id="inputPassword4" value={hotel.location} onChange={handleChange}/>
                   </div>
                   <div class="col-12">
                         <label for="inputAddress" class="form-label">Contact</label>
-                        <input type="text" class="form-control" id="inputAddress" name="contact" placeholder="Contact" value={hotel.contact}/>
+                        <input type="text" class="form-control" id="inputAddress" name="contact" placeholder="Contact" value={hotel.contact} onChange={handleChange}/>
                   </div>
 
                   <div class="col-md-5 mt-4">
-                        <button type='submit' class="btn updateBtn "><i class="fa-solid fa-pen-to-square btnFaIcon"></i>Update</button>
+                        <button type='submit' class="btn updateBtn" onClick={handleSubmit}><i class="fa-solid fa-pen-to-square btnFaIcon"></i>Update</button>
                         <button class="btn btn-outline-danger removeBtn ms-3" onClick={()=>deleteHotel(hotel._id)}><i class="fa-sharp fa-solid fa-trash btnFaIcon"></i>Remove</button>
                   </div>
             </form>
