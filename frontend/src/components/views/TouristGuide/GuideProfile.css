@@ -63,5 +63,18 @@
     border-radius: 50%;
 }
 
+.bio{
+    text-align: left;
+    width: auto;
+    height: 100px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.bio::-webkit-scrollbar {
+    display: none;
+}
+
 
 

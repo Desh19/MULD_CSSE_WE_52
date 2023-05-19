@@ -47,9 +47,7 @@ const UpdatePackage = () => {
     mobileNo:String(guide.mobileNo),
     priceRange:String(guide.priceRange),
     guiderBio:String(guide.guiderBio),
-    languages:String(guide.languages),
-    image:String(guide.image)
-
+    languages:String(guide.languages)
     }).then(()=>{
   
         swal({
@@ -77,45 +75,6 @@ const UpdatePackage = () => {
         [e.target.name]:e.target.value,
     }))
   }
-  
-  const handleImageChange = async e => {
-    e.preventDefault()
-    try {
-        const file = e.target.files[0]
-  
-        if (!file) return alert("File not exist.")
-  
-        if (file.size > 1024 * 1024) // 1mb
-            return alert("Size too large!")
-  
-        if (file.type !== 'image/jpeg' && file.type !== 'image/png') // 1mb
-            return alert("File format is incorrect.")
-  
-        let formData = new FormData()
-        formData.append('file', file)
-        formData.append('upload_preset', 'Af_Assignment')
-        formData.append('cloud_name', 'drao60sj6')
-  
-        // setLoading(true)
-        const res = await axios.post( "https://api.cloudinary.com/v1_1/drao60sj6/image/upload",
-        formData,
-        {
-          method: "post",
-          body: formData,
-          headers: {
-            "content-type": "multipart/form-data",
-          },
-        })
-        // setLoading(false)
-        setGuide({
-          ...guide,
-          image: res.data.url,
-        });
-      } catch (err) {
-        console.log(err.response.data.msg);
-        
-      }
-  }
     
     
   return (
@@ -137,32 +96,21 @@ const UpdatePackage = () => {
                           <input type="text" class="form-control" id='name' name='name' value={guide.userName}  disabled readonly/>
                       </div>
                       <div class="mb-3">
-                          <label class="form-label">Mobile No</label>
-                          <input type="text" class="form-control" id='mobileNo' name='mobileNo' value={guide.mobileNo} onChange={handleChange} placeholder="Enter Mobile No" required/>
-                      </div>
-                      <div class="mb-3">
-                          <label class="form-label">Price Range</label>
-                          <input type="text" class="form-control" id='priceRange' name='priceRange' value={guide.priceRange} onChange={handleChange} placeholder="Enter Price Range" required/>
-                     </div>
-                      <div class="mb-3">
                           <label class="form-label">Guider Bio</label>
                           <textarea type="text" class="form-control" style={{ height: "150px" }} id='guiderBio' name='guiderBio'value={guide.guiderBio} onChange={handleChange}  placeholder="Type Bio..." required/>
                       </div>
                       <div class="mb-3">
+                          <label class="form-label">Mobile No</label>
+                          <input type="text" class="form-control" id='mobileNo' name='mobileNo' value={guide.mobileNo} onChange={handleChange} placeholder="Enter Mobile No" required/>
+                      </div>
+                      <div class="mb-3">
+                          <label class="form-label">Price Range Per Day</label>
+                          <input type="text" class="form-control" id='priceRange' name='priceRange' value={guide.priceRange} onChange={handleChange} placeholder="Enter Price Range" required/>
+                     </div>
+                      <div class="mb-3">
                           <label class="form-label">Language Competencies</label>
                           <input type="text" class="form-control" id='languages' name='languages' value={guide.languages} onChange={handleChange} placeholder="Enter Languages" required/>
                       </div>
-                      <div class="mb-3">
-                          <label for="formFile" class="form-label">Thumbnail Image</label>
-                        <div class="card" style={{ width:'18rem' }}>
-                            <img class="card-img-top" src={guide.image} alt="Card image cap" style={{ width:'18rem', height:'auto' }} />
-                        </div>
-                     </div>
-
-                        <div class="mb-3">
-                        <label for="formFile" class="form-label">Change Thumbnail Image</label>
-                          <input name='image' class="form-control" type="file" id="formFile" onChange={handleImageChange}/>
-                        </div>
                       <center>
                       <button type="submit" class="btn btn-success" onClick={handleSubmit} >Update Package</button>
                       </center>

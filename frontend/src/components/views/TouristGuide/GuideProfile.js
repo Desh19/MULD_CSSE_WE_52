@@ -103,8 +103,7 @@ const deletepackage = async (_id) => {
                       </Link>
                     <div className='nameNdate'>
                         <h2>{user.name}</h2>
-                        <h6>{user.field}</h6>
-                        <p>{user.registerAt}</p>
+                        <h5>{user.field}</h5>
                     </div>
                 
                 </div>
@@ -121,15 +120,36 @@ const deletepackage = async (_id) => {
 
                   <div class="row row-cols-1 row-cols row-cols-md-3 g-3">
                   {filteredpackage.map((guide)=>
+
                   <div class="col">
-                    
                     <div class="card shadow-sm">
-                    
-                    <a href={`/single_package/${guide._id}`}><img class="bd-placeholder-img card-img-top" width="100%" height="225" src={guide.image}  /></a>
-                    
                     <div class="card-body">
-                      <h6 className="text-dark"><a href={`/single_package/${guide._id}`} style={{ textDecoration:'none', color:'black' }}>{guide.userName}</a></h6>
-                      <p class="card-text" style={{ maxHeight:'6em', overflow:'hidden' }}>{guide.guiderBio} </p>
+
+                    
+                    <div className='profileArea'>
+                    <a href={`/single_package/${guide._id}`}>
+                      <div className='pro'>
+                      <img
+                            src={guide.userID.image}
+                            alt=""
+                            className="pro"
+                            />
+
+                      </div>
+                      </a>
+                      <div className='nameN'>
+                      <h2>{guide.userID.name}</h2>
+                      <p>{guide.postedAt.toString().substring(0,10)}</p>
+                        
+                      </div>
+                      </div>
+
+                      <div className='bio mb-3'>
+                      {guide.guiderBio} 
+                      </div>
+                      <h6>Price Range: Rs. {guide.priceRange} (Per Day)</h6>
+                      <p>Contact: {guide.mobileNo}</p>
+
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                           <Link to={`/single_package/${guide._id}`}>

@@ -4,12 +4,17 @@ const {ObjectId} = mongoose.Schema.Types
 const GuidePackageSchema = new mongoose.Schema ({
   
   userID : {
-    type: String,
-    required: true
+    type: ObjectId,
+    required: true,
+    ref: "User",
   },
   userName : {
     type: String,
-    required: true
+    required : true
+  },
+  userDP : {
+    type: String,
+    required : true
   },
   mobileNo : {
     type: String,

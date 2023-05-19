@@ -14,14 +14,14 @@ router.post('/add', (req, res) => {
 
 // @description Get all packages
 router.get('/', (req, res) => {
-    Guide.find()
+    Guide.find().populate("userID")
     .then(Guides => res.json(Guides))
     .catch(err => res.status(404).json({ noGuidesfound: 'No Guide Packages found' }));
 });
 
 // @description Get single package by id
 router.get('/:id', (req, res) => {
-    Guide.findById(req.params.id)
+    Guide.findById(req.params.id).populate("userID")
     .then(Guide => res.json(Guide))
     .catch(err => res.status(404).json({ noGuidefound: 'No Guide Package found' }));
 });
@@ -45,7 +45,7 @@ router.delete('/delete/:id', (req, res) => {
 // @description GET OwnPackages by id
 router.route("/ownPackage/:id").get((req,res)=>{
   const id = req.params.id;
-  Guide.find({userID:id}).then((Guide)=>{
+  Guide.find({userID:id}).populate("userID").then((Guide)=>{
       res.json(Guide)
   }).catch((err)=>{
       console.log(err)
