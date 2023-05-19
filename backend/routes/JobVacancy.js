@@ -36,4 +36,20 @@ router.get('/:id', (req, res) => {
   
   })
 
+  //update job
+router.put('/update/:id', (req, res) => {
+  JobVacancy.findByIdAndUpdate(req.params.id, req.body)
+    .then(jobvacancy => res.json({ msg: 'Updated successfully' }))
+    .catch(err =>
+      res.status(400).json({ error: 'Unable to update the Database' })
+    );
+});
+
+//delete job
+router.delete("/delete/:id", (req, res) => {
+  JobVacancy.findByIdAndRemove(req.params.id, req.body)
+    .then((jobvacancy) => res.json({ msg: "Place entry deleted successfully" }))
+    .catch((err) => res.status(404).json({ error: "No such a Place" }));
+});
+
 module.exports = router;

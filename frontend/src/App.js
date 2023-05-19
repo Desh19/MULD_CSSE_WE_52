@@ -42,6 +42,8 @@ import AddJobs  from './components/views/Jobs/AddJobs';
 import UserViewJobs from './components/views/Jobs/UserViewJobs';
 import UserViewAllJobs from './components/views/Jobs/UserViewAllJobs';
 import TravelAgentViewAll from './components/views/Jobs/TravelAgentViewAll';
+import AllJobsEdit from './components/views/Jobs/AllJobsEdit';
+import UpdateJob from './components/views/Jobs/UpdateJob';
 // import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
 // import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
 
@@ -85,6 +87,7 @@ function App() {
         <Route path='/TravelerOneArticle/:id' element={<TravelerOneArticle />} />
         <Route path='/UpdateArticle/:id' element={<UpdateArticle />} />
         <Route path='/UpdateTravelerProfile' element={<UpdateTravelerProfile />} />
+        
 
 
         <Route path='/ViewHotelTravler/:id' element={<ViewHotelTraveler/>} />
@@ -103,6 +106,8 @@ function App() {
         <Route path='/user_view_jobs/:id' element={<UserViewJobs />} />
         <Route path='/user_view_all_jobs' element={<UserViewAllJobs />} />
         <Route path='/travel_agent_view_all' element={<TravelAgentViewAll />} />
+        <Route path='/AllJobsEdit' element={<AllJobsEdit />} />
+        <Route path='/UpdateJob/:id' element={<UpdateJob />} />
 
 
         {/* Hotel Owner */}
