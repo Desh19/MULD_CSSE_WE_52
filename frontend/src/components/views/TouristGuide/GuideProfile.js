@@ -110,7 +110,6 @@ const deletepackage = async (_id) => {
                 <div class="col-sm-4 rights">
                     <button className='btn btn-success guidebtn'><Link className="nav-link active" aria-current="page" to="/add_package">Add Package</Link></button>
                     <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/update_profile">Edit Profile</Link></button>
-                    <button className='dltprofile'>Delete Profile</button>
                     
                 </div>
             </div>
@@ -156,10 +155,10 @@ const deletepackage = async (_id) => {
                           <button type="button" class="btn btn-primary">Read More</button>
                           </Link>
                           <Link to={`/update_package/${guide._id}`}>
-                          <button type="button" class="btn btn-success ms-3">Update</button>
+                          <i class="fa-sharp fa-solid fa-pen-to-square ms-4" style= {{ color: "#051957", fontSize:31 }}></i>
                           </Link>
                           <Link>
-                          <button type="button" class="btn btn-danger ms-3" onClick={()=>deletepackage(guide._id)}>Delete</button>
+                          <i class="fa-solid fa-trash-can ms-3" style={{ color: "#ff0000", fontSize:31 }} onClick={()=>deletepackage(guide._id)}></i>
                           </Link>
                         </div>
                       </div>
