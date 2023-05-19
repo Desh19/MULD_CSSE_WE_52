@@ -11,6 +11,7 @@ const TravelPlaceSchema = new mongoose.Schema(
       famousfor:{ type: String,requried: true,trim: true},
       bestTimeVisit: {type: String, requried: true, trim: true},
       attraction: {type: String, requried: true, trim: true},
+      map: {type: String, requried: true, trim: true},
     }
  
   );

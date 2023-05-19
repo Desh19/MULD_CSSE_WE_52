@@ -53,7 +53,20 @@ const SingaleTravelPlace = () => {
               <p>Famous For : {place.famousfor}</p>
               <p>Best Time to Visit: {place.bestTimeVisit}</p>
               <p>Tourist Attraction : {place.attraction}</p>
-              <div className="mb-5">
+              <p>Location In Map : 
+                <div className='col-md-6'>
+                  <iframe className="img-fluid rounded-end hotelMap" 
+                  src={place.map}
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+                </div>  
+              </p>
+              <div className='col-md-3'>
+
+              </div>
+              <div className="mb">
                 <div className="input-group mb-3" style={{ maxWidth: "220px" }}>
                 <div class="btn-group">
                           <Link to={`/all_travel_place`}>
@@ -63,6 +76,7 @@ const SingaleTravelPlace = () => {
                  
                 </div>
               </div>
+              
             </div>
           </div>
         </div>

@@ -58,6 +58,16 @@ const SingalePlaceView = () => {
               <p>Famous For : {place.famousfor}</p>
               <p>Best Time to Visit: {place.bestTimeVisit}</p>
               <p>Tourist Attraction : {place.attraction}</p>
+              <p>Location In Map : 
+                <div className='col-md-6'>
+                  <iframe className="img-fluid rounded-end hotelMap" 
+                  src={place.map}
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+                </div>  
+              </p>
               <div className="mb-5">
                 <div className="input-group mb-3" style={{ maxWidth: "220px" }}>
                 <div class="btn-group">
