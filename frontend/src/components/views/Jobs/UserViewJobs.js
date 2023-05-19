@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams, Link } from "react-router-dom";
 import axios from 'axios';
-import HeaderTraveler from '../Headers/HeaderTraveler';
+import HeaderGuide from '../TouristGuide/HeaderGuide';
 import Footer from '../Footer';
 
 const UserViewJobs = () => {
@@ -23,7 +23,7 @@ const UserViewJobs = () => {
 
   return (
     <div> 
-        <HeaderTraveler />
+        <HeaderGuide />
         <div class="container-fluid" >
        
             <div class="row" >
