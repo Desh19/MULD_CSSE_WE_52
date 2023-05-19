@@ -90,11 +90,11 @@ const unlikePost = (id)=>{
       <div>
          <HeaderTraveler />
         
-      <div className='ArticleArea'>
+      <div className='ArticleArea '>
 
       {filteredarticle.map((article)=>
 
-        <div className="card articlecontainer">
+        <div className="card articlecontainer mb-3">
           <div className="card-header w-100">
             <center>
           <h6>{article.title} - {article.category}</h6>
@@ -136,10 +136,10 @@ const unlikePost = (id)=>{
                <i className="material-icons pr-5" style={{color:"red"}}>favorite</i>
                {article.likes.includes(UserId)
                ?
-                <i className="material-icons pr-5" style={{cursor:"pointer"}} onClick={()=>{unlikePost(article._id)}}>thumb_down</i>
+                <i className="material-icons pr-5 ms-1" style={{cursor:"pointer"}} onClick={()=>{unlikePost(article._id)}}>thumb_down</i>
                 
                  :
-                 <i className="material-icons pr-5" style={{cursor:"pointer"}} onClick={()=>{likePost(article._id)}}>thumb_up</i>
+                 <i className="material-icons pr-5 ms-1" style={{cursor:"pointer"}} onClick={()=>{likePost(article._id)}}>thumb_up</i>
                  
                 }
                 <h6>{article.likes.length} Likes</h6> 
