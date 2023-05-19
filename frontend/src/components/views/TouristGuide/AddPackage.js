@@ -8,17 +8,18 @@ const AddItems = () => {
 
     const id =localStorage.getItem("id");
     const name =localStorage.getItem("name");
+    const userDP =localStorage.getItem("userDP");
     const [user, setUser]=useState({});
 
     const [packageplayload, setPackageplayload ] = React.useState({
 
       userID: id,
       userName: name,
+      userDP: userDP,
       mobileNo: "",
       priceRange: "",
       guiderBio: "",
       languages: "",
-      image: "",
       postedAt: Date.now()
   
   });
@@ -126,24 +127,20 @@ const AddItems = () => {
                           <input type="text" class="form-control" id='name' name='name' value={user.name} disabled readonly/>
                       </div>
                       <div class="mb-3">
-                          <label class="form-label">Mobile No</label>
-                          <input type="text" class="form-control" id='mobileNo' name='mobileNo' onChange={(e) => onChangeInput(e)} placeholder="Enter Mobile No" required/>
-                      </div>
-                      <div class="mb-3">
-                          <label class="form-label">Price Range</label>
-                          <input type="text" class="form-control" id='priceRange' name='priceRange' onChange={(e) => onChangeInput(e)} placeholder="Enter Price Range" required/>
-                     </div>
-                      <div class="mb-3">
                           <label class="form-label">Guider Bio</label>
                           <textarea type="text" class="form-control" style={{ height: "150px" }} id='guiderBio' name='guiderBio' onChange={(e) => onChangeInput(e)} placeholder="Type Bio..." required/>
                       </div>
                       <div class="mb-3">
+                          <label class="form-label">Mobile No</label>
+                          <input type="text" class="form-control" id='mobileNo' name='mobileNo' onChange={(e) => onChangeInput(e)} placeholder="Enter Mobile No" required/>
+                      </div>
+                      <div class="mb-3">
+                          <label class="form-label">Price Range Per Day</label>
+                          <input type="text" class="form-control" id='priceRange' name='priceRange' onChange={(e) => onChangeInput(e)} placeholder="Enter Price Range" required/>
+                     </div>
+                      <div class="mb-3">
                           <label class="form-label">Language Competencies</label>
                           <input type="text" class="form-control" id='languages' name='languages' onChange={(e) => onChangeInput(e)} placeholder="Enter Languages" required/>
-                      </div>
-                      <div class="mb-5">
-                          <label for="formFile" class="form-label">Add Thumbnail Image</label>
-                          <input class="form-control" type="file" id="formFile" name='image' onChange={handleImageChange} />
                       </div>
                       <center>
                       <button type="submit" class="btn btn-success" onClick={(e)=> onSubmit(e)}>Submit Package</button>
