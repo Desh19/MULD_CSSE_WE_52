@@ -25,8 +25,14 @@ const TravelAgentViewAll = () => {
       getOwnJob();
       },[])
 
+      const sortedJob = job.sort((a, b) => {
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt);
+        return dateB - dateA;
+    });
 
-    const filteredJob = job.filter((job) => {
+
+    const filteredJob = sortedJob.filter((job) => {
         return (
             job.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
         );
@@ -71,6 +77,7 @@ const TravelAgentViewAll = () => {
              <th scope="col">Job Title</th>
              <th scope="col">Job Type</th>
              <th scope="col">Job Category</th>
+             <th scope='col'>Create Date</th>
              <th scope="col">Closing Date</th>
            </tr>
          </thead>
@@ -84,6 +91,7 @@ const TravelAgentViewAll = () => {
           } 
 
           const formattedClosingDate = closingDate.toISOString().split('T')[0];
+          
 
           return (
             <tbody>
@@ -92,6 +100,7 @@ const TravelAgentViewAll = () => {
                 <td>{job.title}</td>
                 <td>{job.jobType}</td>
                 <td>{job.jobCategory}</td>
+                <td>{job.createdAt.toString().substring(0,10)}</td>
                 <td style={{ marginTop: "5px", color, fontWeight: 'bold' }}>
                   {formattedClosingDate}
                 </td>

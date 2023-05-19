@@ -166,6 +166,10 @@ const AddJobs = () => {
                         <div className="card-body p-4 p-md-5">
                         <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">New Jobs Vacancy </h3>
                         <form>
+                        <div class="mb-3">
+                                <label class="form-label">Job Creator Email</label>
+                                <input type="text" class="form-control" id='title' name='email' value={email} onChange={(e) => onChangeInput(e)} required/>
+                            </div>
                             <div class="mb-3">
                                 <label class="form-label">Job Title</label>
                                 <input type="text" class="form-control" id='title' name='title' onChange={(e) => onChangeInput(e)} required/>
