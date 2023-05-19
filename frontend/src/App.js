@@ -51,6 +51,7 @@ import AddHotel from './components/views/HotelOwner/AddHotel';
 import HotelRatings from './components/views/HotelOwner/HotelRatings';
 import HotelBookingReq from './components/views/HotelOwner/HotelBookingReq';
 import ViewHotel from './components/views/HotelOwner/ViewHotel';
+import VieAllHotels from './components/views/HotelOwner/ViewHotelsTraveller';
 
 //Tourist Guide
 import AddPackage from './components/views/TouristGuide/AddPackage';
@@ -109,7 +110,7 @@ function App() {
         <Route path='/add_hotel' element={<AddHotel/>} />
         <Route path='/hotel_ratings' element={<HotelRatings/>} />
         <Route path='/hotel_booking_req' element={<HotelBookingReq/>} />
-        <Route path='/hotel' element={<ViewHotel/>} />
+        <Route path='/hotel/:id' element={<ViewHotel/>} />
 
 
 

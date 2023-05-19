@@ -1,12 +1,72 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useParams, Link } from "react-router-dom";
+import axios from 'axios';
 import "../HotelOwner/hotelOwner.css";
 import { SideNav } from './SideNav'
 import { DashboardHeader } from './HotelOwnerHeader';
 import hotelImg1 from '../../images/hotelImg1.jpg';
 import hotelImg2 from '../../images/hotelImg2.jpg';
 import hotelImg3 from '../../images/hotelImg3.jpg';
+const Swal = require('sweetalert2')
 
 const ViewHotel = () => {
+
+  // const id =localStorage.getItem("id");
+  const [hotel , setHotel] = React.useState({});
+  const params=useParams();
+  const hotelID=params.id;
+
+  useEffect(()=>{
+      const ViewOneHotel = async () => {
+        await axios.get(`http://localhost:8090/Hotel/${hotelID}`).then((res) => {
+          setHotel(res.data);
+        }).catch((err) => {
+            console.log(err.massage);
+        }) 
+    }
+    ViewOneHotel();
+    },[])
+
+    const deleteHotel = async(_id) => {
+      try{
+          Swal.fire({
+              title: "Are you sure?",
+              text: "You won't be able to revert this!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, delete it!",
+            }).then((result) => {
+              if (result.value === true) {
+                const res =  axios.delete(`http://localhost:8090/Hotel/delete/${_id}`).then((res) => {
+                  if (res) {
+                    Swal.fire({
+                      title: "Success!",
+                      text: "Your Hotel has been deleted",
+                      icon: "success",
+                      showConfirmButton: false,
+                      timer: 1500,
+                    }).then(() => {
+                      window.location.reload();
+                    });
+                  } else {
+                    Swal.fire({
+                      title: "Error!",
+                      text: "Something went wrong",
+                      icon: "error",
+                      showConfirmButton: false,
+                      timer: 1500,
+                    });
+                  }
+                });
+              }
+            });
+    
+      }catch(err){
+          console.log(err.data.msg);
+      }
+    };
     
   return (
     <div>
@@ -72,20 +132,20 @@ const ViewHotel = () => {
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 dashContainer">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom ">
-        <h1 class="h2">Hotel Name</h1>
+        <h1 class="h2">{hotel.name}</h1>
       </div>
 
       <div id="carouselExampleControls" class="carousel slide carousel-fade carousel-area" data-bs-ride="carousel">
             <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src={hotelImg1}  class="d-block w-100" alt="..."/>
+                    <img src={hotel.image}  class="d-block w-100 carosolImg" alt="..."/>
                   </div>
-                  <div class="carousel-item">
+                  {/* <div class="carousel-item">
                     <img src={hotelImg2} class="d-block w-100" alt="..."/>
                   </div>
                   <div class="carousel-item">
                     <img src={hotelImg3} class="d-block w-100" alt="..."/>
-                  </div>
+                  </div> */}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -101,48 +161,28 @@ const ViewHotel = () => {
             <form class="row g-3">
                   <div class="col-md-12">
                         <label for="inputEmail4" class="form-label">Hotel Name</label>
-                        <input type="name" class="form-control" id="inputEmail4"/>
+                        <input type="name" class="form-control" name="name" id="inputEmail4" value={hotel.name}/>
                   </div>
                   <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">About</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder='about..'></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="about" rows="3" placeholder='about..' value={hotel.about}></textarea>
                   </div>
-                  <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4"/>
+                  <div class="col-md-12">
+                        <label for="formFile" class="form-label">Images</label>
+                        <input class="form-control" type="file" id="formFile" name='image'/>
                   </div>
-                  <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4"/>
-                  </div>
-                  <div class="col-12">
-                        <label for="inputAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"/>
+                  <div class="col-md-12">
+                        <label for="inputPassword4" class="form-label">Location</label>
+                        <input type="text" class="form-control" name="location" id="inputPassword4" value={hotel.location}/>
                   </div>
                   <div class="col-12">
-                        <label for="inputAddress2" class="form-label">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
-                  </div>
-                  <div class="col-md-6">
-                        <label for="inputCity" class="form-label">City</label>
-                        <input type="text" class="form-control" id="inputCity"/>
-                  </div>
-                  <div class="col-md-4">
-                  <label for="inputState" class="form-label">State</label>
-                  <select id="inputState" class="form-select">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                  </select>
-                  </div>
-                  <div class="col-md-2">
-                  <label for="inputZip" class="form-label">Zip</label>
-                  <input type="text" class="form-control" id="inputZip"/>
+                        <label for="inputAddress" class="form-label">Contact</label>
+                        <input type="text" class="form-control" id="inputAddress" name="contact" placeholder="Contact" value={hotel.contact}/>
                   </div>
 
                   <div class="col-md-5 mt-4">
                         <button type='submit' class="btn updateBtn "><i class="fa-solid fa-pen-to-square btnFaIcon"></i>Update</button>
-                        <button type='submit' class="btn btn-outline-danger removeBtn ms-3"><i class="fa-sharp fa-solid fa-trash btnFaIcon"></i>Remove</button>
-                        
+                        <button class="btn btn-outline-danger removeBtn ms-3" onClick={()=>deleteHotel(hotel._id)}><i class="fa-sharp fa-solid fa-trash btnFaIcon"></i>Remove</button>
                   </div>
             </form>
       </div>

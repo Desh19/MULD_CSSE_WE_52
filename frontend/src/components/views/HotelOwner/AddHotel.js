@@ -21,6 +21,7 @@ const AddHotel = () => {
         image : "",
         location : "",
         contact : "",
+        createdAt: Date.now()
     });
 
     const onChangeInput = (e) => {
