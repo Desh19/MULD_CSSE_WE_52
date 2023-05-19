@@ -7,14 +7,16 @@ import Footer from '../Footer';
 
 const Allarticles = () => {
 
+  const userId =localStorage.getItem("id");
+
   const [searchTerm, setSearchTerm] = React.useState("");
   const [article, setArticle] = React.useState([]);
   const UserId =localStorage.getItem("id");
+  
   useEffect(()=>{
       const getAllarticles = async () => {
         await axios.get(`http://localhost:8090/Article/`).then((res) => {
           setArticle(res.data);
-        console.log( res.data)
         }).catch((err) => {
             console.log(err.massage);
         }) 
@@ -26,23 +28,27 @@ const Allarticles = () => {
 
     const filteredarticle = article.filter((article) => {
       return (
-        article.userName.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-        article.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+        article.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+        article.description.toLowerCase().includes(searchTerm.toLocaleLowerCase())
       );
   });
 
   const likePost = (id)=>{
-    fetch('/like',{
+    fetch('http://localhost:8090/Article/like',{
         method:"put",
-        body:JSON.stringify({
-          ArticleId:id
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ArticleId:id,
+          userId,
         })
     }).then(res=>res.json())
     .then(result=>{
              //   console.log(result)
       const newData = article.map(article=>{
           if(article._id==result._id){
-              return result
+              return {...article, likes: result.likes}
           }else{
               return article
           }
@@ -54,17 +60,21 @@ const Allarticles = () => {
 }
 
 const unlikePost = (id)=>{
-  fetch('/unlike',{
+  fetch('http://localhost:8090/Article/unlike',{
       method:"put",
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body:JSON.stringify({
-          ArticleId:id
+        ArticleId:id,
+        userId,
       })
   }).then(res=>res.json())
   .then(result=>{
     //   console.log(result)
     const newData = article.map(article=>{
         if(article._id==result._id){
-            return result
+          return {...article, likes: result.likes}
         }else{
             return article
         }
@@ -101,13 +111,17 @@ const unlikePost = (id)=>{
 
           <div className="card-footer w-100">
               <div className='profileArea'>
-
+          
                 <div className='pro'>
-
+                <img
+                      src={article.userID.image}
+                      alt=""
+                      className="pro"
+                      />
                 </div>
                 <div className='nameN'>
-                  <h2>{article.userName}</h2>
-                  <p>{article.postedAt}</p>
+                  <h2>{article.userID.name}</h2>
+                  <p>{article.postedAt.toString().substring(0,10)}</p>
                   
                 </div>
 
@@ -121,11 +135,11 @@ const unlikePost = (id)=>{
 
                <i className="material-icons pr-5" style={{color:"red"}}>favorite</i>
                {article.likes.includes(UserId)
-               ?<button>
-                <i className="material-icons mr-5" onClick={()=>{unlikePost(article._id)}}>thumb_down</i>
-                </button>
+               ?
+                <i className="material-icons pr-5" style={{cursor:"pointer"}} onClick={()=>{unlikePost(article._id)}}>thumb_down</i>
+                
                  :
-                 <i className="material-icons pr-5" onClick={()=>{likePost(article._id)}} >thumb_up</i>
+                 <i className="material-icons pr-5" style={{cursor:"pointer"}} onClick={()=>{likePost(article._id)}}>thumb_up</i>
                  
                 }
                 <h6>{article.likes.length} Likes</h6> 

@@ -40,8 +40,8 @@ export default function TravelerProfile() {
 
   const filteredarticle = article.filter((article) => {
     return (
-      article.userName.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-      article.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+      article.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+      article.description.toLowerCase().includes(searchTerm.toLocaleLowerCase())
     );
 });
 
@@ -91,22 +91,25 @@ const deleteArticle = async (_id) => {
          <HeaderTraveler />
         <div className='TravelProfileArea'>
             <div class="row TravelerProfile">
+            
                 <div class="col-sm-8 lefts">
+                <Link className="nav-link active" aria-current="page" to="/UpdateTravelerProfile">
                     <img
                       src={user.image ? user.image : "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"}
                       alt=""
                       className="travelerimg"
                       />
+                      </Link>
                     <div className='nameNdate mt-4'>
-                        <h2>{user.name} ({user.field})</h2>
-                        <p>{user.registerAt}</p>
+                        <h2>{user.name}</h2>
+                        <h5>{user.field}</h5>
                     </div>
-                
                 </div>
+                
                 <div class="col-sm-4 rights">
                     <button className='btn btn-success articlebtn'><Link className="nav-link active" aria-current="page" to="/addarticle">Add article</Link></button>
-                    <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/UpdateTravelerProfile">Edit Profile</Link></button>
-                    <button className='dltprofile'>Delete Profile</button>
+                    <button className='editprofile'><Link className="nav-link active" aria-current="page" to="/UpdateTravelerProfile"><i class="fa-solid fa-user-pen" style={{ color: "#ffffff" }}></i></Link></button>
+                    <button className='dltprofile'><i class="fa-solid fa-trash-can" style={{ color: "#ffffff"}}></i></button>
                     
                 </div>
             </div>
@@ -136,11 +139,16 @@ const deleteArticle = async (_id) => {
               <div className='profileArea'>
 
                 <div className='pro'>
+                <img
+                      src={article.userID.image}
+                      alt=""
+                      className="pro"
+                      />
 
                 </div>
                 <div className='nameN'>
-                  <h2>{article.userName}</h2>
-                  <p>{article.postedAt}</p>
+                  <h2>{article.userID.name}</h2>
+                  <p>{article.postedAt.toString().substring(0,10)}</p>
                   
                 </div>
 
@@ -150,7 +158,11 @@ const deleteArticle = async (_id) => {
               </div>
               
               <br />
-
+              <div className="d-flex">
+              <i className="material-icons pr-5" style={{color:"red"}}>favorite</i>
+              <p className="px-2">{article.likes.length} people liked your post</p>
+              </div>
+              <br />
               <div>
               <Link to={`/TravelerOneArticle/${article._id}`}>
               <button className='readmorebtn'>Read More</button>

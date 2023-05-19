@@ -7,13 +7,11 @@ const Swal = require('sweetalert2');
 const AddItems = () => {
 
     const id =localStorage.getItem("id");
-    const name =localStorage.getItem("name");
     const [user, setUser]=useState({});
 
     const [articleplayload, setArticleplayload ] = React.useState({
 
       userID: id,
-      userName: name,
       title: "",
       category: "",
       description: "",

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from 'axios';
 import HeaderTraveler from '../Headers/HeaderTraveler';
 import Footer from '../Footer';
@@ -7,7 +7,7 @@ import Footer from '../Footer';
 const SingleArticleView = () => {
 
     // const id =localStorage.getItem("id");
-    const [article , setArticle] = React.useState({});
+    const [article , setArticle] = React.useState([]);
     const params=useParams();
     const articleID=params.id;
 
@@ -30,7 +30,7 @@ const SingleArticleView = () => {
       <div className="site-section pt-5">
         <div className="container pt-5">
           <div className="row">
-            <div className="col-md-5 mr-auto">
+            <div className="col-md-6 mr-auto">
               <div className="border text-center">
                 <img
                   src={article.image}
@@ -41,14 +41,15 @@ const SingleArticleView = () => {
               </div>
             </div>
             <div className="col-md-6 mt-5">
-              <h2 className="text-black">{article.title}</h2>
+            <h2 className="text-black">{article.title} ( {article.category} )</h2>
               <p>{article.description}</p>
-              <p>Article Category : {article.category}</p>
-              <p>Publisher Name : {article.userName}</p>
-              <p>Posted Date : {article.postedAt}</p>
+              {/* <p>Publisher Name : {article.userID.name}</p>
+              <p>Posted Date : {article.postedAt}</p> */}
               <div className="mb-5">
                 <div className="input-group mb-3" style={{ maxWidth: "220px" }}>
-                 
+                <Link to={`/allarticles`}>
+              <button className='btn btn-primary'>Back</button>
+              </Link>
                 </div>
               </div>
             </div>

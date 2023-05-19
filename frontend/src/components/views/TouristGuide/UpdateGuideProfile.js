@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams,useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import HeaderTraveler from '../Headers/HeaderTraveler';
+import HeaderGuide from './HeaderGuide';
 import Footer from '../Footer';
 import swal from "sweetalert";
 
-const UpdateArticle = () => {
+const UpdateGuideProfile = () => {
 
     const id =localStorage.getItem("id");
     const [user, setUser]=useState({});
@@ -49,7 +49,7 @@ const UpdateArticle = () => {
       
       const handleSubmit = (e) =>{
         e.preventDefault();
-        sendRequest().then(()=>history("/travelerprofile"));
+        sendRequest().then(()=>history("/guide_profile"));
 
       };
       
@@ -103,7 +103,7 @@ const UpdateArticle = () => {
     
   return (
     <div>
-       <HeaderTraveler />
+       <HeaderGuide />
     <div className='container-sm '>
       <section className="gradient-custom pt-5">
         <div className="container pt-5 h-100">
@@ -163,4 +163,4 @@ const UpdateArticle = () => {
 }
 
 
-export default UpdateArticle
+export default UpdateGuideProfile

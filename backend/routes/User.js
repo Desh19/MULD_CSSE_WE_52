@@ -117,6 +117,7 @@ router.post("/login", async (req, res) => {
         field:user.field,
         id:user._id,
         accesstoken: accessToken,
+        userDP:user.image,
         name:user.name
     };
 

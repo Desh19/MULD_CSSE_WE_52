@@ -166,7 +166,7 @@ const AddJobs = () => {
                       </div>  
                             <div class="mb-3">
                                 <label class="form-label">Vacancy Closing Date</label>
-                                <input className="form-control" type="date" onChange={(e) => onChangeInput(e)} id="closing_date"
+                                <input className="form-control" type="Date" onChange={(e) => onChangeInput(e)} id="closing_date"
                                     name="closing_date"
                                     required />
                             </div>

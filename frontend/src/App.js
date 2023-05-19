@@ -39,6 +39,9 @@ import UpdateTravelPlace from './components/views/TravelAgent/UpdateTravelPlace'
 import TravelAgentView from './components/views/TravelAgent/TravelAgentView';
 import SingalePlaceView from './components/views/TravelAgent/SingalePlaceView';
 import AddJobs  from './components/views/Jobs/AddJobs';
+import UserViewJobs from './components/views/Jobs/UserViewJobs';
+import UserViewAllJobs from './components/views/Jobs/UserViewAllJobs';
+import TravelAgentViewAll from './components/views/Jobs/TravelAgentViewAll';
 // import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
 // import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
 
@@ -57,6 +60,7 @@ import GuideProfile from './components/views/TouristGuide/GuideProfile';
 import TouristGuideHome from './components/views/TouristGuide/TouristGuideHome';
 import AllPackagesView from './components/views/TouristGuide/AllPackagesView';
 import UpdatePackage from './components/views/TouristGuide/UpdatePackage';
+import UpdateGuideProfile from './components/views/TouristGuide/UpdateGuideProfile';
 
 
 
@@ -91,12 +95,14 @@ function App() {
         <Route path='/add_travel_place' element={<AddTravelPlace />} />
         <Route path='/all_travel_place' element={<AllTravelPlace />} />
         <Route path='/singale_travel_place/:id' element={<SingaleTravelPlace />} />
-
         <Route path='/view_travel_place' element={<ViewTravelPlace />} />
         <Route path='/update_travel_place/:id' element={<UpdateTravelPlace />} />
         <Route path='/travel_agent_view' element={<TravelAgentView />} />
         <Route path='/singale_place_view/:id' element={<SingalePlaceView />} />
-
+        <Route path='/add_jobs' element={<AddJobs />} />
+        <Route path='/user_view_jobs/:id' element={<UserViewJobs />} />
+        <Route path='/user_view_all_jobs' element={<UserViewAllJobs />} />
+        <Route path='/travel_agent_view_all' element={<TravelAgentViewAll />} />
 
 
         {/* Hotel Owner */}
@@ -106,7 +112,6 @@ function App() {
         <Route path='/hotel_booking_req' element={<HotelBookingReq/>} />
         <Route path='/hotel/:id' element={<ViewHotel/>} />
 
-        <Route path='/add_jobs' element={<AddJobs />} />
 
 
 
@@ -116,8 +121,8 @@ function App() {
         <Route path='/single_package/:id' element={<SinglePackage />} />
         <Route path='/guide_profile' element={<GuideProfile />} />
         <Route path='/guide_home' element={<TouristGuideHome />} />
-
-        <Route path='/update_package/:id' element={<UpdatePackage />} />  
+        <Route path='/update_package/:id' element={<UpdatePackage />} /> 
+        <Route path='/update_profile' element={<UpdateGuideProfile />} />   
 
       </Routes>  
     </Router>
