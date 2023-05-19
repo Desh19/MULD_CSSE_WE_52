@@ -21,6 +21,7 @@ const UserViewJobs = () => {
       getOneJob();
       },[])
 
+      
   return (
     <div> 
         <HeaderGuide />
@@ -94,7 +95,7 @@ const UserViewJobs = () => {
 
                                                     </tbody>
                                                 </table>
-                                                <a href="#" className="btn btn-success btn-block">Apply</a>
+                                                <a href={`mailto:${job.createrEmail}?subject=${encodeURIComponent(job.title)}`} className="btn btn-success btn-block">Apply</a>
                                             </div>
                     </div>
              </div>
