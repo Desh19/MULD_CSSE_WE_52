@@ -105,47 +105,6 @@ const ViewHotel = () => {
           
         }
     }
-
-    const deleteHotel = async(_id) => {
-      try{
-          Swal.fire({
-              title: "Are you sure?",
-              text: "You won't be able to revert this!",
-              icon: "warning",
-              showCancelButton: true,
-              confirmButtonColor: "#3085d6",
-              cancelButtonColor: "#d33",
-              confirmButtonText: "Yes, delete it!",
-            }).then((result) => {
-              if (result.value === true) {
-                const res =  axios.delete(`http://localhost:8090/Hotel/delete/${_id}`).then((res) => {
-                  if (res) {
-                    Swal.fire({
-                      title: "Success!",
-                      text: "Your Hotel has been deleted",
-                      icon: "success",
-                      showConfirmButton: false,
-                      timer: 1500,
-                    }).then(() => {
-                      window.location.reload();
-                    });
-                  } else {
-                    Swal.fire({
-                      title: "Error!",
-                      text: "Something went wrong",
-                      icon: "error",
-                      showConfirmButton: false,
-                      timer: 1500,
-                    });
-                  }
-                });
-              }
-            });
-    
-      }catch(err){
-          console.log(err.data.msg);
-      }
-    };
     
   return (
     <div>
@@ -266,7 +225,6 @@ const ViewHotel = () => {
 
                   <div class="col-md-5 mt-4">
                         <button type='submit' class="btn updateBtn" onClick={handleSubmit}><i class="fa-solid fa-pen-to-square btnFaIcon"></i>Update</button>
-                        <button class="btn btn-outline-danger removeBtn ms-3" onClick={()=>deleteHotel(hotel._id)}><i class="fa-sharp fa-solid fa-trash btnFaIcon"></i>Remove</button>
                   </div>
             </form>
       </div>

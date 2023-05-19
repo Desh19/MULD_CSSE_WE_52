@@ -4,9 +4,11 @@ import axios from 'axios';
 import "../HotelOwner/hotelOwner.css";
 import { SideNav } from './SideNav';
 import { DashboardHeader } from './HotelOwnerHeader';
+import swal from "sweetalert";
 import hotelImg1 from '../../images/hotelImg1.jpg';
 import hotelImg2 from '../../images/hotelImg2.jpg';
 import hotelImg3 from '../../images/hotelImg3.jpg';
+const Swal = require('sweetalert2')
 
 const HotelOwnerDashboard = () => {
 
@@ -31,6 +33,47 @@ const HotelOwnerDashboard = () => {
       hotel.location.toLowerCase().includes(searchTerm.toLocaleLowerCase())
     );
 });
+
+const deleteHotel = async(_id) => {
+  try{
+      Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.value === true) {
+            const res =  axios.delete(`http://localhost:8090/Hotel/delete/${_id}`).then((res) => {
+              if (res) {
+                Swal.fire({
+                  title: "Success!",
+                  text: "Your Hotel has been deleted",
+                  icon: "success",
+                  showConfirmButton: false,
+                  timer: 1500,
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                Swal.fire({
+                  title: "Error!",
+                  text: "Something went wrong",
+                  icon: "error",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              }
+            });
+          }
+        });
+
+  }catch(err){
+      console.log(err.data.msg);
+  }
+};
     
   return (
     <div>
@@ -132,8 +175,9 @@ const HotelOwnerDashboard = () => {
                 <Link to={`/hotel/${hotel._id}`}>
                   <button class="btn btn-primary mb-2">View</button>
                 </Link>
+                <button class="btn btn-outline-danger removeBtn mb-2 ms-3" onClick={()=>deleteHotel(hotel._id)}><i class="fa-sharp fa-solid fa-trash btnFaIcon"></i>Remove</button>
                 
-                <p class="card-text"><small class="text-muted">{hotel.createdAt}</small></p>
+                <p class="card-text"><small class="text-muted">{hotel.createdAt.toString().substring(0,10)}</small></p>
               </div>
             </div>
          
