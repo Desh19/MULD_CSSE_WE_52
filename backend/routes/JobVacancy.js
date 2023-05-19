@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
 
     const id = req.params.id;
   
-    JobVacancy.find({createdByID:id}).then((jobvacancy)=>{
+    JobVacancy.find({createdBy:id}).then((jobvacancy)=>{
         res.json(jobvacancy)
     }).catch((err)=>{
         console.log(err)

@@ -29,13 +29,13 @@ const UserViewAllJobs = () => {
     });
 
     // const { closing_date } = jobvacancy;
-    const date = new Date(jobvacancy.closing_date);
+    // const date = new Date(jobvacancy.closing_date);
     
-    const formattedDate = date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    }).split('/').join('-');
+    // const formattedDate = date.toLocaleDateString('en-GB', {
+    //   day: '2-digit',
+    //   month: '2-digit',
+    //   year: 'numeric'
+    // }).split('/').join('-');
   
 
 
