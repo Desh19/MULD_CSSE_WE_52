@@ -144,7 +144,7 @@ const NotRegHeader = () => {
 
   return (
     <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary navbar" style={{ position:"fixed" , width:"100%" }}>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary navbar " style={{ position:"fixed" , width:"100%",marginTop:"-10px" }}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="#homevideo"><img class="logoimg" src={logo} alt="Logo"/></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -211,7 +211,6 @@ const NotRegHeader = () => {
 
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" onClick={(e)=>login()} >Sign In</button>
                       </div>
                     </div>
@@ -260,7 +259,6 @@ const NotRegHeader = () => {
 
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" onClick={sendData} >Sign Up</button>
                       </div>
                     </div>

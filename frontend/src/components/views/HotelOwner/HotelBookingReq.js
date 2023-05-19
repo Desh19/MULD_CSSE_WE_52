@@ -98,7 +98,7 @@ const HotelBookingReq = () => {
               <div id="carouselExampleControls" class="carousel slide carousel-fade card-img-bottom" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src={hotelImg1}  class="d-block w-100" alt="..."/>
+                    <img src={hotelImg1}  class="d-block w-100 croImg" alt="..."/>
                   </div>
                   <div class="carousel-item">
                     <img src={hotelImg2} class="d-block w-100" alt="..."/>

@@ -10,8 +10,8 @@ router.post('/add', (req, res) => {
 
 //Get All Hotels
 router.route("/").get((req,res)=>{
-      Hotels.find().then((places)=>{
-        res.json(places)
+      Hotels.find().then((hotels)=>{
+        res.json(hotels)
     }).catch((err)=>{
         console.log(err);
     })
@@ -20,38 +20,38 @@ router.route("/").get((req,res)=>{
 //Get a Hotel by ID
 router.get('/:id', (req, res) => {
       Hotels.findById(req.params.id)
-      .then(travelplace => res.json(travelplace))
+      .then(hotel => res.json(hotel))
       .catch(err => res.status(404).json({ noitemfound: 'No hotel found' }));
   });
 
 
-  //get own added places
-  router.route("/ownplace/:id").get((req,res)=>{
+  //get own added hotels
+  router.route("/ownhotel/:id").get((req,res)=>{
 
     const id = req.params.id;
   
-    TravelPlace.find({agentID:id}).then((travelplace)=>{
-        res.json(travelplace)
+    Hotels.find({hotelOwnerID:id}).then((hotel)=>{
+        res.json(hotel)
     }).catch((err)=>{
         console.log(err)
     })
   
   })
 
-  //update place
+  //update hotel
   router.put('/update/:id', (req, res) => {
-    TravelPlace.findByIdAndUpdate(req.params.id, req.body)
-      .then(travelplace => res.json({ msg: 'Updated successfully' }))
+      Hotels.findByIdAndUpdate(req.params.id, req.body)
+      .then(hotel => res.json({ msg: 'Updated successfully' }))
       .catch(err =>
         res.status(400).json({ error: 'Unable to update the Database' })
       );
   });
 
-  //delete place
+  //delete hotel
   router.delete("/delete/:id", (req, res) => {
-    TravelPlace.findByIdAndRemove(req.params.id, req.body)
-      .then((travelplace) => res.json({ msg: "Place entry deleted successfully" }))
-      .catch((err) => res.status(404).json({ error: "No such a Place" }));
+      Hotels.findByIdAndRemove(req.params.id, req.body)
+      .then((hotel) => res.json({ msg: "Hotel deleted successfully" }))
+      .catch((err) => res.status(404).json({ error: "No such a Hotel" }));
   });
 
 
