@@ -70,7 +70,7 @@ const ViewHotelsTraveller = () => {
               <button class="btn btn-primary mb-2">View</button>
             </Link>
             
-            <p class="card-text"><small class="text-muted">{hotel.createdAt}</small></p>
+            <p class="card-text"><small class="text-muted">{hotel.createdAt.toString().substring(0,10)}</small></p>
           </div>
         </div>
 
