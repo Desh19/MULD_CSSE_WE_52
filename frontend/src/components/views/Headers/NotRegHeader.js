@@ -149,7 +149,7 @@ const NotRegHeader = () => {
 
   return (
     <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary navbar " style={{ position:"fixed" , width:"100%",marginTop:"-10px" }}>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary navbar " style={{ position:"fixed" , width:"100%"}}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="#homevideo"><img class="logoimg" src={logo} alt="Logo"/></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
