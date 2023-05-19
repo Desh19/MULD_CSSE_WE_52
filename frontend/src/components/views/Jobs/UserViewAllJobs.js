@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import {NavLink,Link} from 'react-router-dom';
-import HeaderTraveler from '../Headers/HeaderTraveler';
+import HeaderGuide from '../TouristGuide/HeaderGuide';
 import Footer from '../Footer';
 import axios from 'axios';
 
@@ -41,7 +41,7 @@ const UserViewAllJobs = () => {
 
   return (
     <div>
-        <HeaderTraveler />
+        <HeaderGuide />
     <div className='album py-5 bg-body-tertiary'>
         <div class="container py-3" style={{ marginTop:'50px' }}>
   <main>
