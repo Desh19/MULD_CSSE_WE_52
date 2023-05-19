@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import "../HotelOwner/hotelOwner.css";
-import NotRegHeader from "../Headers/NotRegHeader";
+import HeaderTraveler from '../Headers/HeaderTraveler';
+import Footer from '../Footer';
 import { SideNav } from "./SideNav";
 import { DashboardHeader } from "./HotelOwnerHeader";
 import hotelImg1 from "../../images/hotelImg1.jpg";
@@ -34,7 +35,7 @@ const ViewHotelsTraveller = () => {
 
   return (
     <div>
-      <NotRegHeader />
+      <HeaderTraveler />
       <div className='viewHotelsAreaTraveller grid-container'>
 
       {filteredhotels.map((hotel)=>
@@ -65,7 +66,7 @@ const ViewHotelsTraveller = () => {
             <h5 class="card-title">{hotel.name}</h5>
             <p class="card-text card-about">{hotel.about}</p>
 
-            <Link to={`/hotel/${hotel._id}`}>
+            <Link to={`/ViewHotelTravler/${hotel._id}`}>
               <button class="btn btn-primary mb-2">View</button>
             </Link>
             
@@ -76,6 +77,7 @@ const ViewHotelsTraveller = () => {
       )}
           
       </div>
+      <Footer />
     </div>
   );
 };

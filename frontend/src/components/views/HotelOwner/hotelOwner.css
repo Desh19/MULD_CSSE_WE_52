@@ -367,10 +367,8 @@ body {
     }
 
     .viewHotelsAreaTraveller{
-      margin: 10px auto;
       padding-top: 100px;
       padding-bottom: 50px;
-      background-color: rgb(252, 252, 252);
       width: 100%;
       height: auto;
       display: grid;

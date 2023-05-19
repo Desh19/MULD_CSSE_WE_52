@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useEffect } from 'react'
+import { useParams, Link } from "react-router-dom";
+import axios from 'axios';
 import "../HotelOwner/hotelOwner.css";
-import NotRegHeader from "../Headers/NotRegHeader";
-import { SideNav } from "./SideNav";
-import { DashboardHeader } from "./HotelOwnerHeader";
+import HeaderTraveler from '../Headers/HeaderTraveler';
 import hotelImg1 from "../../images/hotelImg1.jpg";
 import hotelImg2 from "../../images/hotelImg2.jpg";
 import hotelImg3 from "../../images/hotelImg3.jpg";
 
 const ViewHotelTraveler = () => {
+
+  const [hotel , setHotel] = React.useState({});
+  const params=useParams();
+  const hotelID=params.id;
+
+  useEffect(()=>{
+      const ViewOneHotel = async () => {
+        await axios.get(`http://localhost:8090/Hotel/${hotelID}`).then((res) => {
+          setHotel(res.data);
+        }).catch((err) => {
+            console.log(err.massage);
+        }) 
+    }
+    ViewOneHotel();
+    },[])
+
   return (
     <div>
-      <NotRegHeader />
+      <HeaderTraveler />
       <div className="viewHotelAreaTraveller">
         <div
           id="carouselExampleIndicators"
@@ -89,11 +105,8 @@ const ViewHotelTraveler = () => {
             <div class="row g-0">
             <div class="col-md-9">
                   <div class="card-body">
-                  <h5 class="card-title">Hotel Name</h5>
-                  <p class="card-text">This is In publishing and graphic design, Lorem ipsum is a 
-                  placeholder text commonly used to demonstrate the visual form of a document or a 
-                  typeface without relying on meaningful content.
-                  Lorem ipsum may be used as a placeholder before final copy is available. </p>
+                  <h5 class="card-title">{hotel.name}</h5>
+                  <p class="card-text">{hotel.about}</p>
                   <div className="socialmed">
                         <i class="fa-brands fa-square-whatsapp fa-lg"></i>
                         <i class="fa-solid fa-square-phone fa-lg ms-2"></i>

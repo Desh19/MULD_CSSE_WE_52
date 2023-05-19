@@ -87,7 +87,7 @@ function App() {
         <Route path='/UpdateTravelerProfile' element={<UpdateTravelerProfile />} />
 
 
-        <Route path='/ViewHotelTravler' element={<ViewHotelTraveler/>} />
+        <Route path='/ViewHotelTravler/:id' element={<ViewHotelTraveler/>} />
         <Route path='/ViewHotelsTravler' element={<ViewHotelsTraveller/>} />
 
         {/* TravelAgent */}
