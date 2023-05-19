@@ -40,7 +40,7 @@ const ViewHotelsTraveller = () => {
 
       {filteredhotels.map((hotel)=>
 
-      <div class="card mb-3 hotelItem grid-item">
+      <div class="card mb-3 hotelItem grid-item hotelcontainer">
         <div id="carouselExampleControls" class="carousel slide carousel-fade card-img-bottom" data-bs-ride="carousel">
               <div class="carousel-inner ">
                 <div class="carousel-item active imgcarosolArea">
