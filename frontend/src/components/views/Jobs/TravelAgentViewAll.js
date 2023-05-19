@@ -74,17 +74,32 @@ const TravelAgentViewAll = () => {
              <th scope="col">Closing Date</th>
            </tr>
          </thead>
-         {filteredJob.map((job,index)=>
+         {filteredJob.map((job, index) => {
+          const closingDate = new Date(job.closing_date);
+          const currentDate = new Date();
+
+          let color = 'green';
+          if (closingDate < currentDate) {
+            color = 'red';
+          } 
+
+          const formattedClosingDate = closingDate.toISOString().split('T')[0];
+
+          return (
             <tbody>
-                <tr key={index}>
-                    <td>{index+1}</td>
-                    <td>{job.title}</td>
-                    <td>{job.jobType}</td>
-                    <td>{job.jobCategory}</td>
-                    <td>{job.closing_date}</td>
-                  </tr>
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{job.title}</td>
+                <td>{job.jobType}</td>
+                <td>{job.jobCategory}</td>
+                <td style={{ marginTop: "5px", color, fontWeight: 'bold' }}>
+                  {formattedClosingDate}
+                </td>
+              </tr>
             </tbody>
-         )}
+          );
+        })}
+
 
        </table>
      </div>
