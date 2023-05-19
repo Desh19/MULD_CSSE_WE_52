@@ -14,6 +14,7 @@ const AddTravelPlace = () => {
     const [famousfor , setFamousfor] = React.useState("");
     const [bestTimeVisit , setBestTimeVisit] = React.useState("");
     const [attraction , setAttraction] = React.useState("");
+    const [map , setMap] = React.useState("");
 
 
     const [placePlayload , setPlacePlayloads] = React.useState({
@@ -25,6 +26,8 @@ const AddTravelPlace = () => {
         famousfor : "",
         bestTimeVisit : "",
         attraction : "",
+        map : "",
+        
     });
 
     const onChangeInput = (e) => {
@@ -157,6 +160,10 @@ const AddTravelPlace = () => {
                             <div class="mb-3">
                                 <label class="form-label">Tourist attraction</label>
                                 <input type="text" class="form-control" id='attraction' name='attraction' onChange={(e) => onChangeInput(e)} required/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Location in Map</label>
+                                <input type="text" class="form-control" id='map' name='map' onChange={(e) => onChangeInput(e)} required/>
                             </div>
                             <button type="submit" class="btn btn-primary" onClick={(e)=> onSubmit(e)}>Add</button>
                         </form>
