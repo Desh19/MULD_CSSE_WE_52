@@ -80,6 +80,8 @@ const UserViewAllJobs = () => {
           } 
         
           return (
+              
+
             <div class="col">
             <div class="card mb-4 rounded-3 shadow-sm" key={index}>
               <div class="card-header py-3">
@@ -98,8 +100,7 @@ const UserViewAllJobs = () => {
                 </Link>
               </div>
             </div>
-          </div>
-
+          </div>   
           );
 
   })}

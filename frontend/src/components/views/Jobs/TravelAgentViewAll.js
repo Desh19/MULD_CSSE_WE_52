@@ -38,6 +38,54 @@ const TravelAgentViewAll = () => {
         );
     });
 
+    const repotGen = () => {
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+      <html>
+      <head>
+        <title>Report</title>
+       
+      </head>
+      <body>
+        <table>
+        <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Create By</th>
+          <th scope="col">Job Title</th>
+          <th scope="col">Job Type</th>
+          <th scope="col">Job Category</th>
+          <th scope='col'>Create Date</th>
+          <th scope="col">Closing Date</th>
+        </tr>
+      </thead>
+          <tbody>
+          ${filteredJob.map((job, index) => `
+            
+              <tbody>
+                <tr key=${index}>
+                  <td>${index + 1}</td>
+                  <td>${job.createdByName}</td>
+                  <td>${job.title}</td>
+                  <td>${job.jobType}</td>
+                  <td>${job.jobCategory}</td>
+                  <td>${job.createdAt.toString().substring(0,10)}</td>
+                  <td>
+                    ${job.closing_date.toString().substring(0,10)}
+                  </td>
+                </tr>
+              </tbody>
+            
+          `)}
+        </table>
+      </body>
+    </html>
+      `);
+      printWindow.document.close();
+      printWindow.print();
+    };
+    
+
   return (
     <div>
     <body >
@@ -57,7 +105,7 @@ const TravelAgentViewAll = () => {
        <div class="btn-toolbar mb-2 mb-md-0">
          <div class="btn-group me-2">
            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-           <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+           <button type="button" class="btn btn-sm btn-outline-secondary" onClick={repotGen} >Report</button>
          </div>
          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
            <span data-feather="calendar" class="align-text-bottom"></span>

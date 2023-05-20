@@ -34,15 +34,15 @@ const AllTravelPlace = () => {
           <body>
             <main>
 
-              <section class="py-5 text-center" >
+              <section class="py-5 text-center" style={{ backgroundImage:'url(https://static01.nyt.com/images/2019/02/03/travel/03frugal-srilanka01/merlin_148552275_74c0d250-949c-46e0-b8a1-e6d499e992cf-superJumbo.jpg?quality=75&auto=webp)', backgroundRepeat:'no-repeat',backgroundSize:'100%' , height:'100%'}} >
                 <div class="row py-lg-5" >
                 
                   <div class="col-lg-6 col-md-8 mx-auto" >
-                    <h1 class="fw-light">Album example</h1>
+                    <h1 class="fw-light">Most Beautiful Places In Sri Lanka You Must Visit</h1>
                     <p class="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
                     <p>
-                      <a href="#" class="btn btn-primary my-2" style={{ margin:'8px' }}>Main call to action</a>
-                      <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                      {/* <a href="#" class="btn btn-primary my-2" style={{ margin:'8px' }}>Main call to action</a>
+                      <a href="#" class="btn btn-secondary my-2">Secondary action</a> */}
                     </p>
                   </div>
                 </div>
@@ -66,7 +66,7 @@ const AllTravelPlace = () => {
                           <button type="button" class="btn btn-sm btn-outline-secondary">See More..</button>
                           </Link>
                         </div>
-                        <small class="text-body-secondary">9 mins</small>
+                        
                       </div>
                     </div>
                   </div>

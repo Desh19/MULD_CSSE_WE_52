@@ -28,14 +28,22 @@ const UserViewJobs = () => {
         <div class="container-fluid" >
        
             <div class="row" >
+
+                
             
             <center>
-                 <div className="col-lg-6" style={{ marginTop:'90px' }}>
-                    <div className="card" >
+                 <div className="col-lg-6" style={{ marginTop:'90px'}}>
+                    <div className="card" style={{ height:'700px' }}>
+                        
                                             <div className="card-header">
                                                 <h4 className="card-title">Job Vacancy</h4>
                                             </div>
-                                            <div className="card-body">
+                                            <div className='row'>
+                                            <div className='col' >
+                                                <img src={job.image} alt="image" style={{ width:'400px', float:'left', margin:'20px' }} />
+                                            </div>
+                                            <div className='col' style={{ width:'70%', float:'right' }}>
+                                            <div className="card-body" style={{  float:'right'}}>
                                                 <table className="table table-borderless dt-responsive">
                                                     <thead>
                                                         <tr>
@@ -95,8 +103,13 @@ const UserViewJobs = () => {
 
                                                     </tbody>
                                                 </table>
-                                                <a href={`mailto:${job.createrEmail}?subject=${encodeURIComponent(job.title)}`} className="btn btn-success btn-block">Apply</a>
+                                                <a href={`mailto:${job.createrEmail}?subject=Apply for ${encodeURIComponent(job.title)}`} className="btn btn-success btn-block">Apply</a>
                                             </div>
+                                            </div> 
+
+
+                                            </div>
+                                             
                     </div>
              </div>
             </center>
