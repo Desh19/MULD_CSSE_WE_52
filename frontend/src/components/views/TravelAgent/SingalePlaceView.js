@@ -54,11 +54,11 @@ const SingalePlaceView = () => {
             <div className="col-md-6">
               <h2 className="text-black">{place.name}</h2>
               <p>{place.discription}</p>
-              <p>Location  : {place.location}</p>
-              <p>Famous For : {place.famousfor}</p>
-              <p>Best Time to Visit: {place.bestTimeVisit}</p>
-              <p>Tourist Attraction : {place.attraction}</p>
-              <p>Location In Map : 
+              <p class="fw-bold">Location  : </p><p>{place.location}</p>
+              <p class="fw-bold">Famous For :</p><p> {place.famousfor}</p>
+              <p class="fw-bold">Best Time to Visit:</p><p> {place.bestTimeVisit}</p>
+              <p class="fw-bold">Tourist Attraction :</p><p> {place.attraction}</p>
+              <p class="fw-bold">Location In Map : 
                 <div className='col-md-6'>
                   <iframe className="img-fluid rounded-end hotelMap" 
                   src={place.map}
@@ -70,9 +70,9 @@ const SingalePlaceView = () => {
               </p>
               <div className="mb-5">
                 <div className="input-group mb-3" style={{ maxWidth: "220px" }}>
-                <div class="btn-group">
+                <div class="btn-group" style={{ margin:'10px' }}>
                           <Link to={`/view_travel_place`}>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Back</button>
+                          <button type="button" class="btn btn-dark" ><i class="fa-solid fa-backward"></i> Back</button>
                           </Link>
                         </div>
                 </div>

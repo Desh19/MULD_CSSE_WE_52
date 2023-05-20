@@ -5,16 +5,16 @@ import { Link, NavLink } from 'react-router-dom'
 export const SideNav = () => {
   return (
     <div>
-        <div class="container-fluid">
+        <div class="container-fluid" >
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse" style={{ paddingTop:'60px' }}>
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-          <NavLink className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" aria-current="page" href="/dashboard_ta">
+          <Link className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" to={'/travel_agent_profile'} >
           {/* <span data-feather="home" className="align-text-bottom"></span> */}
           <i class="fa-solid fa-house" style={{ marginRight:'10px' }}></i>Dashboard
-        </NavLink>
+        </Link>
           </li>
           {/* <li class="nav-item">
             <a class="nav-link" href="/add_travel_place">

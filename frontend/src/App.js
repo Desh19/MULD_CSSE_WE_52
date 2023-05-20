@@ -44,6 +44,8 @@ import UserViewAllJobs from './components/views/Jobs/UserViewAllJobs';
 import TravelAgentViewAll from './components/views/Jobs/TravelAgentViewAll';
 import AllJobsEdit from './components/views/Jobs/AllJobsEdit';
 import UpdateJob from './components/views/Jobs/UpdateJob';
+import TravelAgentProfile from './components/views/TravelAgent/TravelAgentProfile';
+import UpdateTravelAgentProfile from './components/views/TravelAgent/UpdateTravelAgentProfile';
 // import { AllTravelPlace } from './components/views/Traveler/AllTravelPlace';
 // import { SingaleTravelPlace } from './components/views/Traveler/SingaleTravelPlace';
 
@@ -108,6 +110,8 @@ function App() {
         <Route path='/travel_agent_view_all' element={<TravelAgentViewAll />} />
         <Route path='/AllJobsEdit' element={<AllJobsEdit />} />
         <Route path='/UpdateJob/:id' element={<UpdateJob />} />
+        <Route path='/travel_agent_profile' element={<TravelAgentProfile />} />
+        <Route path='/update_travel_agent_profile/:id' element={<UpdateTravelAgentProfile />} />
 
 
         {/* Hotel Owner */}
