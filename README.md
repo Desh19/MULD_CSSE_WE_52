@@ -1,5 +1,5 @@
 # MULD_CSSE_WE_52
-Culture and Tourism
+Culture and Tourism Web site. Group project
 
 ## Group Details:
 | Name  | Student ID | Username |
